@@ -264,6 +264,15 @@
       padding: 20px;
       text-align: center;
     }
+    .profile-action {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.9rem;
+    }
+    .profile-action:hover {
+      color: var(--active-color);
+    }
   </style>
 </head>
 <body>
@@ -283,13 +292,9 @@
   </header>
   <div class="main-content">
     <section id="home" class="content active">
-      <div class="card live-section" style="font-size: 20px;">
-        <div><h1>网页说明</h1></div>
-        <div>我要做和</div>
-        <div>抖音 | 微博 | 哔哩哔哩</div>
-        <div>一样的软件和网页</div>
-        <a href="https://space.bilibili.com/1414517639" target="_blank"><h1>vbn262网页制作找我</h1></a>
-        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><h1>我的抖音</h1></a>
+      <div class="card">
+        <h2>我想做抖音 | 微博 | 哔哩哔哩一样的网页和软件</h2>
+        <h3>网页制作：vbn262 | <a href="https://space.bilibili.com/1414517639" target="_blank">联系开发者</a></h3>
       </div>
     </section>
     <div id="agreement-modal" class="modal">
@@ -316,40 +321,36 @@
             <div class="profile-stats">
               <div class="profile-stats-item">
                 <span>100</span>
-                <p>关注</p>
+                <i class="fas fa-users">关注列表</i>
               </div>
               <div class="profile-stats-item">
                 <span>200</span>
-                <p>粉丝</p>
+                <i class="fas fa-user-friends">粉丝</i>
               </div>
             </div>
+          </div>
+          <div class="profile-header">
+            <a href="#history" class="profile-action">
+              <i class="fas fa-clock"></i> 历史记录
+            </a>
+            <a href="#settings" class="profile-action">
+              <i class="fas fa-cog"></i> 设置
+            </a>
           </div>
         </div>
         <!-- 功能卡片区域 -->
         <div class="profile-cards">
           <div class="profile-card">
-            <i class="fas fa-video"></i>
-            <p>历史记录</p>
-          </div>
-          <div class="profile-card">
-            <i class="fas fa-video"></i>
-            <p>关注列表</p>
-          </div>
-          <div class="profile-card">
-            <i class="fas fa-video"></i>
+            <i class="fas fa-folder"></i>
             <p>作品</p>
           </div>
           <div class="profile-card">
-            <i class="fas fa-heart"></i>
+            <i class="fas fa-thumbs-up"></i>
             <p>喜欢</p>
           </div>
           <div class="profile-card">
-            <i class="fas fa-award"></i>
-            <p>粉丝</p>
-          </div>
-          <div class="profile-card">
-            <i class="fas fa-cog"></i>
-            <p>设置</p>
+            <i class="fas fa-collect"></i>
+            <p>收藏</p>
           </div>
         </div>
         <!-- 反馈按钮区域 -->
