@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="vbn262官方网站 - 视频平台">
   <style>
     :root {
       --nav-bg: white;
@@ -25,32 +24,19 @@
       color: #1c1e21;
       margin: 0;
       padding: 0;
-      padding-top: 70px;
-      text-align: center;
+      display: flex;
     }
 
-    .content {
-      max-width: var(--content-max-width);
-      margin: 0 auto;
-      padding-bottom: calc(56px + env(safe-area-inset-bottom));
-      display: none;
-    }
-
-    .content.active {
-      display: block;
-    }
-
-    .bottom-nav {
+    .header {
       position: fixed;
-      z-index: 10000;
-      bottom: 0;
-      width: 100%;
-      height: 56px;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100vh;
       background: var(--nav-bg);
       display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .nav-item {
@@ -61,11 +47,6 @@
       text-decoration: none;
       color: var(--text-color);
       transition: color 0.3s, transform 0.3s;
-    }
-
-    .nav-item.active {
-      color: var(--active-color);
-      transform: translateY(-4px);
     }
 
     .nav-item.active::after {
@@ -83,8 +64,21 @@
       margin-bottom: 4px;
     }
 
-    .nav-item span {
-      font-size: 0.8rem;
+    .main-content {
+      flex: 1;
+      padding-top: 70px;
+      padding-left: 200px;
+    }
+
+    .content {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+      padding-bottom: calc(56px + env(safe-area-inset-bottom));
+      display: none;
+    }
+
+    .content.active {
+      display: block;
     }
 
     .card {
@@ -96,6 +90,7 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: all 0.3s;
+      padding: 20px;
     }
 
     .card.dark-mode {
@@ -148,50 +143,6 @@
       outline: none;
     }
 
-    .header {
-      z-index: 1;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 12px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow);
-      background: var(--nav-bg);
-    }
-
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: white;
-      box-shadow: var(--shadow);
-      border-radius: 8px;
-      min-width: 150px;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 12px 18px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: background-color 0.3s;
-    }
-
-    .dropdown-menu a:hover {
-      background-color: #f5f6f7;
-    }
-
     .modal {
       display: none;
       position: fixed;
@@ -216,17 +167,6 @@
       transform: translate(-50%, -50%);
     }
 
-    @media (max-width: 768px) {
-     .bottom-nav {
-        z-index: 99;
-        height: 52px;
-      }
-
-     .nav-item i {
-        font-size: 1rem;
-      }
-    }
-
     .profile-cards {
       display: flex;
       flex-wrap: wrap;
@@ -247,10 +187,13 @@
       align-items: center;
       text-align: center;
       transition: background-color 0.3s;
+      cursor: pointer;
     }
 
     .profile-card:hover {
       background-color: #eaeaea;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     }
 
     .profile-card i {
@@ -268,7 +211,6 @@
     .profile-header {
       display: flex;
       align-items: center;
-      justify-content: space-around;
       padding: 20px;
       border-bottom: 1px solid var(--border-color);
     }
@@ -279,16 +221,23 @@
       border-radius: 50%;
       background-color: #ccc;
       overflow: hidden;
+      margin-right: 20px;
+    }
+
+    .profile-info {
+      text-align: left;
+    }
+
+    .profile-bio {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: var(--text-color);
     }
 
     .profile-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .profile-info {
-      text-align: center;
     }
 
     .profile-stats {
@@ -313,120 +262,113 @@
 
     .profile-bottom {
       padding: 20px;
-    }
-
-    .text-slider {
-      position: relative;
-    }
-
-    .text-slider img {
-      width: 100%;
-      height: auto;
-    }
-
-    .slider-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      width: 100%;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div><a href="https://tv.cctv.com/" target="_blank" title="直播">📺直播</a></div>
+    <div style="border-bottom:1px solid #eee;text-align: center;">
+      <a href="https://tv.cctv.com/live/index.shtml" target="_blank">CCTV直播</a>
+    </div>
+    <a href="#home" class="nav-item active"style="border-bottom:1px solid #eee;">
+      <i class="fas fa-home"></i>
+      <span>首页</span>
+    </a>
+    <a href="#profile" class="nav-item"style="border-bottom:1px solid #eee;>
+      <i class="fas fa-user"></i>
+      <span>我的</span>
+    </a>
     <button onclick="showAgreementModal()" title="查看网页协议">查看网页协议</button>
   </header>
-  <nav class="bottom-nav" aria-label="Main navigation">
-    <a href="#home" class="nav-item active" aria-current="page">
-      <i class="fas fa-home"></i>
-      <span>Home</span>
-    </a>
-    <a href="#profile" class="nav-item">
-      <i class="fas fa-user"></i>
-      <span>I</span>
-    </a>
-  </nav>
-  <section id="home" class="content active">
-    <div class="card live-section"style="font-size: 20px;">
-      <div><h1>网页说明</h1></div>
-      <div>我要做和</div>
-      <div>抖音 | 微博 | 哔哩哔哩</div>
-      <div>一样的软件和网页</div>
-      <a href="https://space.bilibili.com/1414517639" target="_blank"><h1>vbn262网页制作找我</h1></a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><h1>我的抖音</h1></a>
+  <div class="main-content">
+    <section id="home" class="content active">
+      <div class="card live-section" style="font-size: 20px;">
+        <div><h1>网页说明</h1></div>
+        <div>我要做和</div>
+        <div>抖音 | 微博 | 哔哩哔哩</div>
+        <div>一样的软件和网页</div>
+        <a href="https://space.bilibili.com/1414517639" target="_blank"><h1>vbn262网页制作找我</h1></a>
+        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><h1>我的抖音</h1></a>
+      </div>
+    </section>
+    <div id="agreement-modal" class="modal">
+      <div class="modal-content">
+        <h2>网页协议</h2>
+        <p>1. 用户在使用本网站服务时，必须遵守相关法律法规。</p>
+        <p>2. 用户不得利用本网站服务进行任何违法或侵权行为。</p>
+        <p>协议更新中</p>
+        <!-- 添加同意按钮 -->
+        <button class="btn" onclick="acceptAgreement()">同意并继续</button>
+        <button class="btn" onclick="closeAgreementModal()">关闭</button>
+      </div>
     </div>
-  </section>
-  <div id="agreement-modal" class="modal">
-    <div class="modal-content">
-      <h2>网页协议</h2>
-      <p>1. 用户在使用本网站服务时，必须遵守相关法律法规。</p>
-      <p>2. 用户不得利用本网站服务进行任何违法或侵权行为。</p>
-      <p>协议更新中</p>
-      <button class="btn" onclick="closeAgreementModal()">关闭</button>
-    </div>
-  </div>
-  <section id="profile" class="content">
-    <div class="card live-section">
-      <div class="profile-header">
-        <div class="profile-avatar">
-          <img src="https://dummyimage.com/80x80/000/fff" alt="用户头像">
-        </div>
-        <div class="profile-info">
-          <h2>用户名</h2>
-          <div class="profile-stats">
-            <div class="profile-stats-item">
-              <span>100</span>
-              <p>关注</p>
-            </div>
-            <div class="profile-stats-item">
-              <span>200</span>
-              <p>粉丝</p>
+    <section id="profile" class="content">
+      <div class="card live-section">
+        <!-- 个人信息头部 -->
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <img src="https://dummyimage.com/80x80/000/fff" alt="用户头像">
+          </div>
+          <div class="profile-info">
+            <h2>用户名</h2>
+            <p class="profile-bio">这里可以写一些个人简介，比如兴趣爱好、个人特长等。</p>
+            <div class="profile-stats">
+              <div class="profile-stats-item">
+                <span>100</span>
+                <p>关注</p>
+              </div>
+              <div class="profile-stats-item">
+                <span>200</span>
+                <p>粉丝</p>
+              </div>
             </div>
           </div>
         </div>
+        <!-- 功能卡片区域 -->
+        <div class="profile-cards">
+          <div class="profile-card">
+            <i class="fas fa-video"></i>
+            <p>历史记录</p>
+          </div>
+          <div class="profile-card">
+            <i class="fas fa-video"></i>
+            <p>关注列表</p>
+          </div>
+          <div class="profile-card">
+            <i class="fas fa-video"></i>
+            <p>作品</p>
+          </div>
+          <div class="profile-card">
+            <i class="fas fa-heart"></i>
+            <p>喜欢</p>
+          </div>
+          <div class="profile-card">
+            <i class="fas fa-award"></i>
+            <p>粉丝</p>
+          </div>
+          <div class="profile-card">
+            <i class="fas fa-cog"></i>
+            <p>设置</p>
+          </div>
+        </div>
+        <!-- 反馈按钮区域 -->
+        <div class="profile-bottom">
+          <button class="btn">反馈问题</button>
+        </div>
       </div>
-      <div class="profile-cards">
-        <div class="profile-card">
-          <i class="fas fa-video"></i>
-          <p>历史记录</p>
-        </div>
-        <div class="profile-card">
-          <i class="fas fa-video"></i>
-          <p>关注列表</p>
-        </div>
-        <div class="profile-card">
-          <i class="fas fa-video"></i>
-          <p>作品</p>
-        </div>
-        <div class="profile-card">
-          <i class="fas fa-heart"></i>
-          <p>喜欢</p>
-        </div>
-        <div class="profile-card">
-          <i class="fas fa-award"></i>
-          <p>粉丝</p>
-        </div>
-        <div class="profile-card">
-          <i class="fas fa-cog"></i>
-          <p>设置</p>
-        </div>
-      </div>
-      <div class="profile-bottom">
-        <button class="btn">反馈问题</button>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
   <script>
-    const showAgreementModal = () => document.getElementById('agreement-modal').style.display = 'block';
-    const closeAgreementModal = () => document.getElementById('agreement-modal').style.display = 'none';
-    const toggleDropdownMenu = () => {
-    const dropdownMenu = document.getElementById('dropdown-menu');
-      dropdownMenu.style.display = dropdownMenu.style.display === 'block'? 'none' : 'block';
+    const agreementModal = document.getElementById('agreement-modal');
+    const showAgreementModal = () => agreementModal.style.display = 'block';
+    const closeAgreementModal = () => agreementModal.style.display = 'none';
+    const acceptAgreement = () => {
+      localStorage.setItem('agreementAccepted', 'true');
+      closeAgreementModal();
     };
     document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('agreementAccepted')) showAgreementModal();
       const navItems = document.querySelectorAll('.nav-item');
       navItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -443,6 +385,6 @@
         });
       });
     });
-    </script>
+  </script>
 </body>
 </html>
