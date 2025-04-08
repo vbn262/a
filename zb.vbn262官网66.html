@@ -302,6 +302,7 @@
 <body>
   <header class="header">
     <div class="header-logo"><i class="fas fa-home"></i>zb.vbn262.com</div>
+    <a href="https://tv.cctv.com/live/index.shtml" target="_blank" class="btn btn-cctv animated" data-delay="0.4s"><i class="fas fa-tv"></i> CCTV直播</a>
     <div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div>
     <div class="mobile-nav" id="mobile-nav">
       <a href="" class="nav-item"><i class="fas fa-sync-alt"></i>刷新</a>
@@ -312,7 +313,6 @@
     <h2>网页说明</h2>
     <p>我想做和微博 | 哔哩哔哩一样的软件和网页</p>
     <p class="btn btn-date animated" data-delay="0.2s"><i class="far fa-calendar-check"></i> 2025/4/8完成网页</p>
-    <a href="https://tv.cctv.com/live/index.shtml" target="_blank" class="btn btn-cctv animated" data-delay="0.4s"><i class="fas fa-tv"></i> CCTV直播</a>
     <a href="https://space.bilibili.com/1414517639" target="_blank" class="btn btn-bilibili animated" data-delay="0.6s"><i class="fab fa-bilibili"></i> 网页制作 | 联系开发者</a>
     <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"
       class="btn btn-douyin animated" data-delay="0.8s"><i class="fab fa-tiktok"></i> 抖音账号</a>
@@ -358,7 +358,6 @@
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const menuIcon = menuToggle.querySelector('i');
-
     function toggleMenu() {
       const isOpen = mobileNav.style.display === 'block';
       mobileNav.style.display = isOpen ? 'none' : 'block';
@@ -369,34 +368,27 @@
       e.stopPropagation();
       toggleMenu();
     });
-
     document.addEventListener('click', function () {
       if (mobileNav.style.display === 'block') {
         toggleMenu();
       }
     });
-
     mobileNav.addEventListener('click', function (e) {
       e.stopPropagation();
     });
-
     document.querySelectorAll('.btn').forEach(button => {
       button.addEventListener('click', function (e) {
         const circle = document.createElement('span');
         const diameter = Math.max(this.clientWidth, this.clientHeight);
         const radius = diameter / 2;
-
         circle.style.width = circle.style.height = `${diameter}px`;
         circle.style.left = `${e.clientX - this.offsetLeft - radius}px`;
         circle.style.top = `${e.clientY - this.offsetTop - radius}px`;
         circle.classList.add('ripple');
-
         this.appendChild(circle);
-
         setTimeout(() => circle.remove(), 1000);
       });
     });
-
     window.addEventListener('scroll', function () {
       const elements = document.querySelectorAll('.animated');
       elements.forEach((element, index) => {
