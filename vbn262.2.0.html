@@ -437,7 +437,7 @@
       text-align: center;
       background: rgb(255, 238, 255);
       padding: 15px;
-      border-top: 1px solid rgb(255, 220, 235);
+      border: 1px solid rgb(255, 220, 235);
     }
 
     @media (max-width: 768px) {
@@ -554,12 +554,9 @@
     <div class="card">
       <h2 style="border-bottom:1px solid var(--border-color); padding-bottom:10px;">网页说明</h2>
       <p style="margin:15px 0; color: var(--text-color);">我想做和微博 | 哔哩哔哩一样的软件和网页</p>
-      <a href="https://space.bilibili.com/1414517639" target="_blank" class="btn btn-primary">
-        <i class="fab fa-bilibili"></i> 网页制作找我
-      </a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI"target="_blank" class="btn">
-        <i class="fab fa-tiktok"></i> 我的抖音账号
-      </a>
+      <p class="btn" data-delay="0.2s"><i class="far fa-calendar-check"></i> 2025/4/8完成网页</p>
+      <a href="https://space.bilibili.com/1414517639" target="_blank" class="btn"><i class="fab fa-bilibili"></i> 网页制作找我</a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI"target="_blank" class="btn"><i class="fab fa-tiktok"></i> 我的抖音账号</a>
       <div style="margin-top:20px; text-align:left;">
         <h3 style="color: var(--bili-text-color);">常用链接</h3>
         <ul style="list-style:none; padding-left:0;">
@@ -713,8 +710,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         // 检查协议
         if (!localStorage.getItem('agreementAccepted')) {
-            showAgreementModal();
-        }
+            showAgreementModal();}
         // 初始化标签页切换
         initTabSwitcher();
         // 初始化模态框关闭事件
@@ -731,8 +727,7 @@
                 const target = item.getAttribute('href').substring(1);
                 if (target === 'profile' && !appState.isLoggedIn) {
                     showLoginModal();
-                    return;
-                }
+                    return;}
                 switchTab(target);
             });
         });
@@ -742,9 +737,8 @@
         const modals = document.querySelectorAll('.modal');
         modals.forEach(modal => {
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
+              if (e.target === modal) {
+                modal.style.display = 'none';}
             });
         });
     }
@@ -764,44 +758,33 @@
         // 点击其他地方关闭下拉菜单
         if (dropdownMenu.style.display === 'block') {
             setTimeout(() => {
-                document.addEventListener('click', closeDropdownOnClickOutside);
+              document.addEventListener('click', closeDropdownOnClickOutside);
             }, 0);
         }
     }
     function closeDropdownOnClickOutside(e) {
         const dropdownMenu = document.getElementById('dropdown-menu');
         if (!dropdownMenu.contains(e.target) && !e.target.classList.contains('menu-icon')) {
-            dropdownMenu.style.display = 'none';
-            document.removeEventListener('click', closeDropdownOnClickOutside);
+          dropdownMenu.style.display = 'none';
+          document.removeEventListener('click', closeDropdownOnClickOutside);
         }
     }
     // 协议相关函数
-    function showAgreementModal() {
-        document.getElementById('agreement-modal').style.display = 'flex';
-    }
-    function closeAgreementModal() {
-        document.getElementById('agreement-modal').style.display = 'none';
-    }
+    function showAgreementModal() {document.getElementById('agreement-modal').style.display = 'flex';}
+    function closeAgreementModal() {document.getElementById('agreement-modal').style.display = 'none';}
     function acceptAgreement() {
         localStorage.setItem('agreementAccepted', 'true');
         closeAgreementModal();
         showMessage('success', '协议已接受');
     }
     // 登录相关函数
-    function showLoginModal() {
-        document.getElementById('login-modal').style.display = 'flex';
-    }
-    function closeLoginModal() {
-        document.getElementById('login-modal').style.display = 'none';
-    }
+    function showLoginModal() {document.getElementById('login-modal').style.display = 'flex';}
+    function closeLoginModal() {document.getElementById('login-modal').style.display = 'none';}
     function sendVerifyCode() {
         const phone = document.getElementById('phone').value;
         const verifyBtn = document.getElementById('get-verify');
         // 手机号验证
-        if (!/^1[3-9]\d{9}$/.test(phone)) {
-            showMessage('error', '请输入正确的手机号', 'login-message');
-            return;
-        }
+        if (!/^1[3-9]\d{9}$/.test(phone)) {showMessage('error', '请输入正确的手机号', 'login-message');return;}
         // 生成6位验证码
         appState.verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
         console.log('验证码:', appState.verifyCode); // 实际应用中应通过短信发送
@@ -812,10 +795,10 @@
             appState.countdown--;
             verifyBtn.textContent = `${appState.countdown}秒后重试`;
             if (appState.countdown <= 0) {
-                clearInterval(appState.countdownTimer);
-                verifyBtn.disabled = false;
-                verifyBtn.textContent = '获取验证码';
-                appState.countdown = 60;
+              clearInterval(appState.countdownTimer);
+              verifyBtn.disabled = false;
+              verifyBtn.textContent = '获取验证码';
+              appState.countdown = 60;
             }
         }, 1000);
         showMessage('success', '验证码已发送', 'login-message');
@@ -823,14 +806,8 @@
     function handleLogin() {
         const phone = document.getElementById('phone').value;
         const code = document.getElementById('verify-code').value;
-        if (!phone || !code) {
-            showMessage('error', '请填写完整信息', 'login-message');
-            return;
-        }
-        if (code !== appState.verifyCode) {
-            showMessage('error', '验证码错误', 'login-message');
-            return;
-        }
+        if (!phone || !code) {showMessage('error', '请填写完整信息', 'login-message');return;}
+        if (code !== appState.verifyCode) {showMessage('error', '验证码错误', 'login-message');return;}
         // 登录成功
         appState.isLoggedIn = true;
         localStorage.setItem('userLoggedIn', 'true');
@@ -846,21 +823,12 @@
         showMessage('success', '已退出登录');
     }
     // 反馈相关函数
-    function showFeedbackModal() {
-        document.getElementById('feedback-modal').style.display = 'flex';
-    }
-
-    function closeFeedbackModal() {
-        document.getElementById('feedback-modal').style.display = 'none';
-    }
-
+    function showFeedbackModal() {document.getElementById('feedback-modal').style.display = 'flex';}
+    function closeFeedbackModal() {document.getElementById('feedback-modal').style.display = 'none';}
     function submitFeedback() {
         const content = document.getElementById('feedback-content').value;
         const email = document.getElementById('feedback-email').value;
-        if (!content) {
-            showMessage('error', '请填写反馈内容');
-            return;
-        }
+        if (!content) {showMessage('error', '请填写反馈内容');return;}
         // 这里应该是发送反馈到服务器的代码
         console.log('反馈内容:', content);
         console.log('联系邮箱:', email || '未提供');
@@ -869,19 +837,9 @@
     }
     // 其他功能
     function uploadVideo() {
-        if (!appState.isLoggedIn) {
-            showLoginModal();
-            return;
-        }
-        alert('准备发布视频');
-    }
-    function downloadApp() {
-        alert('APP下载功能即将开放，敬请期待！');
-    }
-    function clearCache() {
-        localStorage.clear();
-        showMessage('success', '缓存已清除');
-    }
+        if (!appState.isLoggedIn) {showLoginModal();return;}alert('准备发布视频');}
+    function downloadApp() {alert('APP下载功能即将开放，敬请期待！');}
+    function clearCache() {localStorage.clear();showMessage('success', '缓存已清除');}
     function toggleDarkMode() {
         appState.darkMode = !appState.darkMode;
         document.body.classList.toggle('dark-mode', appState.darkMode);
@@ -889,20 +847,11 @@
         showMessage('success', `已${appState.darkMode ? '开启' : '关闭'}夜间模式`);
     }
     function checkDarkMode() {
-        const darkMode = localStorage.getItem('darkMode') === 'true';
-        if (darkMode) {
-            document.body.classList.add('dark-mode');
-            appState.darkMode = true;
-        }
-    }
+      darkMode = localStorage.getItem('darkMode') === 'true';
+      if (darkMode) {document.body.classList.add('dark-mode');appState.darkMode = true;}}
     // 个人资料相关功能
     function showFollowList() {
-        if (!appState.isLoggedIn) {
-            showLoginModal();
-            return;
-        }
-        alert('显示关注列表');
-    }
+      if (!appState.isLoggedIn) {showLoginModal();return;}alert('显示关注列表');}
     function showFansList() {
         if (!appState.isLoggedIn) {
             showLoginModal();
@@ -936,29 +885,24 @@
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}-message`;
         messageDiv.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i> ${text}`;
-
         if (containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             container.appendChild(messageDiv);
-        } else {
-            // 显示全局消息
-            const existingMessage = document.querySelector('.global-message');
-            if (existingMessage) {
-                existingMessage.remove();
-            }
-            messageDiv.classList.add('global-message');
-            messageDiv.style.position = 'fixed';
-            messageDiv.style.top = '70px';
-            messageDiv.style.left = '50%';
-            messageDiv.style.transform = 'translateX(-50%)';
-            messageDiv.style.zIndex = '1000';
-            messageDiv.style.maxWidth = '90%';
-            document.body.appendChild(messageDiv);
-            // 3秒后自动消失
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 3000);
+        } 
+        else {
+          // 显示全局消息
+          const existingMessage = document.querySelector('.global-message');
+          if (existingMessage) {existingMessage.remove();}
+          messageDiv.classList.add('global-message');
+          messageDiv.style.position = 'fixed';
+          messageDiv.style.top = '70px';
+          messageDiv.style.left = '50%';
+          messageDiv.style.transform = 'translateX(-50%)';
+          messageDiv.style.zIndex = '1000';
+          messageDiv.style.maxWidth = '90%';
+          document.body.appendChild(messageDiv);
+          setTimeout(() => {messageDiv.remove();}, 3000);
         }
     }
     </script>
