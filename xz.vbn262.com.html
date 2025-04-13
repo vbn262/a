@@ -1,121 +1,26 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="vbn262.com官方66">
-  <title>xz.vbn262.com</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="vbn262.com官方66"><title>xz.vbn262.com</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
       --content-max-width: 800px;
       --bg-color: #f0f2f5;
       --card-bg: #fff;
-      --nav-bg: white;
       --active-color: rgb(255, 210, 253);
       --text-color: #606770;
       --dark-card-bg: rgba(30, 30, 30, 0.9);
       --border-color: #e4e6eb;
       --bili-text-color: #333;
       --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      --primary-color: #ff2e63;
-      --error-color: #ff4d4f;
-      --success-color: #52c41a;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * {box-sizing: border-box;margin: 0;padding: 0;}body {font-family: 'Roboto', sans-serif;background-color: var(--bg-color);margin-top: 256px;text-align: center;overscroll-behavior: contain;}
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: #1c1e21;
-      padding-top: 70px;
-      text-align: center;
-      overscroll-behavior: contain;
-      min-height: 100vh;
-      position: relative;
-    }
+    .header {z-index: 1;position: fixed;top: 0;left: 0;right: 0;padding: 12px;display: flex;align-items: center;justify-content: space-between;background: #eee;box-shadow: var(--shadow);}
+    .header-title {font-size: 1.2rem;font-weight: bold;}
 
-    .header {
-      z-index: 10;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #eee;
-      box-shadow: var(--shadow);
-    }
-
-    .header-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .header-actions {
-      display: flex;
-      padding: 0 0 0 9px;
-      gap: 0;
-    }
-
-    .header1 {
-      z-index: 1;
-      width: 100%;
-      bottom: 0;
-      display: flex;
-      position: fixed;
-      background: #eee;
-      justify-content: space-around;
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.3s ease;
-    }
-
-    .nav-item.active {
-      color: var(--primary-color);
-    }
-
-    .nav-item i {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-
-    .nav-item span {
-      font-size: 0.9rem;
-    }
-
-    .content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 15px 100px;
-      display: none;
-      text-align: center;
-    }
-
-    .content.active {
-      display: block;
-    }
-
-    .card {
-      background: var(--card-bg);
-      margin: 20px auto;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 20px;
-    }
+    .card {max-width: 500px;background: var(--card-bg);margin: 20px auto;border-radius: 16px;box-shadow: var(--shadow);padding: 20px;}
 
     .btn {
       display: block;
@@ -139,169 +44,21 @@
       transform: translateY(-2px);
     }
 
-    .btn-primary {
-      background: var(--primary-color);
-    }
-
-    .btn:disabled {
-      background: #ccc !important;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .profile-section {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 16px;
-      max-width: 100%;
-    }
-
-    .profile-header {
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .profile-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .profile-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
-      margin: 0 auto 15px;
-    }
-
-    .profile-bio {
-      width: 100%;
-      text-align: center;
-      margin-top: 10px;
-      color: var(--bili-text-color);
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: space-around;
-      margin: 15px 0;
-    }
-
-    .profile-stats-item {
-      text-align: center;
-      padding: 0 15px;
-      cursor: pointer;
-    }
-
-    .profile-stats-item i {
-      font-size: 1.2rem;
-      color: var(--bili-text-color);
-    }
-
-    .profile-stats-item p {
-      font-size: 0.8rem;
-      color: var(--text-color);
-      margin-top: 5px;
-    }
-
-    .profile-actions {
-      display: flex;
-      justify-content: center;
-      margin: 15px 0;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .profile-actions button,
-    .profile-actions a {
-      margin: 0;
-      padding: 8px 15px;
-      background: var(--active-color);
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .profile-actions button:hover,
-    .profile-actions a:hover {
-      opacity: 0.9;
-    }
-
-    .profile-cards {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-
-    .profile-card {
-      width: calc(33.33% - 20px);
-      padding: 15px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .profile-card:hover {
-      background-color: #eaeaea;
-      transform: translateY(-3px);
-    }
-
-    .profile-card i {
-      font-size: 1.5rem;
-      color: var(--bili-text-color);
-      margin-bottom: 5px;
-    }
-
-    .profile-card span {
-      font-size: 0.9rem;
-      color: var(--bili-text-color);
-    }
-
-    .input-field {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .input-field:focus {
-      border-color: var(--active-color);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(255, 210, 253, 0.2);
-    }
-
     .dropdown-menu {
-      display: none;
       position: absolute;
-      top: 100%;
+      display: none;
+      top: 40px;
+      left: 0;
       background-color: white;
       box-shadow: var(--shadow);
       border-radius: 8px;
-      min-width: 120px;
-      z-index: 100;
+      max-width: 100%;
+      z-index: 10;
     }
 
     .dropdown-menu a {
       display: block;
-      padding: 10px 15px;
+      padding: 9px 30px;
       text-decoration: none;
       color: var(--text-color);
       transition: background-color 0.3s;
@@ -310,210 +67,24 @@
     .dropdown-menu a:hover {
       background-color: #f5f6f7;
     }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: white;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      width: 90%;
-      max-width: 400px;
-      padding: 20px;
-      position: relative;
-      animation: modalFadeIn 0.3s ease;
-    }
-
-    @keyframes modalFadeIn {
-      from {opacity: 0;transform: translateY(-20px);}
-      to {opacity: 1;transform: translateY(0);}
-    }
-
-    .modal-actions {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .modal-actions button {
-      padding: 8px 20px;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .modal-actions button:first-child {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .modal-actions button:last-child {
-      background: #f5f5f5;
-      color: var(--text-color);
-    }
-
-    .verify-code-container {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .verify-code-container .input-field {
-      flex: 1;
-      margin-bottom: 0;
-    }
-
-    .verify-code-container button {
-      padding: 0 15px;
-      background: var(--active-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-    }
-
-    .verify-code-container button:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-
-    .message {
-      padding: 10px;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .error-message {
-      background-color: #fff2f0;
-      border: 1px solid var(--error-color);
-      color: var(--error-color);
-    }
-
-    .success-message {
-      background-color: #f6ffed;
-      border: 1px solid var(--success-color);
-      color: var(--success-color);
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;transform: translateY(-10px);}
-      to {opacity: 1;transform: translateY(0);}
-    }
-
-    footer {
-      margin-bottom: 99px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      background: rgb(255, 238, 255);
-      padding: 15px;
-      border: 1px solid rgb(255, 220, 235);
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        padding: 10px 15px;
-      }
-
-      .nav-item {
-        padding: 0 10px;
-      }
-
-      .profile-avatar {
-        width: 60px;
-        height: 60px;
-      }
-
-      .profile-card {
-        width: calc(50% - 10px);
-        margin-bottom: 10px;
-      }
-
-      .profile-stats-item {
-        padding: 0 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .profile-card {
-        width: 100%;
-      }
-
-      .profile-actions {
-        flex-direction: column;
-      }
-
-      .profile-actions button,
-      .profile-actions a {
-        width: 100%;
-      }
-    }
-
-    .footer {background: linear-gradient(135deg, #ffd8ef, #ffe2ff, #fef 51%,  #ffe2ff, #ffd1ef, pink 99%);padding: 40px 20px;margin-bottom: 44px; border-radius: 15px 15px 0 0;text-align: center;transition: all var(--transition-duration) ease;}
+    @media (max-width: 768px) {.header {padding: 10px 15px;}}@keyframes modalFadeIn {from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}@keyframes fadeIn {from {opacity: 0;transform: translateY(-10px);}to {opacity: 1;transform: translateY(0);}}
+    .footer {background: linear-gradient(135deg,#ffd8ef, #ffe2ff, #fef 51%,  #ffe2ff, #ffd1ef, pink 99%); padding: 40px 20px; margin-top: 190px; border-radius: 15px 15px 0 0;text-align: center;transition: all var(--transition-duration) ease;}
     .social-links {margin-bottom: 15px;}.social-links a {color: white;margin: 0 12px;font-size: 1.8rem;transition: all var(--transition-duration) ease;display: inline-block;text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);}.social-links a:hover {transform: scale(1.1);}
-    .fa-bilibili:hover {color: var(--bilibili-pink);}.fa-tiktok:hover {color: var(--douyin-black);}.fa-weibo:hover {color: var(--weibo-orange);}
-    .copyright {font-size: 0.9rem;color: #666;}
+    .fa-bilibili:hover {color: var(--bilibili-pink);}.fa-tiktok:hover {color: var(--douyin-black);}.fa-weibo:hover {color: var(--weibo-orange);}.copyright {font-size: 0.9rem;color: #666;}
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <header class="header">
-    <div class="header-actions">
-      <div class="fas" onclick="toggleDropdownMenu(event)">vbn262.com</div><div class="dropdown-menu" id="dropdown-menu"><a href=""><i class="fas fa-sync-alt"></i> 刷新</a></div>
-    </div>
-    <a href="#download" onclick="downloadApp()" class="nav-item" style="color: var(--text-color);"><i class="fas">DOWNLOAD APP</i></a>
-    <a href="downloadApp()" class="nav-item"><i class="fas fa-user"></i></a>
+    <div class="header-title"><i class="fas" onclick="toggleDropdownMenu(event)">xz.vbn262.com</i></div>
+    <div class="dropdown-menu" id="dropdown-menu"><a href=""><i class="fas fa-sync-alt"></i> 刷新</a></div>
+    <a href="" onclick="downloadApp()" class="header-title" style="color: var(--text-color);"><i class="fas">DOWNLOAD APP</i></a>
   </header>
-  <nav class="header1"><a href="#home" class="nav-item active" aria-current="page"><i class="fas fa-home"></i><span>首页</span></a><a href="#set" class="nav-item"><i class="fas fa-cog"></i><span>设置</span></a></nav>
-  <!-- 首页内容 -->
-  <div id="home" class="content active">
-    <div class="card" style="border-bottom:1px solid #000;">
-      <div style="border-bottom:1px solid #000;"><h1>网页说明 2025/4</h1></div><p style="color: var(--text-color);">本网站由我自己独立完成</p><p style="margin:15px 0; color: var(--text-color);">我想做和微博 | 哔哩哔哩一样的软件和网页</p>
-      <p class="btn" data-delay="0.2s"><i class="far fa-calendar-check"></i> 2024/9/1开始做网页</p><p class="btn" data-delay="0.2s"><i class="far fa-calendar-check"></i> 2025/4/13完成网页</p>
-      <a href="https://space.bilibili.com/1414517639" target="_blank" class="btn"><i class="fab fa-bilibili"></i> 网页制作找我</a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI"target="_blank" class="btn"><i class="fab fa-tiktok"></i> 我的抖音账号</a>
-    </div>
-  </div>
-  <div id="set" class="content">
-    <div style="border-bottom:1px solid #000;"><h2 style="margin-bottom:20px; color: var(--bili-text-color);">设置</h2><button class="btn" onclick="showAgreementModal()"><i class="fas fa-file-alt"></i> 查看网页协议</button><button class="btn" onclick="clearCache()"><i class="fas fa-trash"></i> 清除缓存</button></div>
-    <div style="margin-top:20px;">
-      <h3 style="color: var(--bili-text-color);">常用链接</h3>
-      <ul style="list-style:none;">
-        <a href="https://www.minecraft.net/zh-hans" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-cube">Minecraft</i></a>
-        <a href="https://www.mcnav.net/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-map">MCNav</i></a>
-        <a href="https://www.mcmod.cn/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-book">MC百科</i></a>
-        <a href="https://www.4399.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-gamepad">4399小游戏</i></a>
-        <a href="http://aola.100bt.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-dragon">奥拉星</i></a>
-        <a href="http://aoqi.100bt.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-chess">奥奇传说</i></a>
-        <a href="https://store.steampowered.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fab fa-steam">Steam</i></a>
-        <a href="https://flingtrainer.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-download">Fling Trainer</i></a>
-        <a href="https://pvp.qq.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-mobile-alt">王者荣耀</i></a>
-        <a href="https://rocom.qq.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-paw">洛克王国</i></a>
-        <a href="https://tv.cctv.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-tv">CCTV</i></a>
-        <a href="https://www.weibo.com" target="_blank"class="btn"style="color: var(--text-color);"><i class="fab fa-weibo">微博</i></a>
-        <a href="https://www.bilibili.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fab fa-bilibili">哔哩哔哩</i></a>
-        <a href="https://www.douyin.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fab fa-tiktok">抖音</i></a>
-        <a href="https://chat.deepseek.com/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-robot">DeepSeek</i></a>
-        <a href="https://www.doubao.com/chat/" target="_blank"class="btn"style="color: var(--text-color);"><i class="fas fa-comment">豆包</i></a>
-      </ul>
-    </div>
+  <!-- 内容 -->
+  <div class="card" style="border-bottom:1px solid #000;">
+    <h1><i class="far fa-calendar-check">本网站由我自己独立完成 2024/9/1开始做网页</i><i class="far fa-calendar-check">2025/4/13完成网页</i></h1>
+    <a href="https://space.bilibili.com/1414517639" target="_blank" class="btn"><i class="fab fa-bilibili"></i> 网页制作找我</a>
+    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI"target="_blank" class="btn"><i class="fab fa-tiktok"></i> 我的抖音账号</a>
   </div>
   <!-- 页脚 -->
   <footer class="footer">
@@ -523,129 +94,7 @@
       <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo"></i></a>
     </div>
     <p class="copyright">COPYRIGHT &copy; 2025 vbn262.com 版权所有</p>
-</footer>
-  <!-- 协议模态框 -->
-  <div id="agreement-modal" class="modal">
-    <div class="modal-content">
-      <h2 style="color: var(--bili-text-color);"><i class="fas fa-file-contract"></i> 网页协议</h2>
-      <div style="text-align:left; margin:15px 0; color: var(--text-color);">
-        <p>1. 用户在使用本网站服务时必须遵守相关法律法规</p>
-        <p>2. 用户不得利用本网站服务进行任何违法侵权行为</p>
-        <p>3. 本网站保留随时修改协议的权利</p>
-        <p>4. 用户发布内容需遵守社区规范</p>
-      </div>
-      <div class="modal-actions">
-        <button onclick="acceptAgreement()">同意</button>
-        <button onclick="closeAgreementModal()">关闭</button>
-      </div>
-    </div>
-  </div>
-  <!-- 登录模态框 -->
-  <div id="login-modal" class="modal">
-    <div class="modal-content">
-      <h2 style="color: var(--bili-text-color);"><i class="fas fa-sign-in-alt"></i> 登录</h2>
-      <div id="login-message"></div>
-      <input type="tel" id="phone" class="input-field" placeholder="手机号">
-      <div class="verify-code-container">
-        <input type="text" id="verify-code" class="input-field" placeholder="验证码">
-        <button id="get-verify" onclick="sendVerifyCode()">获取验证码</button>
-      </div>
-      <div class="modal-actions">
-        <button onclick="handleLogin()">登录</button>
-        <button onclick="closeLoginModal()">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // 全局状态
-    const appState = {isLoggedIn: localStorage.getItem('userLoggedIn') === 'true',
-    verifyCode: '',countdown: 60,countdownTimer: null,darkMode: false
-    };
-    // DOM加载完成后初始化
-    document.addEventListener('DOMContentLoaded', () => {
-      /*检查协议*/
-      if (!localStorage.getItem('agreementAccepted')) {showAgreementModal();}
-            initTabSwitcher();
-            initModalCloseEvents();
-        });
-   
-    // 初始化标签页切换
-    function initTabSwitcher() {
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = item.getAttribute('href').substring(1);
-                if (target === 'profile' && !appState.isLoggedIn) {
-                    showLoginModal();
-                    return;}
-                switchTab(target);
-            });
-        });
-    }
-    // 初始化模态框关闭事件
-    function initModalCloseEvents() {
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
-            modal.addEventListener('click', (e) => {
-              if (e.target === modal) {
-                modal.style.display = 'none';}
-            });
-        });
-    }
-    // 切换标签页
-    function switchTab(tabId) {
-        const contents = document.querySelectorAll('.content');
-        contents.forEach(c => c.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(n => n.classList.remove('active'));
-        document.querySelector(`[href="#${tabId}"]`).classList.add('active');
-    }
-    /*切换下拉菜单*/
-    function toggleDropdownMenu() {const dropdownMenu = document.getElementById('dropdown-menu');
-      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-      if (dropdownMenu.style.display === 'block') {setTimeout(() => {document.addEventListener('click', closeDropdownOnClickOutside);}, 0);}
-    }
-    function closeDropdownOnClickOutside(e) {
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        if (!dropdownMenu.contains(e.target) && !e.target.classList.contains('menu-icon')) {
-          dropdownMenu.style.display = 'none';
-          document.removeEventListener('click', closeDropdownOnClickOutside);
-        }
-    }
-    // 协议相关函数
-    function showAgreementModal() {document.getElementById('agreement-modal').style.display = 'flex';}
-    function closeAgreementModal() {document.getElementById('agreement-modal').style.display = 'none';}
-    function acceptAgreement() {
-        localStorage.setItem('agreementAccepted', 'true');
-        closeAgreementModal();
-        showMessage('success', '协议已接受');
-    }
-    // 其他功能
-    function downloadApp() {alert('APP下载功能即将开放，敬请期待！');}
-    function clearCache() {localStorage.clear();showMessage('success', '缓存已清除');}
-    function checkDarkMode() {darkMode = localStorage.getItem('darkMode') === 'true';if (darkMode) {document.body.classList.add('dark-mode');appState.darkMode = true;}}
-    // 显示消息提示
-    function showMessage(type, text, containerId = null) {const messageDiv = document.createElement('div');messageDiv.className = `message ${type}-message`;
-        messageDiv.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i> ${text}`;
-        if (containerId) {const container = document.getElementById(containerId);container.innerHTML = '';container.appendChild(messageDiv);} 
-        else {
-          // 显示全局消息
-          const existingMessage = document.querySelector('.global-message');
-          if (existingMessage) {existingMessage.remove();}
-          messageDiv.classList.add('global-message');
-          messageDiv.style.position = 'fixed';
-          messageDiv.style.top = '70px';
-          messageDiv.style.left = '50%';
-          messageDiv.style.transform = 'translateX(-50%)';
-          messageDiv.style.zIndex = '1000';
-          messageDiv.style.maxWidth = '90%';
-          document.body.appendChild(messageDiv);
-          setTimeout(() => {messageDiv.remove();}, 3000);
-        }
-    }
-    </script>
+  </footer>
+  <script>function toggleDropdownMenu() {const dropdownMenu = document.getElementById('dropdown-menu');dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';if (dropdownMenu.style.display === 'block') {setTimeout(() => {document.addEventListener('click', closeDropdownOnClickOutside);}, 0);}}function downloadApp() {alert('APP下载功能即将开放，敬请期待！');}</script>
 </body>
 </html>
