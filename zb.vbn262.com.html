@@ -19,14 +19,17 @@
       margin: 0;
     }
     .header {
-      width: 100%;
-      height: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: linear-gradient(135deg, #fef 9%, pink 100%);
     }
     .nav-item {
+      z-index: 9;
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -42,7 +45,7 @@
     .mobile-nav {
       display: none;
       position: absolute;
-      top: 50px;
+      top: 0;
       left: 0;
       right: 0;
       background: #fff;
@@ -62,7 +65,7 @@
     </style>
   </head>
   <body>
-    <header class="header"><a href="" class="fas nav-item" style="font-weight: bold;">zb.vbn262.com</a><h3><a onclick="downloadApp()" class="fas fa-download">下载</a></h3><div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div><div class="mobile-nav" id="mobile-nav" style="text-align: center;"><h3><a href="http://121.43.144.135:45455/" target="_blank" class="fas" style="color: var(--text-color);">vbn262.com</a></h3><h3><a class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3><h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);"><i class="fas fa-cube">Minecraft</i></a></h1><h3><a href="https://www.mcnav.net/" target="_blank" style="color: var(--text-color);"><i class="fas fa-map"> MCNav</i></a> | <a href="https://www.mcmod.cn/" target="_blank" style="color: var(--text-color);"><i class="fas fa-book"> MC百科</i></a></h3><h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-gamepad">4399小游戏</i></a></h3><h3><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-dragon">奥拉星</i></a> | <a href="http://aoqi.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-chess">奥奇传说</i></a></h3><h3><a href="https://store.steampowered.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-steam">Steam</i></a></h3><h3><a href="https://flingtrainer.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-download">Fling Trainer</i></a></h3><h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-mobile-alt">王者荣耀</i></a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-paw">洛克王国</i></a></h3><h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-tv">CCTV</i></a></h3><h3><a href="https://www.weibo.com" target="_blank" style="color: var(--text-color);"><i class="fab fa-weibo">微博</i></a></h3><h3><a href="https://www.bilibili.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-bilibili">哔哩哔哩</i></a></h3><h3><a href="https://www.douyin.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-tiktok">抖音</i></a></h3><h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-robot">DeepSeek</i></a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);"><i class="fas fa-comment">豆包</i></a></h3></div></header>
+    <header class="header"><a href="" class="fas nav-item" style="font-weight: bold;">zb.vbn262.com</a><a onclick="downloadApp()" class="fas fa-download">下载</a><div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div><div class="mobile-nav" id="mobile-nav" style="text-align: center;"><h3><a href="http://121.43.144.135:45455/" target="_blank" class="fas" style="color: var(--text-color);">vbn262.com</a></h3><h3><a class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3><h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);"><i class="fas fa-cube">Minecraft</i></a></h1><h3><a href="https://www.mcnav.net/" target="_blank" style="color: var(--text-color);"><i class="fas fa-map"> MCNav</i></a> | <a href="https://www.mcmod.cn/" target="_blank" style="color: var(--text-color);"><i class="fas fa-book"> MC百科</i></a></h3><h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-gamepad">4399小游戏</i></a></h3><h3><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-dragon">奥拉星</i></a> | <a href="http://aoqi.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-chess">奥奇传说</i></a></h3><h3><a href="https://store.steampowered.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-steam">Steam</i></a></h3><h3><a href="https://flingtrainer.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-download">Fling Trainer</i></a></h3><h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-mobile-alt">王者荣耀</i></a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-paw">洛克王国</i></a></h3><h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-tv">CCTV</i></a></h3><h3><a href="https://www.weibo.com" target="_blank" style="color: var(--text-color);"><i class="fab fa-weibo">微博</i></a></h3><h3><a href="https://www.bilibili.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-bilibili">哔哩哔哩</i></a></h3><h3><a href="https://www.douyin.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-tiktok">抖音</i></a></h3><h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-robot">DeepSeek</i></a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);"><i class="fas fa-comment">豆包</i></a></h3></div></header>
     <h1>本网站由我自己独立完成</h1><h1 class="far fa-calendar-check"> 2024/9开始做网页</h1><h1><a href="https://tv.cctv.com/live/index.shtml" target="_blank" class="fas fa-tv" style="color: var(--text-color);"> CCTV直播</a></h1>
     <footer class="footer" style="text-align: center;"><a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a><a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a><a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a><p style="background: linear-gradient(135deg,#ffd8ef,#ffe2ff,#fef 51%,#ffe2ff,#ffd1ef,pink 99%);">&copy; 2025 vbn262.com 版权所有</p></footer>
     <script>const downloadApp=()=>alert('APP下载功能即将开放，敬请期待！');const mT=document.getElementById('menu-toggle'),mN=document.getElementById('mobile-nav');mT.onclick=()=>{mN.style.display=mN.style.display==='block'?'none':'block';mT.firstElementChild.className=`fas fa-${mN.style.display==='block'?'times':'bars'}`;};</script>
