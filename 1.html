@@ -3,22 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="zb.vbn262.com个人下载APP网站">
+    <meta name="description" content="zb.vbn262.com个人直播网站">
     <title>zb.vbn262.com</title>
     <time id="auto-date" datetime="${year}-${month}-${day}"></time>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <style>
     :root {
       --bg-color: #fefefe;
       --text-color: #333;
       --secondary-text-color: #666;
       --border-color: #e0e0e0;
-      --active-color: pink; /* 新增选中状态颜色 */
+      --active-color: pink; /*新增选中状态颜色*/
     }
     body {
       text-align: center;
-      margin: 0;
     }
     .header {
       position: fixed;
@@ -27,9 +25,7 @@
       right: 0;
       display: flex;
       justify-content: space-between;
-      padding: 0 9px;
       box-sizing: border-box;
-      border-bottom: 1px solid var(--border-color);
       background: var(--bg-color);
     }
     .nav-item {
@@ -40,43 +36,37 @@
       color: var(--text-color);
       padding: 15px 10px;
       cursor: pointer;
-      transition: color 0.3s ease; /* 新增过渡效果 */
+      transition: color 0.3s ease; /*新增过渡效果*/
     }
     .nav-item.active {
-      color: var(--active-color); /* 选中状态样式 */
+      color: var(--active-color); /*选中状态样式*/
       font-weight: bold;
     }
     .nav-item i {
       font-size: 1.2rem;
       margin-right: 6px;
     }
-    .mobile-nav {
+    .menu-nav {
       display: none;
       position: absolute;
-      top: 56px; /* 头部高度 */
+      top: 51px; /*头部高度*/
       left: 0;
       right: 0;
       background: #fff;
-      height: calc(50vh - 56px);
+      height: 50vh;
       overflow-y: auto;
       border-top: 1px solid var(--border-color);
     }
-    .mobile-nav .nav-item {
-      padding: 15px 20px;
+    .menu-nav .nav-item {
+      padding: 9px 20px;
       justify-content: center;
     }
-    @media (max-width: 768px) {
-      .social-links a {
-        font-size: 1.5rem;
-        margin: 0 8px;
-      }
-    }
     .page-content {
-      display: none; /* 所有页面默认隐藏 */
-      padding: 80px 20px 20px; /* 为固定头部留出空间 */
+      display: none; /*所有页面默认隐藏*/
+      padding: 80px 20px 20px; /*为固定头部留出空间*/
     }
     .page-content.active {
-      display: block; /* 激活时显示 */
+      display: block; /*激活时显示*/
     }
     </style>
   </head>
@@ -86,31 +76,28 @@
       <a href="#live" class="nav-item live-link" id="live-link"><i class="fas">直播</i></a>
       <a onclick="downloadApp()" class="nav-item download-link"><i class="fas fa-download"></i></a>
       <div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div>
-      <div class="mobile-nav" id="mobile-nav" style="text-align: center;">
+      <div class="menu-nav" id="menu-nav" style="text-align: center;">
         <h3><a href="https://vbn262.github.io/w/1.html" class="fas" style="color: var(--text-color);">vbn262.com/w</a></h3>
         <h3><a href="https://vbn262.github.io/mj/1.html" class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3>
-        <h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);"><i class="fas fa-cube">Minecraft</i></a></h1>
-        <h3><a href="https://www.mcnav.net/" target="_blank" style="color: var(--text-color);"><i class="fas fa-map"> MCNav</i></a> | <a href="https://www.mcmod.cn/" target="_blank" style="color: var(--text-color);"><i class="fas fa-book"> MC百科</i></a></h3>
-        <h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-gamepad">4399小游戏</i></a></h3>
-        <h3><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-dragon">奥拉星</i></a> | <a href="http://aoqi.100bt.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-chess">奥奇传说</i></a></h3>
+        <h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);" class="fas">Minecraft</a></h1>
+        <h3><a href="https://www.mcnav.net/" target="_blank" style="color: var(--text-color);" class="fas fa-map"> MCNav</a> | <a href="https://www.mcmod.cn/" target="_blank" style="color: var(--text-color);" class="fas fa-book"> MC百科</a></h3>
+        <h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);" class="fas fa-gamepad">4399小游戏</a></h3>
+        <h3><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);" class="fas fa-dragon">奥拉星</a> | <a href="http://aoqi.100bt.com/" target="_blank" style="color: var(--text-color);" class="fas fa-chess">奥奇传说</a></h3>
         <h3><a href="https://store.steampowered.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-steam">Steam</i></a></h3>
         <h3><a href="https://flingtrainer.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-download">Fling Trainer</i></a></h3>
-        <h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-mobile-alt">王者荣耀</i></a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-paw">洛克王国</i></a></h3>
-        <h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-tv">CCTV</i></a></h3>
-        <h3><a href="https://www.weibo.com" target="_blank" style="color: var(--text-color);"><i class="fab fa-weibo">微博</i></a></h3>
-        <h3><a href="https://www.bilibili.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-bilibili">哔哩哔哩</i></a>
-        </h3><h3><a href="https://www.douyin.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-tiktok">抖音</i></a></h3>
-        <h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-robot">DeepSeek</i></a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);"><i class="fas fa-comment">豆包</i></a></h3>
+        <h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);" class="fas fa-mobile-alt">王者荣耀</a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);" class="fas fa-paw">洛克王国</a></h3>
+        <h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);" class="fas fa-tv">CCTV</a></h3>
+        <h3><a href="https://www.weibo.com" target="_blank" style="color: var(--text-color);" class="fab fa-weibo">微博</a></h3>
+        <h3><a href="https://www.bilibili.com/" target="_blank" style="color: var(--text-color);" class="fab fa-bilibili">哔哩哔哩</a></h3>
+        <h3><a href="https://www.douyin.com/" target="_blank" style="color: var(--text-color);" class="fab fa-tiktok">抖音</a></h3>
+        <h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);" class="fas fa-robot">DeepSeek</a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);" class="fas fa-comment">豆包</a></h3>
       </div>
     </header>
 
     <!-- 页面内容容器 -->
     <div id="main-content">
       <!-- 首页内容 -->
-      <div id="home" class="page-content active">
-        <h1>本网站由我自己独立完成</h1><div id="clock" style="font-size: 2rem; margin: 20px 0;"></div>
-        <h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check"> 2024/9开始做网页</h1>
-      </div>
+      <div id="home" class="page-content active"><h1>本网站由我自己独立完成</h1><div id="clock" style="font-size: 2rem; margin: 20px;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
       <!-- 直播页面内容 -->
       <div id="live" class="page-content">
         <h1>直播页面</h1>
@@ -126,54 +113,54 @@
     </footer>
 
     <script>
-      // 页面切换核心逻辑
+      //页面切换核心逻辑
       function switchPage(targetId) {
-        // 清除所有激活状态
+        //清除所有激活状态
         document.querySelectorAll('.nav-item').forEach(link => link.classList.remove('active'));
         document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
-        // 激活目标页面和导航链接
+        //激活目标页面和导航链接
         document.getElementById(targetId).classList.add('active');
         document.getElementById(`${targetId}-link`).classList.add('active');
-        // 关闭移动端菜单
+        //关闭移动端菜单
         closeMobileNav();
       }
-      // 关闭移动端菜单
+      //关闭移动端菜单
       function closeMobileNav() {
-        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNav = document.getElementById('menu-nav');
         const menuToggle = document.getElementById('menu-toggle');
         mobileNav.style.display = 'none';
         menuToggle.firstElementChild.className = 'fas fa-bars';
       }
-      // 绑定导航点击事件
+      //绑定导航点击事件
       document.getElementById('home-link').addEventListener('click', () => switchPage('home'));
       document.getElementById('live-link').addEventListener('click', () => switchPage('live'));
-      // 移动端菜单切换
+      //移动端菜单切换
       const menuToggle = document.getElementById('menu-toggle');
-      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNav = document.getElementById('menu-nav');
       menuToggle.addEventListener('click', () => {
         mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
         menuToggle.firstElementChild.className = `fas fa-${mobileNav.style.display === 'block' ? 'times' : 'bars'}`;
       });
 
-      // 时间更新函数
+      //时间更新函数
       function updateTime() {
         const date = new Date();
-        const timeString = date.toTimeString().slice(0, 8); // 简化时间格式
+        const timeString = date.toTimeString().slice(0, 8);//简化时间格式
         document.getElementById('clock').textContent = timeString;
       }
       window.onload = updateTime;
       setInterval(updateTime, 1000);
-      // 日期更新函数
+      //日期更新函数
       function updateFooterDate() {
         const date = new Date();
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
-        document.getElementById('footer-date').textContent = `${year}年${month}月${day}日`;
+        document.getElementById('footer-date').textContent = `${year}年${month}/${day}日`;
       }
       window.onload = updateFooterDate;
-      // 下载提示
-      const downloadApp = () => alert('APP下载功能即将开放，敬请期待！');
+      //下载提示
+      const downloadApp = () => alert('APP下载功能即将开放,敬请期待!');
     </script>
   </body>
 </html>
