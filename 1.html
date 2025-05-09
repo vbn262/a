@@ -11,8 +11,12 @@
       --secondary-text-color: #666;
       --active-color: pink; /*新增选中状态颜色*/
     }
+    *{
+      margin: 0;
+    }
     body {
       text-align: center;
+      margin-top: 99px;
     }
     .header {
       position: fixed;
@@ -52,16 +56,12 @@
       height: 50vh;
       overflow-y: auto;
     }
-    .menu-nav .nav-item {
-      padding: 9px 20px;
-      justify-content: center;
-    }
+    /*激活头部导航栏*//*所有页面默认隐藏*/
     .page-content {
-      display: none; /*所有页面默认隐藏*/
-      margin-top: 99px;
+      display: none; 
     }
     .page-content.active {
-      display: block; /*激活时显示*/
+      display: block; 
     }
     </style>
   </head>
@@ -74,18 +74,18 @@
       <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;">
         <h3><a href="https://vbn262.github.io/w/1.html" class="fas" style="color: var(--text-color);">vbn262.com/w</a></h3>
         <h3><a href="https://vbn262.github.io/mj/1.html" class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3>
-        <h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);" class="fas">Minecraft</a></h1>
+        <h1><a href="https://www.minecraft.net/zh-hans" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas">Minecraft</a></h1>
         <h3><a href="https://www.mcnav.net/" target="_blank" style="color: var(--text-color);" class="fas fa-map"> MCNav</a> | <a href="https://www.mcmod.cn/" target="_blank" style="color: var(--text-color);" class="fas fa-book"> MC百科</a></h3>
-        <h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);" class="fas fa-gamepad">4399小游戏</a></h3>
+        <h3><a href="https://www.4399.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas fa-gamepad">4399小游戏</a></h3>
         <h3><a href="http://aola.100bt.com/" target="_blank" style="color: var(--text-color);" class="fas fa-dragon">奥拉星</a> | <a href="http://aoqi.100bt.com/" target="_blank" style="color: var(--text-color);" class="fas fa-chess">奥奇传说</a></h3>
-        <h3><a href="https://store.steampowered.com/" target="_blank" style="color: var(--text-color);"><i class="fab fa-steam">Steam</i></a></h3>
-        <h3><a href="https://flingtrainer.com/" target="_blank" style="color: var(--text-color);"><i class="fas fa-download">Fling Trainer</i></a></h3>
-        <h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);" class="fas fa-mobile-alt">王者荣耀</a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);" class="fas fa-paw">洛克王国</a></h3>
-        <h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);" class="fas fa-tv">CCTV</a></h3>
+        <p style="margin-top: 20px;"></p><h3><a href="https://store.steampowered.com/" target="_blank" style="color: var(--text-color);"><i class="fab">Steam</i></a></h3>
+        <h3><a href="https://flingtrainer.com/" target="_blank" style="color: var(--text-color);"><i class="fas">Fling Trainer</i></a></h3>
+        <h3><a href="https://pvp.qq.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas fa-mobile-alt">王者荣耀</a> | <a href="https://rocom.qq.com/" target="_blank" style="color: var(--text-color);" class="fas fa-paw">洛克王国</a></h3>
+        <h3><a href="https://tv.cctv.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas fa-tv">CCTV</a></h3>
         <h3><a href="https://www.weibo.com" target="_blank" style="color: var(--text-color);" class="fab fa-weibo">微博</a></h3>
         <h3><a href="https://www.bilibili.com/" target="_blank" style="color: var(--text-color);" class="fab fa-bilibili">哔哩哔哩</a></h3>
         <h3><a href="https://www.douyin.com/" target="_blank" style="color: var(--text-color);" class="fab fa-tiktok">抖音</a></h3>
-        <h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);" class="fas fa-robot">DeepSeek</a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);" class="fas fa-comment">豆包</a></h3>
+        <h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas fa-robot">DeepSeek</a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);" class="fas fa-comment">豆包</a></h3>
       </div>
     </header>
 
