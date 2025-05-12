@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>zb.vbn262.com</title><time id="auto-date" datetime="${year}-${month}-${day}"></time>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
     :root {
       --bg-color: #fefefe;
@@ -29,7 +28,6 @@
       background: linear-gradient(135deg, #fef 9%, pink 100%);
     }
     .nav-item {
-      z-index: 9;
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -67,10 +65,9 @@
   </head>
   <body>
     <header class="header">
-      <a href="#home" class="nav-item home-link active" id="home-link"><i class="fas">vbn262.com</i></a>
-      <a href="#live" class="nav-item live-link" id="live-link"><i class="fas">直播</i></a>
-      <a onclick="downloadApp()" class="nav-item download-link"><i class="fas fa-download"></i></a>
-      <div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div>
+      <a href="#home" class="home-link active" id="home-link" style="color: pink;padding: 9px;z-index: 1;"><i class="fas">vbn262.com</i></a>
+      <a href="#live" class="live-link" id="live-link" style="color: #000;"><i class="fas fa-download">直播</i></a>
+      <div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div>
       <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;">
         <h3><a href="https://vbn262.github.io/w/1.html" class="fas" style="color: var(--text-color);margin-top: 40px;">vbn262.com/w</a></h3>
         <h3><a href="https://vbn262.github.io/mj/1.html" class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3>
@@ -92,15 +89,16 @@
     <!-- 页面内容容器 -->
     <div id="main-content">
       <!-- 首页内容 -->
-      <div id="home" class="page-content active"><h1>本网站由我自己独立完成</h1><div id="clock" style="font-size: 2rem; margin: 20px;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
+      <div id="home" class="page-content active"><h1>本网站由我自己独立完成</h1><div id="clock" style="font-size: 3rem;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
       <!-- 直播页面内容 -->
       <div id="live" class="page-content">
-        <h1>直播页面</h1>
-        <h2><a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" class="fas fa-tv" style="color: var(--text-color);"> CCTV直播</a></h2>
+        <h1 onclick="dapp()"><i class="fas">DOWNLOAD APP</i></h1>
+        <h1>直播页面</h1><h2><a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" class="fas fa-tv" style="color: var(--text-color);"> CCTV直播</a></h2>
       </div>
     </div>
 
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
       <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
       <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
       <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
@@ -154,8 +152,7 @@
         document.getElementById('footer-date').textContent = `${year}年${month}/${day}日`;
       }
       window.onload = updateFooterDate;
-      //下载提示
-      const downloadApp = () => alert('APP下载功能即将开放,敬请期待!');
+      const dapp=()=>alert('APP下载功能即将开放，敬请期待！');
     </script>
   </body>
 </html>
