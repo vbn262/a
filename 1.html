@@ -6,62 +6,28 @@
     <title>zb.vbn262.com</title>
     <time id="auto-date" datetime="${year}-${month}-${day}"></time>
     <style>
-    :root {
-      --bg-color: #fefefe;
-      --text-color: #333;
-      --secondary-text-color: #666;
-      --active-color: pink; /*新增选中状态颜色*/
+    :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink; /*新增选中状态颜色*/
     }
-    *{
-      margin: 0;
+    *{margin: 0;}
+    body {text-align: center;margin-top: 99px;
     }
-    body {
-      text-align: center;
-      margin-top: 99px;
+    .header {position: fixed;top: 0;left: 0;right: 0;display: flex;align-items: center;
+      justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
     }
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(135deg, #fef 9%, pink 100%);
+    .nav-item {display: flex;align-items: center;text-decoration: none;color: var(--text-color);
+      padding: 9px;cursor: pointer;transition: color 0.3s ease; /*新增过渡效果*/
     }
-    .nav-item {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text-color);
-      padding: 9px;
-      cursor: pointer;
-      transition: color 0.3s ease; /*新增过渡效果*/
+    .nav-item.active {color: var(--active-color); /*选中状态样式*/font-weight: bold;
     }
-    .nav-item.active {
-      color: var(--active-color); /*选中状态样式*/
-      font-weight: bold;
+    .nav-item i {font-size: 1rem;margin-right: 6px;
     }
-    .nav-item i {
-      font-size: 1rem;
-      margin-right: 6px;
-    }
-    .menu-nav {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #fff;
-      height: 50vh;
-      overflow-y: auto;
+    .menu-nav {display: none;position: absolute;top: 0;left: 0;
+      right: 0;background: #fff;height: 50vh;overflow-y: auto;
     }
     /*激活头部导航栏*//*所有页面默认隐藏*/
-    .page-content {
-      display: none; 
+    .page-content {display: none; 
     }
-    .page-content.active {
-      display: block; 
+    .page-content.active {display: block; 
     }
     </style>
   </head>
@@ -88,18 +54,16 @@
         <h3><a href="https://chat.deepseek.com/" target="_blank" style="color: var(--text-color);margin-top: 20px;" class="fas fa-robot">DeepSeek</a> | <a href="https://www.doubao.com/chat/" target="_blank" style="color: var(--text-color);" class="fas fa-comment">豆包</a></h3>
       </div>
     </header>
-
     <!-- 页面内容容器 -->
     <div id="main-content">
-      <!-- 首页内容 -->
-      <div id="home" class="page-content active"><h1>本网站由我自己独立完成</h1><div id="clock" style="font-size: 3rem;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
-      <!-- 直播页面内容 -->
+      <!-- 首页 -->
+      <div id="home" class="page-content active"><h1>本网站自己独立完成</h1><div id="clock" style="font-size: 3rem;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
+      <!-- 直播 -->
       <div id="live" class="page-content">
         <h1 onclick="dapp()"><i class="fas">DOWNLOAD APP</i></h1>
         <h1>直播页面</h1><h2><a href="https://tv.cctv.com/live/cctv13/m/index.shtml" target="_blank" class="fas fa-tv" style="color: var(--text-color);"> CCTV直播</a></h2>
       </div>
     </div>
-
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
             <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
@@ -109,8 +73,7 @@
               &copy; 2025 vbn262.com 版权所有
               <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank"><h5>鲁ICP备2025163733号-1</h5></a>
             </h5>
-        </footer>
-    
+    </footer>
     <script>
       //页面切换核心逻辑
       function switchPage(targetId) {
@@ -140,7 +103,7 @@
         mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
         menuToggle.firstElementChild.className = `fas fa-${mobileNav.style.display === 'block' ? 'times' : 'bars'}`;
       });
-
+      
       //时间更新函数
       function updateTime() {
         const date = new Date();
