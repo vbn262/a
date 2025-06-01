@@ -6,16 +6,17 @@
     <title>VBN262直播</title>
     <time id="auto-date" datetime="${year}-${month}-${day}"></time>
     <style>
-    :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink; /*新增选中状态颜色*/
+    :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
     }
-    *{margin: 0;}
+    * {margin: 0;
+    }
     body {text-align: center;margin-top: 99px;
     }
     .header {position: fixed;top: 0;left: 0;right: 0;display: flex;align-items: center;
       justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
     }
     .nav-item {display: flex;align-items: center;text-decoration: none;color: var(--text-color);
-      padding: 9px;cursor: pointer;transition: color 0.3s ease; /*新增过渡效果*/
+      padding: 9px;cursor: pointer;transition: color 0.3s ease;
     }
     .nav-item.active {color: var(--active-color); /*选中状态样式*/font-weight: bold;
     }
@@ -34,12 +35,12 @@
   <body>
     <header class="header">
       <a href="#home" class="home-link active" id="home-link" style="color: pink;padding: 9px;z-index: 1;"><i class="fas">vbn262直播</i></a><a href="#live" class="live-link" id="live-link" style="color: #000;"><i class="fas fa-download">APP</i></a>
-      <div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div><div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;"><h3><a href="https://www.vbn262.com" class="fas" style="color: var(--text-color);margin-top: 55px;">www.vbn262.com</a></h3><h3><a href="https://vbn262.github.io/mj/1.html" class="fas" style="color: var(--text-color);">mj.vbn262.com</a></h3></div>
+      <div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div><div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;"><h3><a href="" class="fas" style="color: var(--text-color);margin-top: 55px;">zb.vbn262.com</a></h3><h3><a href="https://space.bilibili.com/1414517639" class="fas" style="color: var(--text-color);">联系</a></h3></div>
     </header>
     <!-- 页面内容 -->
     <div id="main-content">
       <div id="home" class="page-content active"><h1>本网站自己独立完成</h1><div id="clock" style="font-size: 3rem;"></div><h1>当前<span id="footer-date"></span></h1><h1 class="far fa-calendar-check">2024/9开始做网页</h1></div>
-      <div id="live" class="page-content"></h1><h1 onclick="dapp()"><i class="fas">DOWNLOAD</i></h1></div>
+      <div id="live" class="page-content"></h1><h1 onclick="app()"><i class="fas">DOWNLOAD</i></h1></div>
     </div>
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -97,7 +98,7 @@
         document.getElementById('footer-date').textContent = `${year}年${month}/${day}日`;
       }
       window.onload = updateFooterDate;
-      const dapp=()=>alert('APP下载功能即将开放，敬请期待！');
+      const app=()=>alert('APP下载功能即将开放，敬请期待！');
     </script>
   </body>
 </html>
