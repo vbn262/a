@@ -30,6 +30,55 @@
     }
     .page-content.active {display: block; 
     }
+    .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-footer {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.modal-footer button {
+  padding: 8px 16px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
     </style>
   </head>
   <body>
@@ -101,7 +150,46 @@
         document.getElementById('footer-date').textContent = `${year}年${month}/${day}日`;
       }
       window.onload = updateFooterDate;
-      const app=()=>alert('暂无');
+
+      function app() {
+  // 创建模态框
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>APP下载</h2>
+      <p>目前暂无APP下载链接，敬请期待！</p>
+      <div class="modal-footer">
+        <button id="close-modal">确定</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // 关闭模态框
+  const closeBtn = modal.querySelector('.close');
+  const closeModalBtn = document.getElementById('close-modal');
+  
+  function closeModal() {
+    modal.style.opacity = '0';
+    setTimeout(() => {
+      document.body.removeChild(modal);
+    }, 300);
+  }
+  
+  closeBtn.addEventListener('click', closeModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  
+  // 显示模态框动画
+  setTimeout(() => {
+    modal.style.opacity = '1';
+  }, 10);
+}
     </script>
   </body>
 </html>
