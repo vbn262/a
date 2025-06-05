@@ -17,7 +17,7 @@
 
       .header {
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
         display: flex;
@@ -52,7 +52,7 @@
       .menu-nav {
         display: none;
         position: fixed;
-        top: 56px; /* 导航栏高度 */
+        top: -56px; /* 导航栏高度 */
         left: 0;
         right: 0;
         background: #fff;
@@ -84,22 +84,12 @@
       <a href="#home" class="nav-item active" id="home-link"><i class="fas fa-live"></i> VBN262直播</a>
       <a href="#live" class="nav-item" id="live-link"><i class="fas fa-download"></i> APP下载</a>
       <div class="nav-item" id="menu-toggle"><i class="fas fa-bars"></i></div>
-      <div class="menu-nav" id="menu-nav">
-        <h3 style="margin-bottom: 9px;">网站名称：VBN262直播</h3>
-        <h3>zb.vbn262.com</h3>
-      </div>
+      <div class="menu-nav" id="menu-nav"><h3>网站名称：VBN262直播</h3><h3>zb.vbn262.com</h3></div>
     </header>
 
     <div id="main-content">
-      <div id="home" class="page-content active">
-        <h1>当前<span id="footer-date"></span></h1>
-        <div id="clock" style="font-size: 3rem;"></div>
-      </div>
-      <div id="live" class="page-content">
-        <button class="nav-item" onclick="appDownload()">
-          <i class="fas fa-download"></i> 立即下载APP
-        </button>
-      </div>
+      <div class="page-content active"><h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div></div>
+      <div onclick="appDownload()"><i class="fas fa-download"></i> 立即下载APP</div>
     </div>
 
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 9px;">
@@ -111,33 +101,8 @@
     </footer>
 
     <script>
-      // 页面切换逻辑（事件委托优化）
-      const header = document.querySelector('.header');
-      header.addEventListener('click', (e) => {
-        const target = e.target.closest('.nav-item');
-        if (target && target.classList.contains('nav-item')) {
-          const targetId = target.getAttribute('href')?.substring(1) || '';
-          switchPage(targetId);
-        }
-      });
-
-      function switchPage(targetId) {
-        document.querySelectorAll('.nav-item').forEach(link => link.classList.remove('active'));
-        document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
-        if (targetId) {
-          document.getElementById(targetId)?.classList.add('active');
-          document.getElementById(`${targetId}-link`)?.classList.add('active');
-        }
-        closeMobileNav();
-      }
-
-      // 移动端菜单
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileNav = document.getElementById('menu-nav');
-      menuToggle.addEventListener('click', () => {
-        mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
-        menuToggle.firstElementChild.className = `fas fa-${mobileNav.style.display === 'block' ? 'times' : 'bars'}`;
-      });
+      const app=()=>alert('暂无');const mT=document.getElementById('menu-toggle'),mN=document.getElementById('mobile-nav');
+      mT.onclick=()=>{mN.style.display=mN.style.display==='block'?'none':'block';mT.firstElementChild.className=`fas fa-${mN.style.display==='block'?'times':'bars'}`;};
 
       // 时间与日期更新
       function updateTime() {
