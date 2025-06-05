@@ -77,15 +77,12 @@
       //绑定导航点击事件
       document.getElementById('home-link').addEventListener('click', () => switchPage('home'));
       document.getElementById('live-link').addEventListener('click', () => switchPage('live'));
-      // 移动端菜单切换（优化后）
+      //移动端菜单切换
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('menu-nav');
       menuToggle.addEventListener('click', () => {
-        const isOpen = mobileNav.style.display === 'block';
-        mobileNav.style.display = isOpen ? 'none' : 'block';
-        menuToggle.classList.toggle('fa-bars', !isOpen); // 显示bars图标
-        menuToggle.classList.toggle('fa-times', isOpen); // 显示times图标
-
-        // 锁定/解锁页面滚动
-        document.body.style.overflow = isOpen ? 'auto' : 'hidden';
+        mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+        menuToggle.firstElementChild.className = `fas fa-${mobileNav.style.display === 'block' ? 'times' : 'bars'}`;
       });
       
       //时间更新函数
