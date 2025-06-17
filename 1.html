@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>zb-VBN262ZB-风鸣玄太官网</title>
+    <title>zb-风鸣玄太直播-风鸣玄太官网</title>
     <time id="auto-date" datetime="${year}-${month}-${day}"></time>
     <style>
     :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
@@ -36,11 +36,11 @@
   <body>
     <header class="header">
       <div style="z-index: 1;"><a href="#home" class="home-link active" id="home-link" style="color: pink;padding: 9px;"><i class="fas">ZB</i></a></div><div style="z-index: 1;"><a href="#live" class="live-link" id="live-link" style="color: #000;"><i class="fas fa-download">APP</i></a></div><div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div>
-      <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;"><h3 class="fas" style="color: var(--text-color);">网站名字: VBN262直播</h3><h3><a href="" class="fas" style="color: var(--text-color);">zb.vbn262.com</a></h3></div>
+      <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;"><h3 class="fas" style="color: var(--text-color);">网站名字: 风鸣玄太直播</h3><h3><a href="" class="fas" style="color: var(--text-color);">zb.vbn262.com</a></h3></div>
     </header>
     <div id="main-content">
       <div id="home" class="page-content active"><h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div></div>
-      <div id="live" class="page-content"><h1 onclick="app()"><i class="fas">DOWNLOAD</i></h1><h1 class="fas">只有手机版</h1><h3>Android</h3><h3>iOS</h3></div>
+      <div id="live" class="page-content"><h1 onclick="app()"><i class="fas">DOWNLOAD</i></h1><h3>Android</h3><h3>iOS</h3></div>
     </div>
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 50px;">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -84,8 +84,7 @@
         const timeString = date.toTimeString().slice(0, 8);//简化时间格式
         document.getElementById('clock').textContent = timeString;
       }
-      window.onload = updateTime;
-      setInterval(updateTime, 1000);
+      window.onload = updateTime;setInterval(updateTime, 1000);
       //日期更新函数
       function updateFooterDate() {const date = new Date();
         const year = date.getFullYear();
