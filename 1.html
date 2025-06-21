@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>zb-风鸣玄太直播-风鸣玄太官网</title>
     <time id="auto-date" datetime="${year}-${month}-${day}"></time>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
     :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
     }
-    * {margin: 0;
+    * {margin: 0;box-sizing: border-box;
     }
-    body {text-align: center;margin-top: 99px;
+    body {text-align: center;margin-top: 99px;font-family: Arial, sans-serif;
     }
     .header {position: fixed;bottom: 0;left: 0;right: 0;display: flex;align-items: center;
       justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
@@ -18,32 +19,52 @@
     .nav-item {display: flex;align-items: center;text-decoration: none;color: var(--text-color);
       padding: 9px;cursor: pointer;transition: color 0.3s ease;
     }
-    .nav-item.active {color: var(--active-color); /*选中状态样式*/font-weight: bold;
+    .nav-item.active {color: var(--active-color);font-weight: bold;
     }
     .nav-item i {font-size: 1rem;margin-right: 6px;
     }
-    .menu-nav {display: none;position: fixed;top: 0; /* 导航栏高度 */left: 0;
-        right: 0;background: #fff;max-height: 20vh;overflow-y: auto;
-        padding: 18px;box-sizing: border-box;border-bottom: 1px solid #333;
+    .menu-nav {display: none;position: fixed;top: 0;left: 0;right: 0;background: #fff;max-height: 20vh;
+      overflow-y: auto;padding: 18px;box-sizing: border-box;border-bottom: 1px solid #333;z-index: 100;
     }
-    /*激活头部导航栏*//*所有页面默认隐藏*/
-    .page-content {display: none; 
+    .page-content {display: none;
     }
-    .page-content.active {display: block; 
+    .page-content.active {display: block;
+    }
+    .download-btn {display: inline-block;background-color: #ff69b4;color: white;padding: 10px 20px;
+      margin: 10px;border-radius: 5px;text-decoration: none;font-weight: bold;
+    }
+    .download-btn:hover {background-color: #ff1493;
     }
     </style>
   </head>
   <body>
     <header class="header">
-      <div style="z-index: 1;"><a href="#home" class="home-link active" id="home-link" style="color: pink;padding: 9px;"><i class="fas">ZB</i></a></div><div style="z-index: 1;"><a href="#live" class="live-link" id="live-link" style="color: #000;"><i class="fas fa-download">APP</i></a></div><div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div>
-      <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;"><h3 class="fas" style="color: var(--text-color);">网站名字: 风鸣玄太直播</h3><h3><a href="" class="fas" style="color: var(--text-color);">zb.vbn262.com</a></h3></div>
+      <div style="z-index: 1;"><a href="#home" class="home-link active" id="home-link" style="color: pink;padding: 9px;"><i  class="fas">ZB</i></a></div>
+      <div style="z-index: 1;"><a href="#live" class="live-link" id="live-link" style="color: #000;"><i class="fas fa-download">APP</i></a></div>
+      <div class="nav-item" id="menu-toggle" style="z-index: 1;"><i class="fas fa-bars"></i></div>
+      <div class="menu-nav" id="menu-nav" style="text-align: center;border-bottom: 1px solid #333;">
+        <h3 class="fas" style="color: var(--text-color);">网站名字: 风鸣玄太直播</h3>
+        <h3><a href="" class="fas" style="color: var(--text-color);">zb.vbn262.com</a></h3>
+      </div>
     </header>
     <div id="main-content">
-      <div id="home" class="page-content active"><h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div></div>
-      <div id="live" class="page-content"><h1 onclick="app()"><i class="fas">DOWNLOAD</i></h1><h3>Android</h3><h3>iOS</h3></div>
+      <div id="home" class="page-content active">
+        <h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div>
+      </div>
+      <div id="live" class="page-content">
+        <h1>下载APP观看直播</h1>
+        <a href="#" class="download-btn" onclick="app()"><i class="fab fa-android"></i> Android</a>
+        <a href="#" class="download-btn" onclick="app()"><i class="fab fa-apple"></i> iOS</a>
+        <div style="margin-top: 20px;">
+          <p>扫描下方二维码下载APP</p>
+          <div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;">
+            <!-- 二维码位置 -->
+            <p>二维码图片</p>
+          </div>
+        </div>
+      </div>
     </div>
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-top: 9px;margin-bottom: 50px;">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
       <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
       <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
       <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
@@ -81,21 +102,26 @@
       
       //时间更新函数
       function updateTime() {const date = new Date();
-        const timeString = date.toTimeString().slice(0, 8);//简化时间格式
+        const timeString = date.toTimeString().slice(0, 8);
         document.getElementById('clock').textContent = timeString;
       }
-      window.onload = updateTime;setInterval(updateTime, 1000);
       //日期更新函数
       function updateFooterDate() {const date = new Date();
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
-        document.getElementById('footer-date').textContent = `${year}年${month}/${day}日`;
+        document.getElementById('footer-date').textContent = `${year}年${month}月${day}日`;
       }
-      window.onload = updateFooterDate;
-
+      
       // APP下载功能
-      function app() {alert('暂无');}
+      function app() {alert('暂无下载链接，敬请期待！');}
+      
+      // 初始化页面
+      window.onload = function() {
+        updateTime();
+        setInterval(updateTime, 1000);
+        updateFooterDate();
+      };
     </script>
   </body>
 </html>
