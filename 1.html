@@ -10,7 +10,7 @@
     }
     * {margin: 0;box-sizing: border-box;
     }
-    body {text-align: center;margin-top: 99px;font-family: Arial, sans-serif;
+    body {text-align: center;font-family: Arial, sans-serif;
     }
     .header {position: fixed;bottom: 0;left: 0;right: 0;display: flex;align-items: center;
       justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
@@ -48,24 +48,14 @@
   </header>
   <div id="main-content">
     <div id="home" class="page-content active">
+      <div style="margin-top: 9px;"><img src="https://picsum.photos/600/300" alt="风鸣玄太直播宣传图" style="max-width: 100%; border-radius: 10px;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
       <h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div>
-      <div style="margin-top: 30px;">
-        <img src="https://picsum.photos/600/300" alt="风鸣玄太直播宣传图" 
-          style="max-width: 100%; border-radius: 10px;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-      </div>
-      </div>
-    <div id="live" class="page-content">
-      <h1>下载APP观看直播</h1>
-      <a href="#" class="download-btn" onclick="app()"><i class="fab fa-android"></i> Android</a>
-      <a href="#" class="download-btn" onclick="app()"><i class="fab fa-apple"></i> iOS</a>
-      <div style="margin-top: 20px;">
-        <p>扫描下方二维码下载APP</p>
-        <div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;">
-          <!-- 二维码位置 -->
-          <p>二维码图片</p>
-        </div>
-      </div>
     </div>
+    <div id="live" class="page-content">
+      <h1 style="margin-top: 9px;">下载APP观看直播</h1><a href="#" class="download-btn" onclick="app()"><i class="fab fa-android"></i> Android</a><a href="#" class="download-btn" onclick="app()"><i class="fab fa-apple"></i> iOS</a>
+      <div style="margin-top: 20px;">
+        <p>扫描下方二维码下载APP</p><div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;"><!-- 二维码位置 --><p>二维码图片</p></div>
+      </div></div>
     </div>
   
     <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
