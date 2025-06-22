@@ -6,42 +6,34 @@
     <title>zb-风鸣玄太直播-风鸣玄太官网</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-      :root {--bg-color: #ffffff;--text-color: #333333;--secondary-text-color: #666666;--active-color: #ff69b4;
-            }
-      * {margin: 0;padding: 0;box-sizing: border-box;
-        }
-      body {font-family: 'Arial', sans-serif;background-color: var(--bg-color);color: var(--text-color);margin-top: 99px;
-           }
-      .header {width: 100%;position: fixed;align-items: center;justify-content: space-around;display: flex;
-        z-index: 1;bottom: 0;background: linear-gradient(135deg, #fef 9%, pink 100%);
-              }
-      .nav-item {display: flex;flex-direction: column;align-items: center;text-decoration: none;
-            color: var(--text-color);padding: 0px 99px 9px 0;transition: color 0.3s ease;
-                }
-      .nav-item.active {color: var(--active-color);font-weight: bold;
-                       }
-      .nav-item i {font-size: 2rem;
-                  }
-      .menu-nav {display: none;position: fixed;top: 0;left: 0;right: 0;background: var(--bg-color);max-height: 20vh;
-            overflow-y: auto;padding: 20px;margin: 0 auto;border-bottom: 1px solid #eeeeee;z-index: 100;
-                }
-      .page-content {display: none;flex: 1;max-width: 999px;margin: 0 auto;
-                    }
-      .page-content.active {display: block;
-                           }
-      .download-btn {display: inline-block;background-color: var(--active-color);color: white;padding: 12px 24px;
-            margin: 15px 10px;border-radius: 5px;text-decoration: none;font-weight: bold;
-            transition: background-color 0.3s ease;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    }
-      .download-btn:hover {background-color: #ff1493;transform: translateY(-2px);box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-                          }
-      .download-btn i {margin-right: 8px;
-        }
-      .qrcode-container {width: 180px;height: 180px;background-color: #f8f9fa;margin: 20px auto;display: flex;
-            align-items: center;justify-content: center;border-radius: 10px;box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-                        }
-      #clock {font-size: 3.5rem;margin: 20px 0;font-weight: bold;color: var(--text-color);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-             }
+      :root {--bg-color: #fefefe;--text-color: #333;--secondary-text-color: #666;--active-color: pink;
+    }
+    * {margin: 0;box-sizing: border-box;
+    }
+    body {text-align: center;margin-top: 99px;font-family: Arial, sans-serif;
+    }
+    .header {position: fixed;bottom: 0;left: 0;right: 0;display: flex;align-items: center;
+      justify-content: space-between;background: linear-gradient(135deg, #fef 9%, pink 100%);
+    }
+    .nav-item {display: flex;align-items: center;text-decoration: none;color: var(--text-color);
+      padding: 9px;cursor: pointer;transition: color 0.3s ease;
+    }
+    .nav-item.active {color: var(--active-color);font-weight: bold;
+    }
+    .nav-item i {font-size: 1rem;margin-right: 6px;
+    }
+    .menu-nav {display: none;position: fixed;top: 0;left: 0;right: 0;background: #fff;max-height: 20vh;
+      overflow-y: auto;padding: 18px;box-sizing: border-box;border-bottom: 1px solid #333;z-index: 100;
+    }
+    .page-content {display: none;
+    }
+    .page-content.active {display: block;
+    }
+    .download-btn {display: inline-block;background-color: #ff69b4;color: white;padding: 10px 20px;
+      margin: 10px;border-radius: 5px;text-decoration: none;font-weight: bold;
+    }
+    .download-btn:hover {background-color: #ff1493;
+    }
     </style>
 </head>
 <body>
@@ -56,35 +48,33 @@
   </header>
   <div id="main-content">
     <div id="home" class="page-content active">
-      <h1>公历<span id="footer-date"></span></h1>
-      <div id="clock"></div>
+      <h1>当前<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div>
       <div style="margin-top: 30px;">
         <img src="https://picsum.photos/600/300" alt="风鸣玄太直播宣传图" 
           style="max-width: 100%; border-radius: 10px;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
       </div>
-    </div>
-    <div id="live" class="page-content">
-      <h1 style="margin-bottom: 20px;">下载APP观看直播</h1>
-      <div>
-        <a href="#" class="download-btn" onclick="appDownload()"><i class="fab fa-android"></i> Android</a>
-        <a href="#" class="download-btn" onclick="appDownload()"><i class="fab fa-apple"></i> iOS</a>
       </div>
-      <div class="qrcode-container"><p>扫描二维码下载APP</p></div>
+    <div id="live" class="page-content">
+      <h1>下载APP观看直播</h1>
+      <a href="#" class="download-btn" onclick="app()"><i class="fab fa-android"></i> Android</a>
+      <a href="#" class="download-btn" onclick="app()"><i class="fab fa-apple"></i> iOS</a>
+      <div style="margin-top: 20px;">
+        <p>扫描下方二维码下载APP</p>
+        <div style="width: 150px; height: 150px; background-color: #eee; margin: 10px auto;">
+          <!-- 二维码位置 -->
+          <p>二维码图片</p>
+        </div>
+      </div>
     </div>
     </div>
   
-    <footer class="bg-white">
-      <div class="container mx-auto px-4 text-center"style="margin: 0 auto;border: 1px solid pink;margin-bottom: 99px;">
-        <div class="flex justify-center space-x-6 mb-4">
-          <a href="https://space.bilibili.com/1414517639" target="_blank" class="text-text-secondary hover:text-primary transition-custom"><i class="fab fa-bilibili text-2xl"></i></a>
-          <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-text-secondary hover:text-primary transition-custom"><i class="fab fa-tiktok text-2xl"></i></a>
-          <a href="https://www.weibo.com" target="_blank" class="text-text-secondary hover:text-primary transition-custom"><i class="fab fa-weibo text-2xl"></i></a>
-        </div>
-        <p class="text-text-secondary text-sm mb-2">Copyright © 2025 vbn262.com All Rights Reserved</p>
-        <p class="text-text-secondary text-sm">风鸣玄太工作室 版权所有 <a href="https://beian.miit.gov.cn" target="_blank" class="text-primary hover:underline">鲁ICP备2025163733号-1</a></p>
-      </div>
+    <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+      <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
+      <a href="https://www.weibo.com" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
+      <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5>风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank"> 鲁ICP备2025163733号-1</a></h5>
     </footer>
-
     
     <script>
         // 页面切换逻辑
@@ -132,7 +122,7 @@
         }
         
         // APP下载功能
-        function appDownload() {
+        function app() {
             alert('感谢您的关注！APP正在开发中，敬请期待！');
         }
         
