@@ -92,16 +92,13 @@
 
   <!-- 主内容区 -->
   <main class="container mx-auto flex-grow">
-    <div id="home" class="page-content active">
-      <div style="margin-top: 9px;"><img src="https://picsum.photos/600/300" alt="风鸣玄太直播宣传图" style="max-width: 100%; border-radius: 10px;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
-      <h1>公历<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div>
-    </div>
+    <div id="home" class="page-content active"><h1 style="margin-top: 9px;">公历<span id="footer-date"></span></h1><div id="clock" style="font-size: 3rem;"></div></div>
     
     <div id="live" class="page-content hidden">
       <div class="bg-white rounded-xl p-6 shadow-md mb-8 text-center">
         <h1 class="text-xl font-bold mb-4">下载APP观看直播</h1>
-        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 max-w-md mx-auto">
+          
           <a href="#" class="live-badge bg-white border border-primary/30 rounded-xl p-4 flex items-center justify-center hover:border-primary transition-all hover-scale">
             <i class="fab fa-android text-3xl text-primary mr-3"></i>
             <div class="text-left">
@@ -109,6 +106,7 @@
               <div class="font-medium">Android</div>
             </div>
           </a>
+          
           <a href="#" class="live-badge bg-white border border-primary/30 rounded-xl p-4 flex items-center justify-center hover:border-primary transition-all hover-scale">
             <i class="fab fa-apple text-3xl text-primary mr-3"></i>
             <div class="text-left">
@@ -134,16 +132,13 @@
 <footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-[0_-2px_10px_rgba(0,0,0,0.05)] z-40">
   <div class="grid grid-cols-3 gap-1">
     <a href="#home" class="nav-item flex flex-col items-center justify-center p-3 text-primary" id="home-link" onclick="switchPage('home')">
-      <i class="fas fa-home text-lg"></i>
-      <span class="text-xs mt-1">首页</span>
+      <i class="fas fa-home text-lg"></i><span class="text-xs mt-1">首页</span>
     </a>
     <a href="#live" class="nav-item flex flex-col items-center justify-center p-3 text-gray-dark hover:text-primary transition-colors" id="live-link" onclick="switchPage('live')">
-      <i class="fas fa-download text-lg"></i>
-      <span class="text-xs mt-1">下载</span>
+      <i class="fas fa-download text-lg"></i><span class="text-xs mt-1">下载</span>
     </a>
     <button class="nav-item flex flex-col items-center justify-center p-3 text-gray-dark hover:text-primary transition-colors" id="menu-toggle">
-      <i class="fas fa-bars text-lg"></i>
-      <span class="text-xs mt-1">菜单</span>
+      <i class="fas fa-bars text-lg"></i><span class="text-xs mt-1">菜单</span>
     </button>
   </div>
 </footer>
@@ -152,12 +147,15 @@
   <div class="mb-24 pb-6">
     <div class="container mx-auto px-4 text-center text-sm text-gray-dark">
       <div class="flex justify-center space-x-4 mb-3">
-<button class="rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center hover:scale-105 transition-transform">
+        <button class="rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center hover:scale-105 transition-transform">
           <i class="fas fa-user text-white"></i>
         </button>
         <!-- 平台链接 -->
       <div class="bg-white rounded-xl p-6 shadow-md mb-8">
-        <h2 class="text-lg font-bold mb-4 text-center">关注我们的其他平台</h2>
+        <h2 class="text-lg font-bold mb-4 text-center">
+          关注我们的其他平台<a href="#" class="hover:text-primary transition-colors">隐私政策</a>
+          <a href="#" class="hover:text-primary transition-colors">用户协议</a>
+        </h2>
         <div class="flex justify-center space-x-8">
           <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili" class="text-3xl text-gray-dark hover:text-primary transition-colors">
             <i class="fab fa-bilibili"></i>
@@ -170,8 +168,7 @@
           </a>
         </div>
       </div>
-        <a href="#" class="hover:text-primary transition-colors">隐私政策</a>
-        <a href="#" class="hover:text-primary transition-colors">用户协议</a>
+        
       </div>
       <p>Copyright © 2025 vbn262.com All Rights Reserved</p>
       <p>风鸣玄太工作室 版权所有 <a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors">鲁ICP备2025163733号-1</a></p>
