@@ -3,15 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>风鸣玄太直播</title>
+  <title>风鸣玄太直播-www.vbn262.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff69b4',
+            secondary: '#ff1493',
+            android: '#3DDC84',
+            ios: '#000000',
+            windows: '#0078D7',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .nav-height {
+        height: 80px; /* 恢复原高度 */
+      }
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .btn-gradient {
+        background: linear-gradient(135deg, #ff1493, #ff69b4);
+      }
+      .nav-item-active {
+        color: var(--active-color);
+        border-bottom: 2px solid var(--active-color); /* 增强活跃状态指示 */
+      }
+    }
+  </style>
   <style>
-    * {margin: 0;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     
     body {
       padding-bottom: var(--nav-height);
---active-color: #ff69b4;
+      --active-color: #ff69b4;
+      font-family: 'Inter', system-ui, sans-serif;
     }
     
     /* 底部导航栏 */
@@ -34,21 +83,23 @@
     
     .nav-item {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       color: #333;
       flex: 1;
       position: relative;
-    }
-    
-    .nav-item.active {
-      color: var(--active-color);
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
     
     .nav-item i {
-      font-size: 2rem;
+      margin-right: 8px;
+      font-size: 1.5rem; /* 显著增大图标尺寸 */
+    }
+    
+    .nav-item span {
+      font-size: 1.2rem; /* 增大文字尺寸到标准大小 */
     }
     
     /* 菜单内容 */
@@ -66,8 +117,8 @@
     
     /* 主要内容 */
     .content-container {
-text-align: center;
-margin: 0 auto;
+      text-align: center;
+      margin: 0 auto;
     }
     
     .page-content {
@@ -79,112 +130,113 @@ margin: 0 auto;
     }
     
     /* 下载按钮 */
-    .download {
-      display: inline-block;
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       color: white;
       padding: 12px 30px;
-      background: linear-gradient(135deg, #ff1493, #ff69b4);
       margin: 10px;
       border-radius: 30px;
       text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* 动画效果 */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <!-- 菜单内容 -->
-  <div class="menu-content" id="menu-content">
-    <div class="content-container"><h1 style="color: var(--active-color);">风鸣玄太直播官网 zb.vbn262.com</a></h1></div>
-  </div>
-
   <!-- 主内容 -->
   <div class="content-container">
-    <div id="home" class="page-content active">
-      <img src="https://picsum.photos/600/350?random=1" alt="宣传图" style="width:100%;max-width:600px;margin:15px auto;border-radius:15px;">
-      <h1>公历<span id="footer-date"></span></h1>
-      <div id="clock" style="font-size:3rem;color:var(--active-color);"></div>
+    <div id="home" class="page-content active fade-in">
+      <img src="https://picsum.photos/600/350?random=1" alt="风鸣玄太直播宣传图" class="w-full max-w-md mx-auto rounded-xl shadow-lg mb-6">
+      <h1 class="text-2xl font-bold mb-2">公历<span id="footer-date"></span></h1><div id="clock" class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary my-4"></div>
     </div>
-    
-    <div id="live" class="page-content">
-      <h1>下载APP观看直播</h1>
-      <div>
-        <a href="" class="download"><i class="fab fa-android"></i> Android</a>
-        <a href="" class="download"><i class="fab fa-apple"></i> iOS</a>
-        <a href="" class="download"><i class="fab fa-windows"></i> Windows</a>
-      </div>
+ </div>
+  <div id="live" class="page-content fade-in">
+    <h1 class="text-2xl font-bold mb-6 max-w-md mx-auto">下载APP观看直播</h1>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <a href="#" class="download-btn bg-[#3DDC84] hover:bg-[#34C759] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"><i class="fa-brands fa-android text-2xl"></i> Android</a>
+      <a href="#" class="download-btn bg-black hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"><i class="fa-brands fa-apple text-2xl"></i> iOS</a>
+      <a href="#" class="download-btn bg-[#0078D7] hover:bg-[#0063B1] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2"><i class="fa-brands fa-windows text-2xl"></i> Windows</a>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-lg max-w-md mx-auto">
+      <h3 class="font-bold text-lg mb-4">APP特色功能</h3>
+      <ul class="text-left space-y-2">
+        <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>支持8k画质流畅直播体验，支持多画质切换2k一下都是码率3Mpbs，1080p一下不锁码率</p></span></li>
+        <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>直播工作，签上不能毁约最低签壹年最高签叁拾年<p>毁约受法律的制裁</p></span></li>
+        <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>上传1080p视频一下不超20分钟不锁码率<p>720p一下不超30分钟不锁码率</p><p>540p一下不超60分钟不锁码率</p><p>360p一下限分钟不锁码率</p></span></li>
+        <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>看视频直播就来风鸣玄太直播app</span></li>
+      </ul>
     </div>
   </div>
-  
-  <footer style="margin: 0 auto;max-width: 999px;border: 1px solid pink;margin-bottom: 99px;text-align: center;">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-      <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #333;font-size: 2rem;"></i></a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #333;font-size: 2rem;"></i></a>
-      <a href="https://weibo.com/u/8007354845" target="_blank" title="微博"><i class="fab fa-weibo" style="color: #333;font-size: 2rem;"></i></a>
-      <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5>风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank"> 鲁ICP备2025163733号-1</a></h5>
+  <!-- 菜单内容 --><div class="menu-content" id="menu-content"><div class="content-container"><div class="text-3xl font-bold mx-auto">风鸣玄太直播官网 zb.vbn262.com</div></div></div>
+  <footer class="mt-10 mb-20 text-center">
+    <div class="flex justify-center space-x-6 mb-4">
+      <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-bilibili text-2xl"></i></a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-tiktok text-2xl"></i></a>
+      <a href="https://weibo.com/u/8007354845" target="_blank" title="微博" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-weibo text-2xl"></i></a>
+    </div>
+    <h5 class="text-gray-500 text-sm mb-2">Copyright © 2025 vbn262.com All Rights Reserved</h5>
+    <h5 class="text-gray-500 text-sm">风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-500 hover:text-primary"> 鲁ICP备2025163733号-1</a></h5>
   </footer>
-  
   <!-- 底部导航栏 -->
   <header class="header">
     <div class="nav-items-wrapper">
-      <a href="#home" class="nav-item active" id="home-link"><i class="fas fa-home"></i><span>首页</span></a>
+      <a href="#home" class="nav-item nav-item-active" id="home-link"><i class="fas fa-home"></i><span>首页</span></a>
       <a href="#live" class="nav-item" id="live-link"><i class="fas fa-download"></i><span>下载</span></a>
       <a href="#menu" class="nav-item" id="menu-link"><i class="fas fa-bars"></i><span>菜单</span></a>
     </div>
   </header>
-
   <script>
     // 页面切换
     function switchPage(targetId) {
-      document.querySelectorAll('.nav-item').forEach(link => link.classList.remove('active'));
-      document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
-      
+      document.querySelectorAll('.nav-item').forEach(link => {link.classList.remove('nav-item-active');});
+      document.querySelectorAll('.page-content').forEach(content => {content.classList.remove('active');});
       const target = document.getElementById(targetId);
-      if(target) {
-        target.classList.add('active');
-        document.getElementById(`${targetId}-link`).classList.add('active');
+      if (target) {target.classList.add('active');
+        document.getElementById(`${targetId}-link`).classList.add('nav-item-active');
         window.scrollTo(0, 0);
       }
     }
-    
     // 菜单切换
-    function toggleMenu() {
-      const menu = document.getElementById('menu-content');
-      const isOpen = menu.style.display === 'block';
-      menu.style.display = isOpen ? 'none' : 'block';
-      
+    function toggleMenu() {const menu = document.getElementById('menu-content');
+      const isOpen = menu.style.display === 'block';menu.style.display = isOpen ? 'none' : 'block';
       // 切换菜单图标
-      const menuIcon = document.querySelector('#menu-link i');
-      menuIcon.className = isOpen ? 'fas fa-bars' : 'fas fa-times';
+      const menuIcon = document.querySelector('#menu-link i');menuIcon.className = isOpen ? 'fas fa-bars' : 'fas fa-times';
     }
-    
     // 时钟和日期
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('clock').textContent = 
+    function updateTime() {const now = new Date();document.getElementById('clock').textContent = 
         [now.getHours(), now.getMinutes(), now.getSeconds()].map(v => v.toString().padStart(2, '0')).join(':');
-      
-      const weekdays = ['日','一','二','三','四','五','六'];
-      document.getElementById('footer-date').textContent = 
-        `${now.getFullYear()}年${(now.getMonth()+1).toString().padStart(2,'0')}月${now.getDate().toString().padStart(2,'0')}日 星期${weekdays[now.getDay()]}`;
+      const weekdays = ['日', '一', '二', '三', '四', '五', '六'];document.getElementById('footer-date').textContent = 
+        `${now.getFullYear()}年${(now.getMonth() + 1).toString().padStart(2, '0')}月${now.getDate().toString().padStart(2, '0')}日 星期${weekdays[now.getDay()]}`;
     }
-    
     // 事件监听
-    document.getElementById('home-link').addEventListener('click', e => { e.preventDefault(); switchPage('home'); });
-    document.getElementById('live-link').addEventListener('click', e => { e.preventDefault(); switchPage('live'); });
-    document.getElementById('menu-link').addEventListener('click', e => { e.preventDefault(); toggleMenu(); });
-    
+    document.getElementById('home-link').addEventListener('click', e => {e.preventDefault();switchPage('home');});
+    document.getElementById('live-link').addEventListener('click', e => {e.preventDefault();switchPage('live');});
+    document.getElementById('menu-link').addEventListener('click', e => {e.preventDefault();toggleMenu();});
     // 点击菜单外区域关闭菜单
-    document.addEventListener('click', (e) => {
-      const menu = document.getElementById('menu-content');
+    document.addEventListener('click', (e) => {const menu = document.getElementById('menu-content');
       const menuLink = document.getElementById('menu-link');
-      
-      if(menu.style.display === 'block' && !menu.contains(e.target) && e.target !== menuLink && !menuLink.contains(e.target)) {
-        toggleMenu();
-      }
+      if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== menuLink && !menuLink.contains(e.target)) {toggleMenu();}
     });
-    
     // 初始化
-    updateTime();
-    setInterval(updateTime, 1000);
+    updateTime();setInterval(updateTime, 1000);
   </script>
 </body>
 </html>
