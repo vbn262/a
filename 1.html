@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>风鸣玄太直播-www.vbn262.com</title>
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+  <!-- CSS 资源 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
   <!-- Tailwind 配置 -->
   <script>
     tailwind.config = {
@@ -158,6 +161,34 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    /* 页脚样式 */
+    .site-footer {
+      margin: 0 auto;
+      max-width: 999px;
+      border: 1px solid #FFCCD5;
+      margin-bottom: 99px;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .site-footer a {
+      margin: 0 10px;
+    }
+    
+    .site-footer i {
+      color: #333;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+    
+    .site-footer i:hover {
+      color: #FF4D8D;
+    }
+    
+    .site-footer h5 {
+      margin: 10px 0;
+      color: #606770;
+    }
   </style>
 </head>
 <body>
@@ -194,14 +225,12 @@
       <a href="#menu" class="nav-item" id="menu-link"><i class="fas fa-bars"></i><span>菜单</span></a>
     </div>
   </header>
-  <footer class="mt-10 mb-20 text-center">
-    <div class="flex justify-center space-x-6 mb-4">
-      <a href="https://space.bilibili.com/1414517639" target="_blank" title="Bilibili" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-bilibili text-2xl"></i></a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" title="抖音" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-tiktok text-2xl"></i></a>
-      <a href="https://weibo.com/u/8007354845" target="_blank" title="微博" class="text-gray-600 hover:text-primary transition-colors"><i class="fab fa-weibo text-2xl"></i></a>
-    </div>
-    <h5 class="text-gray-500 text-sm mb-2">Copyright © 2025 vbn262.com All Rights Reserved</h5>
-    <h5 class="text-gray-500 text-sm">风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" class="text-gray-500 hover:text-primary"> 鲁ICP备2025163733号-1</a></h5>
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok"></i></a>
+    <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo"></i></a>
+    <h5>Copyright © 2025 vbn262.com All Rights Reserved</h5><h5>风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer"> 鲁ICP备2025163733号-1</a></h5>
   </footer>
   <script>
     // 页面切换
