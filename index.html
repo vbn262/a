@@ -1,175 +1,303 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="风鸣玄太V www.vbn262.com/v">
-  <title>风鸣玄太V www.vbn262.com/v</title>
-  
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <!-- 配置Tailwind -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#ff69b4',
-            secondary: '#ff1493',
-            android: '#3DDC84',
-            ios: '#000000',
-            windows: '#0078D7',
-            'nav-active': '#ff69b4',
-            'footer-text': '#606770',
-          },
-          fontFamily: {
-            inter: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          height: {
-            'nav': '50px',
-          },
-          boxShadow: {
-            'soft': '0 4px 6px rgba(0, 0, 0, 0.1)',
-            'hover': '0 6px 8px rgba(0, 0, 0, 0.15)',
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-in-out',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="风鸣玄太V www.vbn262.com/v">
+    <title>风鸣玄太V www.vbn262.com/v</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff69b4',
+                        secondary: '#ff1493',
+                        android: '#3DDC84',
+                        ios: '#000000',
+                        windows: '#0078D7',
+                        'nav-active': '#ff69b4',
+                        'footer-text': '#606770',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    height: {
+                        'nav': '50px',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        'hover': '0 6px 8px rgba(0, 0, 0, 0.15)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    maxWidth: {
+                        '999': '999px',
+                    }
+                },
             }
-          },
-          maxWidth: {
-            '999': '999px',
-          }
-        },
-      }
-    }
-  </script>
-  <!-- 自定义工具类 -->
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .btn-gradient {
-        background: linear-gradient(135deg, #ff1493, #ff69b4);
-      }
-      .scale-hover {
-        transition: transform 0.3s ease;
-      }
-      .scale-hover:hover {
-        transform: scale(1.02);
-      }
-      .nav-item-active {
-        color: theme('colors.nav-active');
-      }
-      .text-shadow {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      .bg-overlay {
-        background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-      }
-      .max-w-999 {
-        max-width: 999px;
-      }
-      .nav-icon {
-        @apply transition-all duration-200;
-      }
-      .nav-text {
-        @apply text-xs mt-1 transition-all duration-200;
-      }
-    }
-  </style>
+        }
+    </script>
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .btn-gradient {
+                background: linear-gradient(135deg, #ff1493, #ff69b4);
+            }
+            .scale-hover {
+                transition: transform 0.3s ease;
+            }
+            .scale-hover:hover {
+                transform: scale(1.02);
+            }
+            .nav-item-active {
+                color: theme('colors.nav-active');
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .bg-overlay {
+                background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            }
+        }
+    </style>
 </head>
 <body class="font-inter text-gray-800 pb-[65px]">
-  <!-- 底部导航栏 -->
-  <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav">
-    <div class="grid grid-cols-2 mx-auto h-full">
-      <a href="#home" class="nav-item nav-item-active flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="home-link"><i class="nav-icon fas fa-home"><span>首页</span></i></a>
-      <a href="#live" class="nav-item flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="live-link"><i class="nav-icon fas fa-download"><span>下载</span></i></a>
-    </div>
-  </header>
-  <!-- 主内容容器 -->
-  <main class="px-2 py-1">
-    <!-- 首页内容 -->
-    <section class="bg-gray-50">
-      <div class="footer max-w-999 mx-auto border border-pink-300 rounded-xl mb-1"><h1 class="text-[clamp(1.8rem,3vw,2.5rem)] text-3xl py-2 text-center text-pink-500">风鸣玄太V</h1><p class="text-pink-500 text-center">www.vbn262.com/v</p></div>
+    <!-- 底部导航栏 -->
+    <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav">
+        <div class="grid grid-cols-2 mx-auto h-full">
+            <a 
+                href="#home" 
+                class="nav-item nav-item-active flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50" 
+                id="home-link"
+            >
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">首页</span>
+            </a>
+            <a 
+                href="#live" 
+                class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50" 
+                id="live-link"
+            >
+                <i class="fas fa-download text-lg"></i>
+                <span class="text-xs mt-1">下载</span>
+            </a>
+        </div>
+    </header>
+    <!-- 主内容容器 -->
+    <main class="px-2 py-1">
+        <!-- 网站标题区域 -->
+        <div class="bg-gray-50 footer max-w-999 mx-auto border border-pink-300 rounded-xl mb-1 p-4">
+            <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] text-3xl py-2 text-center text-pink-500">风鸣玄太V</h1>
+            <p class="text-pink-500 text-center">www.vbn262.com/v</p>
+        </div>
+
+        <!-- 首页内容 -->
+        <div id="home" class="page-content active animate-fade-in max-w-999 mx-auto">
+            <div class="text-center bg-white rounded-xl p-4 shadow-soft">
+                <div class="relative mb-4">
+                    <img 
+                        src="4581.jpg" 
+                        width="300" 
+                        height="300" 
+                        alt="风鸣玄太V" 
+                        class="relative rounded-2xl shadow-2xl mx-auto max-w-full h-auto animate-float"
+                    >
+                </div>
+                <div id="footer-date" class="text-gray-600 text-xl font-bold"></div>
+                <div id="clock" class="text-5xl font-bold text-primary mt-1"></div>
+            </div>
+        </div>
+
+        <!-- 下载页内容 -->
+        <div id="live" class="page-content hidden animate-fade-in max-w-999 mx-auto">
+            <div class="bg-white p-6 rounded-xl shadow-lg mx-auto max-w-999">
+                <h1 class="text-2xl font-bold mb-6 mx-auto text-center">下载风鸣玄太V观看</h1>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10 max-w-999 mx-auto">
+                    <!-- Android 下载按钮 -->
+                    <a 
+                        href="" 
+                        class="flex items-center justify-center gap-2 bg-android hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto"
+                    >
+                        <i class="fa-brands fa-android text-2xl"></i> 
+                        Android
+                    </a>
+                    
+                    <!-- iOS 下载按钮 -->
+                    <a 
+                        href="" 
+                        class="flex items-center justify-center gap-2 bg-ios hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto"
+                    >
+                        <i class="fa-brands fa-apple text-2xl"></i> 
+                        iOS
+                    </a>
+                    
+                    <!-- Windows 下载按钮 -->
+                    <a 
+                        href="" 
+                        class="flex items-center justify-center gap-2 bg-windows hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto"
+                    >
+                        <i class="fa-brands fa-windows text-2xl"></i> 
+                        Windows
+                    </a>
+                </div>
+                
+                <!-- 功能特点 -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">APP特色功能</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>不限清晰度直播2560*1440以上锁3Mpbs码率，2560*1440以下不锁码率</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>直播工作，签上不能毁约最低签半年最高签拾年<br>毁约受法律的制裁</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>上传1080p视频以下不超10分钟不锁码率<br>720p以下不超15分钟不锁码率<br>540p以下不超30分钟不锁码率<br>360p以下1小时不锁码率</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>看视频直播就来风鸣玄太V</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 页脚 -->
+    <section class="mb-9 bg-gray-50 px-2 max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-6 mb-6 text-center">
+                <span>关于</span>
+            </h2>
+            
+            <div class="flex justify-center gap-6 mb-4">
+                <a 
+                    href="https://space.bilibili.com/1414517639" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    title="Bilibili"
+                >
+                    <i class="fab fa-bilibili text-2xl text-gray-700 hover:text-primary transition-colors"></i>
+                </a>
+                <a 
+                    href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    title="抖音"
+                >
+                    <i class="fab fa-tiktok text-2xl text-gray-700 hover:text-primary transition-colors"></i>
+                </a>
+                <a 
+                    href="https://weibo.com/u/8007354845" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    title="微博"
+                >
+                    <i class="fab fa-weibo text-2xl text-gray-700 hover:text-primary transition-colors"></i>
+                </a>
+            </div>
+            
+            <h5 class="text-footer-text text-center mb-2">
+                Copyright © 2025 vbn262.com All Rights Reserved
+            </h5>
+            <h5 class="text-footer-text text-center">
+                <a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors">
+                    鲁ICP备2025163733号-1
+                </a>
+            </h5>
     </section>
-    <div id="home" class="page-content active animate-fade-in max-w-999 mx-auto">
-      <div class="text-center bg-white rounded-xl p-1 shadow-soft">
-        <div id="footer-date" class="text-gray-600 text-3xl font-bold"></div><div id="clock" class="text-5xl font-bold text-primary mt-1"></div>
-        <img src="4581.jpg" width="300" height="300" alt="风鸣玄太V" class="mx-auto object-cover  scale-hover" loading="lazy">
-      </div>
-    </div>
-    <!-- 下载页内容 -->
-    <div id="live" class="page-content hidden animate-fade-in max-w-999 mx-auto">
-      <h1 class="text-2xl font-bold mb-6 mx-auto text-center">下载风鸣玄太V观看</h1>
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10 max-w-999 mx-auto">
-        <a href="" class="flex items-center justify-center gap-2 bg-android hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
-          <i class="fa-brands fa-android text-2xl"></i> Android
-        </a>
-        <a href="" class="flex items-center justify-center gap-2 bg-ios hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
-          <i class="fa-brands fa-apple text-2xl"></i> iOS
-        </a>
-        <a href="" class="flex items-center justify-center gap-2 bg-windows hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
-          <i class="fa-brands fa-windows text-2xl"></i> Windows
-        </a>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow-lg mx-auto max-w-999">
-        <h3 class="font-bold text-lg mb-4">APP特色功能</h3>
-        <ul class="space-y-2">
-          <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>不限清晰度直播2560*1440以上锁3Mpbs码率，2560*1440以下不锁码率</span></li>
-          <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>直播工作，签上不能毁约最低签半年最高签拾年<br>毁约受法律的制裁</span></li>
-          <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>上传1080p视频以下不超10分钟不锁码率<br>720p以下不超15分钟不锁码率<br>540p以下不超30分钟不锁码率<br>360p以下1小时不锁码率</span></li>
-          <li class="flex items-start"><i class="fa fa-check-circle text-primary mt-1 mr-2"></i><span>看视频直播就来风鸣玄太V</span></li>
-        </ul>
-      </div>
-    </div>
-  </main>
-  <!-- 页脚 -->
-  <section class="mb-9 bg-gray-50 px-2">
-    <footer class="max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
-      <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-6 mb-6 text-center"><span>关于</span></h2>
-      <div class="flex justify-center gap-6 mb-4">
-        <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-        <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-      </div>
-      <h5 class="text-footer-text text-center mb-2">Copyright © 2025 vbn262.com All Rights Reserved</h5>
-      <h5 class="text-footer-text text-center"><a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors"> 鲁ICP备2025163733号-1</a></h5>
-    </footer>
-  </section>
-  <script>
-    // 页面切换
-    function switchPage(targetId) {
-      document.querySelectorAll('.nav-item').forEach(link => {link.classList.remove('nav-item-active');});
-      document.querySelectorAll('.page-content').forEach(content => {content.classList.remove('active');content.classList.add('hidden');});
-      const target = document.getElementById(targetId);
-      if (target) {target.classList.remove('hidden');target.classList.add('active');
-        document.getElementById(`${targetId}-link`).classList.add('nav-item-active');
-        window.scrollTo(0, 0);
-      }
-    }
-    // 时钟和日期
-    function updateTime() {const now = new Date();
-      document.getElementById('clock').textContent = [now.getHours(), now.getMinutes(), now.getSeconds()]
-          .map(v => v.toString().padStart(2, '0')).join(':');
-      const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
-      document.getElementById('footer-date').textContent = 
-        `${now.getFullYear()}年${(now.getMonth() + 1).toString().padStart(2, '0')}月${now.getDate().toString().padStart(2, '0')}日 星期${weekdays[now.getDay()]}`;
-    }
-    // 事件监听
-    document.getElementById('home-link').addEventListener('click', e => {e.preventDefault();switchPage('home');});
-    document.getElementById('live-link').addEventListener('click', e => {e.preventDefault();switchPage('live');});
-    // 初始化
-    updateTime();setInterval(updateTime, 1000);
-  </script>
+    <script>
+        // 页面切换功能
+        function switchPage(targetId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page-content').forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
+            });
+            
+            // 显示目标页面
+            const targetPage = document.getElementById(targetId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                targetPage.classList.add('active');
+            }
+            
+            // 更新导航激活状态
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.classList.remove('nav-item-active');
+            });
+            document.getElementById(`${targetId}-link`).classList.add('nav-item-active');
+            
+            // 滚动到顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 更新时间和日期显示
+        function updateTime() {
+            const now = new Date();
+            const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+            
+            // 格式化日期
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const weekday = weekdays[now.getDay()];
+            document.getElementById('footer-date').textContent = 
+                `${year}年${month}月${day}日 星期${weekday}`;
+            
+            // 格式化时间
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // 初始化事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航点击事件
+            document.getElementById('home-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('home');
+            });
+            
+            document.getElementById('live-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('live');
+            });
+            
+            // 初始化时间显示并设置定时器
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+    </script>
 </body>
 </html>
