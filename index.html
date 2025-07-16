@@ -9,9 +9,11 @@
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -57,6 +59,7 @@
             }
         }
     </script>
+    
     <!-- 自定义工具类 -->
     <style type="text/tailwindcss">
         @layer utilities {
@@ -84,6 +87,7 @@
         }
     </style>
 </head>
+
 <body class="font-inter text-gray-800 pb-[65px]">
     <!-- 底部导航栏 -->
     <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav">
@@ -106,6 +110,7 @@
             </a>
         </div>
     </header>
+
     <!-- 主内容容器 -->
     <main class="px-2 py-1">
         <!-- 网站标题区域 -->
@@ -190,6 +195,7 @@
             </div>
         </div>
     </main>
+
     <!-- 页脚 -->
     <section class="mb-9 bg-gray-50 px-2 max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
             <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-6 mb-6 text-center">
@@ -232,6 +238,7 @@
                 </a>
             </h5>
     </section>
+
     <script>
         // 页面切换功能
         function switchPage(targetId) {
