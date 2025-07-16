@@ -92,31 +92,22 @@
   <!-- 底部导航栏 -->
   <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav">
     <div class="grid grid-cols-2 mx-auto h-full">
-      <a href="#home" class="nav-item nav-item-active flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="home-link">
-        <i class="nav-icon fas fa-home"><span>首页</span></i>
-      </a>
-      <a href="#live" class="nav-item flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="live-link">
-        <i class="nav-icon fas fa-download"><span>下载</span></i>
-      </a>
+      <a href="#home" class="nav-item nav-item-active flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="home-link"><i class="nav-icon fas fa-home"><span>首页</span></i></a>
+      <a href="#live" class="nav-item flex flex-col items-center justify-center transition-all duration-200 p-2 hover:bg-gray-50" id="live-link"><i class="nav-icon fas fa-download"><span>下载</span></i></a>
     </div>
   </header>
-
   <!-- 主内容容器 -->
   <main class="px-2 py-1">
     <!-- 首页内容 -->
-<section class="mb-9 bg-gray-50">
-<div class="footer max-w-999 mx-auto border border-pink-300 rounded-xl">
-    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] text-3xl py-2 text-center text-pink-500">风鸣玄太V</h1>
-<p class="text-pink-500 text-center">www.vbn262.com/v</p>
-</div>
-  </section>
+    <section class="mb-9 bg-gray-50">
+      <div class="footer max-w-999 mx-auto border border-pink-300 rounded-xl"><h1 class="text-[clamp(1.8rem,3vw,2.5rem)] text-3xl py-2 text-center text-pink-500">风鸣玄太V</h1><p class="text-pink-500 text-center">www.vbn262.com/v</p></div>
+    </section>
     <div id="home" class="page-content active animate-fade-in max-w-999 mx-auto">
       <div class="text-center">
         <div class="bg-white rounded-xl p-6 shadow-soft mb-8">
           <div class="relative overflow-hidden rounded-2xl shadow-lg mb-8 scale-hover">
-            <div class="mt-12"><img src="4581.jpg" width="100%" height="200" alt="风鸣玄太V宣传图" class="w-full h-auto object-cover" loading="lazy"></div>
-            <div class="absolute inset-0 bg-overlay flex items-end p-4"><p class="text-white text-lg font-medium">随时随地高清直播</p></div>
-            <div id="footer-date" class="text-gray-600 text-xl font-bold mb-3"></div><div id="clock" class="text-4xl font-bold text-primary my-4"></div>
+            <div class="mt-12"><img src="4581.jpg" width="100%" height="200" alt="风鸣玄太V宣传图" class="w-full h-auto object-cover" loading="lazy"><p class="text-white text-lg font-medium">随时随地高清直播</p></div>
+            <div class="absolute inset-0 bg-overlay flex items-end p-4"><div id="footer-date" class="text-gray-600 text-xl font-bold mb-3"></div><div id="clock" class="text-4xl font-bold text-primary my-4"></div>
           </div>
         </div>
       </div>
@@ -146,9 +137,9 @@
       </div>
     </div>
   </main>
-
+  <!-- 页脚 -->
   <section class="mb-9 bg-gray-50 px-2">
-    <div class="footer max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
+    <footer class="max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
       <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-6 mb-6 text-center"><span>关于</span></h2>
       <div class="flex justify-center gap-6 mb-4">
         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
@@ -157,10 +148,9 @@
       </div>
       <h5 class="text-footer-text text-center mb-2">Copyright © 2025 vbn262.com All Rights Reserved</h5>
       <h5 class="text-footer-text text-center"><a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors"> 鲁ICP备2025163733号-1</a></h5>
-    </div>
+    </footer>
   </section>
-
-  <script>
+  <script src="script.js">
     // 页面切换
     function switchPage(targetId) {
       document.querySelectorAll('.nav-item').forEach(link => {link.classList.remove('nav-item-active');});
