@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="风鸣玄太V - 高品质视频直播平台">
-    <title>风鸣玄太V - www.vbn262.com/v</title>
+    <meta name="description" content="风鸣玄太V www.vbn262.com/v 高品质视频直播平台">
+    <title>风鸣玄太V www.vbn262.com/v</title>
     
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -60,7 +58,6 @@
             }
         }
     </script>
-    
     <!-- 自定义工具类 -->
     <style type="text/tailwindcss">
         @layer utilities {
@@ -110,7 +107,6 @@
             </a>
         </div>
     </nav>
-
     <!-- 主内容容器 -->
     <main id="main-content" class="px-2 py-2">
         <!-- 网站标题区域 -->
@@ -204,7 +200,6 @@
             </article>
         </section>
     </main>  
-
     <!-- 主应用JS -->
     <script>
         // 页面切换功能
@@ -214,38 +209,32 @@
                 content.classList.remove('active');
                 content.classList.add('hidden');
             });
-            
             // 显示目标页面
             const targetPage = document.getElementById(targetId);
             if (targetPage) {
                 targetPage.classList.remove('hidden');
                 targetPage.classList.add('active');
             }
-            
             // 更新导航激活状态
             document.querySelectorAll('.nav-item').forEach(link => {
                 link.classList.remove('nav-item-active');
                 link.removeAttribute('aria-current');
             });
-            
             const activeLink = document.getElementById(`${targetId}-link`);
             if (activeLink) {
                 activeLink.classList.add('nav-item-active');
                 activeLink.setAttribute('aria-current', 'page');
             }
-            
             // 滚动到顶部
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
-
         // 更新时间和日期显示
         function updateTime() {
             const now = new Date();
             const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
-            
             // 格式化日期
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -253,14 +242,12 @@
             const weekday = weekdays[now.getDay()];
             document.getElementById('footer-date').textContent = 
                 `${year}年${month}月${day}日 星期${weekday}`;
-            
             // 格式化时间
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
         }
-
         // 初始化事件监听
         document.addEventListener('DOMContentLoaded', function() {
             // 导航点击事件
@@ -268,17 +255,14 @@
                 e.preventDefault();
                 switchPage('home');
             });
-            
             document.getElementById('download-link').addEventListener('click', function(e) {
                 e.preventDefault();
                 switchPage('download');
             });
-
             document.getElementById('about-link').addEventListener('click', function(e) {
                 e.preventDefault();
                 switchPage('about');
             });
-            
             // 初始化时间显示并设置定时器
             updateTime();
             setInterval(updateTime, 1000);
