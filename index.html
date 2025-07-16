@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="风鸣玄太V www.vbn262.com/v">
-    <title>风鸣玄太V www.vbn262.com/v</title>
+    <meta name="description" content="风鸣玄太V - 高品质视频直播平台">
+    <title>风鸣玄太V - www.vbn262.com/v</title>
     
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
@@ -32,11 +32,12 @@
                         inter: ['Inter', 'system-ui', 'sans-serif'],
                     },
                     height: {
-                        'nav': '50px',
+                        'nav': '60px',
                     },
                     boxShadow: {
                         'soft': '0 4px 6px rgba(0, 0, 0, 0.1)',
                         'hover': '0 6px 8px rgba(0, 0, 0, 0.15)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05)',
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -73,10 +74,12 @@
                 transition: transform 0.3s ease;
             }
             .scale-hover:hover {
-                transform: scale(1.02);
+                transform: scale(1.05);
             }
             .nav-item-active {
                 color: theme('colors.nav-active');
+                border-top: 2px solid theme('colors.primary');
+                padding-top: 2px;
             }
             .text-shadow {
                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -88,92 +91,171 @@
     </style>
 </head>
 
-<body class="font-inter text-gray-800 pb-[65px]">
+<body class="font-inter text-gray-800 pb-[70px] bg-gray-50">
     <!-- 底部导航栏 -->
-    <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav">
-        <div class="grid grid-cols-2 mx-auto h-full">
-            <a href="#home" class="nav-item nav-item-active flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50" id="home-link">
-                <i class="fas fa-home text-lg"></i><span class="text-xs mt-1">首页</span>
+    <header class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-nav shadow-md">
+        <div class="grid grid-cols-3 mx-auto h-full">
+            <a 
+                href="#home" 
+                class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" 
+                id="home-link"
+            >
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-xs mt-1">首页</span>
             </a>
-            <a href="#live" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50" id="live-link">
-                <i class="fas fa-download text-lg"></i><span class="text-xs mt-1">下载</span>
+            <a 
+                href="#live" 
+                class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" 
+                id="live-link"
+            >
+                <i class="fas fa-download text-lg"></i>
+                <span class="text-xs mt-1">下载</span>
+            </a>
+            <a 
+                href="#about" 
+                class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" 
+                id="about-link"
+            >
+                <i class="fas fa-info-circle text-lg"></i>
+                <span class="text-xs mt-1">关于</span>
             </a>
         </div>
     </header>
+
     <!-- 主内容容器 -->
-    <main class="px-2 py-1">
+    <main class="px-2 py-2">
         <!-- 网站标题区域 -->
-        <div class="bg-gray-50 footer max-w-999 mx-auto border border-pink-300 rounded-xl mb-1 p-4">
-            <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] text-3xl py-2 text-center text-pink-500">风鸣玄太V</h1>
-            <p class="text-pink-500 text-center">www.vbn262.com/v</p>
+        <div class="bg-white max-w-999 mx-auto rounded-xl mb-6 p-6 shadow-card border border-pink-100">
+            <h1 class="text-[clamp(4rem,4vw,2rem)] text-center text-primary font-bold">风鸣玄太V</h1>
+            <p class="text-primary/80 text-center font-medium">www.vbn262.com/v</p>
         </div>
+
         <!-- 首页内容 -->
         <div id="home" class="page-content active animate-fade-in max-w-999 mx-auto">
             <div class="text-center bg-white rounded-xl p-4 shadow-soft">
-                <div class="relative mb-4">
-                    <img src="4581.jpg" width="300" height="300" alt="风鸣玄太V" class="relative rounded-2xl shadow-2xl mx-auto max-w-full h-auto animate-float">
-                </div>
-                <div id="footer-date" class="text-gray-600 text-xl font-bold"></div>
-                <div id="clock" class="text-5xl font-bold text-primary mt-1"></div>
+<div id="clock" class="text-7xl font-bold text-primary mt-1"></div><div id="footer-date" class="text-gray-600 text-xl font-bold"></div>
             </div>
         </div>
+
         <!-- 下载页内容 -->
         <div id="live" class="page-content hidden animate-fade-in max-w-999 mx-auto">
-            <div class="bg-white p-6 rounded-xl shadow-lg mx-auto max-w-999">
-                <h1 class="text-2xl font-bold mb-6 mx-auto text-center">下载风鸣玄太V观看</h1>
+            <div class="bg-white p-6 rounded-xl shadow-card border border-pink-100">
+                <h1 class="text-2xl font-bold mb-6 mx-auto text-center">
+                    <i class="fa fa-download mr-2"></i>下载风鸣玄太V客户端
+                </h1>
                 
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10 max-w-999 mx-auto">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
                     <!-- Android 下载按钮 -->
-                    <a href="" class="flex items-center justify-center gap-2 bg-android hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
-                        <i class="fa-brands fa-android text-2xl"></i> Android
+                    <a href="#" class="flex items-center justify-center bg-android hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto gap-4 shadow-lg">
+                        <i class="fa-brands fa-android text-2xl"></i> 
+                        <span>Android</span>
                     </a>
+                    
                     <!-- iOS 下载按钮 -->
-                    <a href="" class="flex items-center justify-center gap-2 bg-ios hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
+                    <a href="#" class="flex items-center justify-center bg-ios hover:bg-gray-900 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto gap-4 shadow-lg">
                         <i class="fa-brands fa-apple text-2xl"></i> 
-                        iOS
+                        <span>iOS</span>
                     </a>
+                    
                     <!-- Windows 下载按钮 -->
-                    <a href="" class="flex items-center justify-center gap-2 bg-windows hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto">
+                    <a href="#" class="flex items-center justify-center bg-windows hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-hover w-full sm:w-auto gap-4 shadow-lg">
                         <i class="fa-brands fa-windows text-2xl"></i> 
-                        Windows
+                        <span>Windows</span>
                     </a>
                 </div>
+                
                 <!-- 功能特点 -->
-                <div>
-                    <h3 class="font-bold text-lg mb-4">APP特色功能</h3>
-                    <ul class="space-y-2">
+                <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-lg mb-4 flex items-center">
+                        <i class="fa fa-star text-yellow-500 mr-2"></i>
+                        APP特色功能
+                    </h3>
+                    <ul class="space-y-4">
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                            <span>不限清晰度直播2560*1440以上锁3Mpbs码率，2560*1440以下不锁码率</span>
+                            <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                <i class="fa fa-video-camera text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">高清直播</h4>
+                                <p class="text-gray-600 text-sm">不限清晰度直播，2560*1440以上锁3Mpbs码率，2560*1440以下不锁码率，提供极致视觉体验</p>
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                            <span>直播工作，签上不能毁约最低签半年最高签拾年<br>毁约受法律的制裁</span>
+                            <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                <i class="fa fa-handshake text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">专业主播</h4>
+                                <p class="text-gray-600 text-sm">直播工作签约，最低签半年最高签拾年，提供专业保障，毁约受法律的制裁</p>
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                            <span>上传1080p视频以下不超10分钟不锁码率<br>720p以下不超15分钟不锁码率<br>540p以下不超30分钟不锁码率<br>360p以下1小时不锁码率</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
-                            <span>看视频直播就来风鸣玄太V</span>
+                            <div class="bg-primary/10 p-2 rounded-full mr-3">
+                                <i class="fa fa-cloud-upload-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">灵活上传</h4>
+                                <p class="text-gray-600 text-sm">
+                                    1080p视频以下不超10分钟不锁码率<br>
+                                    720p以下不超15分钟不锁码率<br>
+                                    540p以下不超30分钟不锁码率<br>
+                                    360p以下1小时不锁码率
+                                </p>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <!-- 关于页内容 -->
+        <div id="about" class="page-content hidden animate-fade-in max-w-999 mx-auto">
+            <section class="bg-white px-6 py-8 rounded-xl shadow-card">
+                <h2 class="text-2xl font-bold mb-6 text-center">关于我们</h2>
+                <img src="4581.jpg" width="300" height="300" alt="风鸣玄太V宣传图" class="relative rounded-2xl shadow-xl mx-auto max-w-full h-auto animate-float">
+                <div class="flex justify-center gap-6 mb-8">
+                    <a 
+                        href="https://space.bilibili.com/1414517639" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        title="Bilibili"
+                        class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    >
+                        <i class="fab fa-bilibili text-xl text-gray-700 hover:text-primary transition-colors"></i>
+                    </a>
+                    <a 
+                        href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        title="抖音"
+                        class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    >
+                        <i class="fab fa-tiktok text-xl text-gray-700 hover:text-primary transition-colors"></i>
+                    </a>
+                    <a 
+                        href="https://weibo.com/u/8007354845" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        title="微博"
+                        class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    >
+                        <i class="fab fa-weibo text-xl text-gray-700 hover:text-primary transition-colors"></i>
+                    </a>
+                </div>
+
+                    <h5 class="text-footer-text text-center mb-2">
+                        Copyright © 2025 vbn262.com All Rights Reserved
+                    </h5>
+                    <h5 class="text-footer-text text-center mb-4">
+                        <a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors">
+                            鲁ICP备2025163733号-1
+                        </a>
+                    </h5>
+
+            </section>
+        </div>
     </main>
-    <!-- 页脚 -->
-    <section class="mb-9 bg-gray-50 px-2 max-w-999 mx-auto py-6 border border-pink-300 rounded-xl">
-            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mt-6 mb-6 text-center"><span>关于</span></h2>
-            <div class="flex justify-center gap-6 mb-4">
-                <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"><i class="fab fa-bilibili text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-                <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"><i class="fab fa-tiktok text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-                <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博"><i class="fab fa-weibo text-2xl text-gray-700 hover:text-primary transition-colors"></i></a>
-            </div>
-            <h5 class="text-footer-text text-center mb-2">Copyright © 2025 vbn262.com All Rights Reserved</h5>
-            <h5 class="text-footer-text text-center"><a href="https://beian.miit.gov.cn" target="_blank" class="hover:text-primary transition-colors">鲁ICP备2025163733号-1</a></h5>
-    </section>
+
     <script>
         // 页面切换功能
         function switchPage(targetId) {
@@ -235,10 +317,25 @@
                 e.preventDefault();
                 switchPage('live');
             });
+
+            document.getElementById('about-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('about');
+            });
             
             // 初始化时间显示并设置定时器
             updateTime();
             setInterval(updateTime, 1000);
+            
+            // 修复导航激活状态
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('nav-item-active');
+                    });
+                    this.classList.add('nav-item-active');
+                });
+            });
         });
     </script>
 </body>
