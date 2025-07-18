@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="风鸣玄太V www.vbn262.com/v 高品质视频直播平台">
     <title>风鸣玄太V www.vbn262.com/v</title>
-    
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
@@ -108,21 +107,21 @@
         </div>
     </nav>
     <!-- 主内容容器 -->
-    <main id="main-content" class="px-2 py-2">
+    <main id="main-content" class="px-2 py-2 max-w-[999px] mx-auto">
         <!-- 网站标题区域 -->
-        <header class="bg-white max-w-[999px] mx-auto rounded-xl mb-6 p-6 shadow-card border border-pink-100">
+        <header class="bg-white max-999px mx-auto rounded-xl mb-6 p-6 shadow-card border border-pink-100">
             <h1 class="text-[clamp(2rem,4vw,4rem)] text-center text-primary font-bold">风鸣玄太V</h1>
             <p class="text-primary/80 text-center font-medium">www.vbn262.com/v</p>
         </header>
         <!-- 首页内容 -->
-        <section id="home" class="page-content active animate-fade-in max-w-[999px] mx-auto">
+        <section id="home" class="page-content animate-fade-in max-999px mx-auto">
             <div class="text-center bg-white rounded-xl p-4 shadow-soft">
                 <div id="clock" class="text-7xl font-bold text-primary mt-1" role="timer" aria-live="polite"></div>
                 <div id="footer-date" class="text-gray-600 text-xl font-bold" aria-live="polite"></div>
             </div>
         </section>
         <!-- 下载页内容 -->
-        <section id="download" class="page-content hidden animate-fade-in max-w-[999px] mx-auto">
+        <section id="download" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white p-6 rounded-xl shadow-card border border-pink-100">
                 <h2 class="text-2xl font-bold mb-6 mx-auto text-center"><i class="fa fa-download mr-2" aria-hidden="true"></i>下载风鸣玄太V客户端</h2>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
@@ -172,14 +171,11 @@
             </article>
         </section>
         <!-- 关于页内容 -->
-        <section id="about" class="page-content hidden animate-fade-in max-w-[999px] mx-auto">
+        <section id="about" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white px-6 py-8 rounded-xl shadow-card">
-<footer class="max-w-999 mx-auto border border-secondary my-4 mb-24 text-center py-5 px-4">
-<P class="text-4xl font-bold mb-6 text-center mt-12">关于我们</P>
-<figure>
+                <footer class="max-w-999px mx-auto border border-secondary text-center">
+                    <P class="text-4xl font-bold mb-6 text-center mt-12">关于我们</P>
                     <img src="4581.jpg" width="300" height="300" alt="风鸣玄太V宣传图" class="relative rounded-2xl shadow-xl mx-auto max-w-full h-auto animate-float" loading="lazy">
-                    <figcaption class="sr-only">风鸣玄太V平台宣传图片</figcaption>
-                </figure>
                     <div class="flex justify-center gap-6 mb-4">
                         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"
                             class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"aria-label="访问我们的Bilibili主页">
@@ -194,7 +190,7 @@
                             <i class="fab fa-weibo text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <h5 class="mb-2 text-gray-600">© vbn262.com All Rights Reserved 2025</h5><h5 class="text-gray-600">风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" class="hover:underline">鲁ICP备2025163733号-1</a></h5>
+                    <h5 class="mb-2 text-gray-600">© 2025 vbn262.com All Rights Reserved</h5><h5 class="text-gray-600">风鸣玄太工作室 版权所有<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" class="hover:underline"> 鲁ICP备2025163733号-1</a></h5>
                 </footer>
             </article>
         </section>
@@ -204,31 +200,16 @@
         // 页面切换功能
         function switchPage(targetId) {
             // 隐藏所有页面
-            document.querySelectorAll('.page-content').forEach(content => {
-                content.classList.remove('active');
-                content.classList.add('hidden');
-            });
+            document.querySelectorAll('.page-content').forEach(content => {content.classList.remove('active');content.classList.add('hidden');});
             // 显示目标页面
             const targetPage = document.getElementById(targetId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.classList.add('active');
-            }
+            if (targetPage) {targetPage.classList.remove('hidden');targetPage.classList.add('active');}
             // 更新导航激活状态
-            document.querySelectorAll('.nav-item').forEach(link => {
-                link.classList.remove('nav-item-active');
-                link.removeAttribute('aria-current');
-            });
+            document.querySelectorAll('.nav-item').forEach(link => {link.classList.remove('nav-item-active');link.removeAttribute('aria-current');});
             const activeLink = document.getElementById(`${targetId}-link`);
-            if (activeLink) {
-                activeLink.classList.add('nav-item-active');
-                activeLink.setAttribute('aria-current', 'page');
-            }
+            if (activeLink) {activeLink.classList.add('nav-item-active');activeLink.setAttribute('aria-current', 'page');}
             // 滚动到顶部
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({top: 0,behavior: 'smooth'});
         }
         // 更新时间和日期显示
         function updateTime() {
@@ -250,21 +231,11 @@
         // 初始化事件监听
         document.addEventListener('DOMContentLoaded', function() {
             // 导航点击事件
-            document.getElementById('home-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                switchPage('home');
-            });
-            document.getElementById('download-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                switchPage('download');
-            });
-            document.getElementById('about-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                switchPage('about');
-            });
+            document.getElementById('home-link').addEventListener('click', function(e) {e.preventDefault();switchPage('home');});
+            document.getElementById('download-link').addEventListener('click', function(e) {e.preventDefault();switchPage('download');});
+            document.getElementById('about-link').addEventListener('click', function(e) {e.preventDefault();switchPage('about');});
             // 初始化时间显示并设置定时器
-            updateTime();
-            setInterval(updateTime, 1000);
+            updateTime();setInterval(updateTime, 1000);
         });
     </script>
 </body>
