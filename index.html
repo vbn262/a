@@ -26,7 +26,7 @@
                         'footer-text': '#606770',
                     },
                     fontFamily: {
-                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                        tech: ['"HarmonyOS Sans"', 'serif']
                     },
                     height: {
                         'nav': '60px',
@@ -39,6 +39,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'float': 'float 6s ease-in-out infinite',
+                        'slide-down': 'slideDown 0.3s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -48,6 +49,10 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
                         }
                     },
                     maxWidth: {
@@ -89,30 +94,30 @@
 <body class="font-inter text-gray-800 pb-[70px] bg-gray-50">
     <!-- 跳过导航链接 - 提升可访问性 -->
     <a href="#main-content" class="skip-link sr-only">跳转到主要内容</a>
-    <!-- 底部导航栏 -->
-    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-[60px] shadow-md" aria-label="主导航">
-        <div class="grid grid-cols-3 mx-auto h-full">
-            <a href="#home" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2 nav-item-active" id="home-link"aria-current="page">
-                <i class="fas fa-home text-lg" aria-hidden="true"></i>
-                <span class="text-xs mt-1">首页</span>
-            </a>
-            <a href="#download" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" id="download-link">
-                <i class="fas fa-download text-lg" aria-hidden="true"></i>
-                <span class="text-xs mt-1">下载</span>
-            </a>
-            <a href="#about" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" id="about-link">
-                <i class="fas fa-info-circle text-lg" aria-hidden="true"></i>
-                <span class="text-xs mt-1">关于</span>
-            </a>
-        </div>
-    </nav>
-    <!-- 主内容容器 -->
+    
+    <!-- 主内容容器 - 添加顶部 padding 避免被固定导航遮挡 -->
     <main id="main-content" class="px-2 py-2 max-w-[999px] mx-auto">
-        <!-- 网站标题区域 -->
-        <header class="bg-white max-999px mx-auto rounded-xl mb-6 p-6 shadow-card border border-pink-100">
-            <h1 class="text-[clamp(2rem,4vw,4rem)] text-center text-primary font-bold">风鸣玄太V</h1>
-            <p class="text-primary/80 text-center font-medium">www.vbn262.com/v</p>
-        </header>
+<header class="fixed top-0 left-0 right-0 bg-white max-999px mx-auto rounded-xl mb-6 shadow-card border border-pink-100 relative bg-pink/9 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 flex items-center justify-between px-4 py-3">
+        <div class="font-tech md:text-left text-center">
+            <a href="#home" class="text-2xl text-primary hover:text-secondary transition-colors" onclick="switchPage('home')">风鸣玄太V</a>
+        </div>
+        
+        <button id="menuToggle" class="md:hidden text-gray-600 text-2xl p-2" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
+        
+        <!-- 桌面导航 -->
+        <div class="hidden md:flex space-x-8 justify-center items-center">
+            <a href="#home" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium" onclick="switchPage('home')">首页</a>
+            <a href="#download" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium" onclick="switchPage('download')">下载</a>
+            <a href="#about" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium" onclick="switchPage('about')">关于</a>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 z-50 flex flex-col gap-2 animate-slide-down">
+            <a href="#home" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('home')">首页 www.vbn262.com/f</a>
+            <a href="#download" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('download')">下载</a>
+            <a href="#about" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('about')">关于</a>
+        </div>
+    </header>
         <!-- 首页内容 -->
         <section id="home" class="page-content animate-fade-in max-999px mx-auto">
             <div class="text-center bg-white rounded-xl p-4 shadow-soft">
@@ -120,6 +125,7 @@
                 <div id="footer-date" class="text-gray-600 text-xl font-bold" aria-live="polite"></div>
             </div>
         </section>
+        
         <!-- 下载页内容 -->
         <section id="download" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white p-6 rounded-xl shadow-card border border-pink-100">
@@ -170,52 +176,123 @@
                 </div>
             </article>
         </section>
+        
         <!-- 关于页内容 -->
         <section id="about" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white px-6 py-8 rounded-xl shadow-card">
                 <footer class="max-w-999px mx-auto border border-secondary text-center">
-                    <P class="text-4xl font-bold mb-6 text-center mt-12">关于我们</P>
+                    <p class="text-4xl font-bold mb-6 text-center mt-12">关于我们</p>
                     <p class="text-text mb-4">风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖</p>
                     <img src="4581.jpg" width="300" height="300" alt="风鸣玄太V宣传图" class="relative rounded-2xl shadow-xl mx-auto max-w-full h-auto animate-float" loading="lazy">
                     <div class="flex justify-center gap-6 mb-4">
                         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili"
-                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"aria-label="访问我们的Bilibili主页">
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors" aria-label="访问我们的Bilibili主页">
                             <i class="fab fa-bilibili text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
                         </a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" title="抖音"
-                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"aria-label="访问我们的抖音主页">
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors" aria-label="访问我们的抖音主页">
                             <i class="fab fa-tiktok text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
                         </a>
                         <a href="https://weibo.com/u/8007354845" target="_blank" rel="noopener noreferrer" title="微博" 
-                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors"aria-label="访问我们的微博主页">
+                            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors" aria-label="访问我们的微博主页">
                             <i class="fab fa-weibo text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <p class="mb-2">Copyright © vbn262.com 2025</p><a href="https://beian.miit.gov.cn" target="_blank">风鸣玄太工作室 版权所有 鲁ICP备2025163733号-1</a>
+                    <p class="mb-2">Copyright © vbn262.com 2025</p>
+                    <a href="https://beian.miit.gov.cn" target="_blank">风鸣玄太工作室 版权所有 鲁ICP备2025163733号-1</a>
                 </footer>
             </article>
         </section>
     </main>  
+    
+    <!-- 底部导航栏 -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-[60px] shadow-md" aria-label="主导航">
+        <div class="grid grid-cols-3 mx-auto h-full">
+            <a href="#home" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2 nav-item-active" id="home-link" aria-current="page">
+                <i class="fas fa-home text-lg" aria-hidden="true"></i>
+                <span class="text-xs mt-1">首页</span>
+            </a>
+            <a href="#download" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" id="download-link">
+                <i class="fas fa-download text-lg" aria-hidden="true"></i>
+                <span class="text-xs mt-1">下载</span>
+            </a>
+            <a href="#about" class="nav-item flex flex-col items-center justify-center transition-all duration-200 hover:bg-gray-50 py-2" id="about-link">
+                <i class="fas fa-info-circle text-lg" aria-hidden="true"></i>
+                <span class="text-xs mt-1">关于</span>
+            </a>
+        </div>
+    </nav>
+    
     <!-- 主应用JS -->
     <script>
+        // 移动端菜单切换功能
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            // 切换菜单显示状态
+            mobileMenu.classList.toggle('hidden');
+            
+            // 更新aria属性，提升可访问性
+            const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            
+            // 切换菜单图标
+            const icon = menuToggle.querySelector('i');
+            if (isExpanded === 'true') {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        // 处理移动端导航 - 同时切换页面和关闭菜单
+        function handleMobileNavigation(targetId) {
+            switchPage(targetId);
+            toggleMobileMenu();
+        }
+        
         // 页面切换功能
         function switchPage(targetId) {
             // 隐藏所有页面
-            document.querySelectorAll('.page-content').forEach(content => {content.classList.remove('active');content.classList.add('hidden');});
+            document.querySelectorAll('.page-content').forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
+            });
+            
             // 显示目标页面
             const targetPage = document.getElementById(targetId);
-            if (targetPage) {targetPage.classList.remove('hidden');targetPage.classList.add('active');}
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                targetPage.classList.add('active');
+            }
+            
             // 更新导航激活状态
-            document.querySelectorAll('.nav-item').forEach(link => {link.classList.remove('nav-item-active');link.removeAttribute('aria-current');});
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.classList.remove('nav-item-active');
+                link.removeAttribute('aria-current');
+            });
+            
             const activeLink = document.getElementById(`${targetId}-link`);
-            if (activeLink) {activeLink.classList.add('nav-item-active');activeLink.setAttribute('aria-current', 'page');}
+            if (activeLink) {
+                activeLink.classList.add('nav-item-active');
+                activeLink.setAttribute('aria-current', 'page');
+            }
+            
             // 滚动到顶部
-            window.scrollTo({top: 0,behavior: 'smooth'});
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
+        
         // 更新时间和日期显示
         function updateTime() {
             const now = new Date();
             const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+            
             // 格式化日期
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -223,20 +300,62 @@
             const weekday = weekdays[now.getDay()];
             document.getElementById('footer-date').textContent = 
                 `${year}年${month}月${day}日 星期${weekday}`;
+            
             // 格式化时间
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
         }
+        
+        // 滚动时改变顶部导航样式
+        function handleScroll() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+        }
+        
         // 初始化事件监听
         document.addEventListener('DOMContentLoaded', function() {
             // 导航点击事件
-            document.getElementById('home-link').addEventListener('click', function(e) {e.preventDefault();switchPage('home');});
-            document.getElementById('download-link').addEventListener('click', function(e) {e.preventDefault();switchPage('download');});
-            document.getElementById('about-link').addEventListener('click', function(e) {e.preventDefault();switchPage('about');});
+            document.getElementById('home-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('home');
+            });
+            
+            document.getElementById('download-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('download');
+            });
+            
+            document.getElementById('about-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchPage('about');
+            });
+            
             // 初始化时间显示并设置定时器
-            updateTime();setInterval(updateTime, 1000);
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            // 点击页面其他区域关闭移动菜单
+            document.addEventListener('click', function(e) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuToggle = document.getElementById('menuToggle');
+                
+                if (!mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(e.target) && 
+                    !menuToggle.contains(e.target)) {
+                    toggleMobileMenu();
+                }
+            });
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', handleScroll);
         });
     </script>
 </body>
