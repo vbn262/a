@@ -97,9 +97,7 @@
     <!-- 主内容容器 - 添加顶部 padding 避免被固定导航遮挡 -->
     <main id="main-content" class="px-2 py-2 max-w-[999px] mx-auto">
         <header class="fixed top-0 left-0 right-0 bg-white max-999px mx-auto rounded-xl mb-6 shadow-card border border-pink-100 relative bg-pink/9 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 flex items-center justify-between px-4 py-3">
-            <div class="font-tech md:text-left text-center">
-                <a href="#home" class="text-2xl text-primary hover:text-secondary transition-colors" onclick="switchPage('home')">风鸣玄太V</a>
-            </div>
+            <div class="font-tech md:text-left text-center"><p class="text-2xl text-primary hover:text-secondary transition-colors">风鸣玄太V</p></div>
             <button id="menuToggle" class="md:hidden text-gray-600 text-2xl p-2" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
             <!-- 桌面导航 -->
             <div class="hidden md:flex space-x-8 justify-center items-center">
@@ -109,7 +107,7 @@
             </div>
             <!-- 移动端菜单 -->
             <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 z-50 flex flex-col gap-2 animate-slide-down">
-                <a href="#home" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('home')">首页 www.vbn262.com/f</a>
+                <a href="#home" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('home')">首页 www.vbn262.com/v</a>
                 <a href="#download" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('download')">下载</a>
                 <a href="#about" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('about')">关于</a>
             </div>
@@ -224,13 +222,8 @@
             menuToggle.setAttribute('aria-expanded', isExpanded);
             // 切换菜单图标
             const icon = menuToggle.querySelector('i');
-            if (isExpanded === 'true') {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            if (isExpanded === 'true') {icon.classList.remove('fa-bars');icon.classList.add('fa-times');}
+            else {icon.classList.remove('fa-times');icon.classList.add('fa-bars');}
         }
         // 处理移动端导航 - 同时切换页面和关闭菜单
         function handleMobileNavigation(targetId) {switchPage(targetId);toggleMobileMenu();}
@@ -243,20 +236,14 @@
             });
             // 显示目标页面
             const targetPage = document.getElementById(targetId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.classList.add('active');
-            }
+            if (targetPage) {targetPage.classList.remove('hidden');targetPage.classList.add('active');}
             // 更新导航激活状态
             document.querySelectorAll('.nav-item').forEach(link => {
                 link.classList.remove('nav-item-active');
                 link.removeAttribute('aria-current');
             });
             const activeLink = document.getElementById(`${targetId}-link`);
-            if (activeLink) {
-                activeLink.classList.add('nav-item-active');
-                activeLink.setAttribute('aria-current', 'page');
-            }
+            if (activeLink) {activeLink.classList.add('nav-item-active');activeLink.setAttribute('aria-current', 'page');}
             // 滚动到顶部
             window.scrollTo({top: 0,behavior: 'smooth'});
         }
@@ -268,8 +255,7 @@
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const day = String(now.getDate()).padStart(2, '0');
             const weekday = weekdays[now.getDay()];
-            document.getElementById('footer-date').textContent = 
-                `${year}年${month}月${day}日 星期${weekday}`;
+            document.getElementById('footer-date').textContent = `${year}年${month}月${day}日 星期${weekday}`;
             // 格式化时间
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -278,26 +264,15 @@
         }
         // 滚动时改变顶部导航样式
         function handleScroll() {const header = document.querySelector('header');
-            if (window.scrollY > 10) {
-                header.classList.add('shadow-md');
-                header.classList.remove('shadow-sm');
-            } else {
-                header.classList.remove('shadow-md');
-                header.classList.add('shadow-sm');
-            }
+            if (window.scrollY > 10) {header.classList.add('shadow-md');header.classList.remove('shadow-sm');}
+            else {header.classList.remove('shadow-md');header.classList.add('shadow-sm');}
         }
         // 初始化事件监听
         document.addEventListener('DOMContentLoaded', function() {
             // 导航点击事件
-            document.getElementById('home-link').addEventListener('click', function(e) {
-                e.preventDefault();switchPage('home');
-            });
-            document.getElementById('download-link').addEventListener('click', function(e) {
-                e.preventDefault();switchPage('download');
-            });
-            document.getElementById('about-link').addEventListener('click', function(e) {
-                e.preventDefault();switchPage('about');
-            });
+            document.getElementById('home-link').addEventListener('click', function(e) {e.preventDefault();switchPage('home');});
+            document.getElementById('download-link').addEventListener('click', function(e) {e.preventDefault();switchPage('download');});
+            document.getElementById('about-link').addEventListener('click', function(e) {e.preventDefault();switchPage('about');});
             // 初始化时间显示并设置定时器
             updateTime();setInterval(updateTime, 1000);
             // 点击页面其他区域关闭移动菜单
@@ -314,10 +289,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
