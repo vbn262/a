@@ -111,31 +111,23 @@
 <body class="font-inter text-gray-800 pb-[70px] bg-gray-50">
     <!-- 跳过导航链接 -->
     <a href="#main-content" class="skip-link sr-only">跳转到主要内容</a>
-    
     <!-- 主内容容器 -->
     <main id="main-content" class="px-2 py-2 max-w-[999px] mx-auto">
         <header class="fixed top-0 left-0 right-0 bg-white max-999px mx-auto rounded-xl mb-6 shadow-card border border-pink-100 relative bg-pink/9 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 flex items-center justify-between px-4 py-3">
-            <div class="font-tech md:text-left text-center">
-                <p class="text-2xl text-primary hover:text-secondary transition-colors">风鸣玄太V</p>
-            </div>
-            <button id="menuToggle" class="md:hidden text-gray-600 text-2xl p-2" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
+            <div class="font-tech md:text-left text-center"><p class="text-2xl text-primary hover:text-secondary transition-colors">风鸣玄太V</p></div>
+            <button id="menuToggle" class="md:hidden text-gray-600 text-2xl p-2" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
             <!-- 桌面导航 -->
             <div class="hidden md:flex space-x-8 justify-center items-center">
                 <a href="https://www.vbn262.com/f" target="_blank" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium">首页</a>
                 <a href="https://space.bilibili.com/1414517639" target="_blank" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium">关于</a>
             </div>
-            
             <!-- 移动端菜单 -->
             <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 z-50 flex flex-col gap-2 animate-slide-down">
-                <a href="#home" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('home')">首页 www.vbn262.com/v</a>
+                <a href="" class="nav-item hover:bg-gray-100 py-2 rounded">网址www.vbn262.com/v</a>
                 <a href="#download" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('download')">下载</a>
-                <a href="#about" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('about')">关于</a>
+                <a href="https://space.bilibili.com/1414517639" target="_blank" class="nav-item hover:bg-gray-100 py-2 rounded">关于</a>
             </div>
         </header>
-        
         <!-- 首页内容 -->
         <section id="home" class="page-content animate-fade-in max-999px mx-auto">
             <div class="text-center bg-white rounded-xl p-4 shadow-soft">
@@ -143,7 +135,6 @@
                 <div id="footer-date" class="text-gray-600 text-xl font-bold" aria-live="polite"></div>
             </div>
         </section>
-        
         <!-- 下载页内容 -->
         <section id="download" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white p-6 rounded-xl shadow-card border border-pink-100">
@@ -155,7 +146,6 @@
                         <span>Windows</span>
                     </a>
                 </div>
-                
                 <!-- 功能特点 -->
                 <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
                     <h3 class="font-bold text-lg mb-4 flex items-center"><i class="fa fa-star text-yellow-500 mr-2" aria-hidden="true"></i>APP特色功能</h3>
@@ -185,7 +175,6 @@
                 </div>
             </article>
         </section>
-        
         <!-- 关于页内容 -->
         <section id="about" class="page-content hidden animate-fade-in max-999px mx-auto">
             <article class="bg-white p-6 rounded-xl shadow-card border border-pink-100">
@@ -202,7 +191,6 @@
                         <span>iOS</span>
                     </a>
                 </div>
-                
                 <!-- 功能特点 -->
                 <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
                     <h3 class="font-bold text-lg mb-4 flex items-center"><i class="fa fa-star text-yellow-500 mr-2" aria-hidden="true"></i>APP特色功能</h3>
@@ -231,13 +219,11 @@
                     </ul>
                 </div>
             </article>
-            
             <article class="bg-white px-6 py-8 rounded-xl shadow-card">
                 <footer class="max-w-999px mx-auto border border-secondary text-center">
                     <p class="text-4xl font-bold mb-6 text-center pt-20">关于我们</p>
                     <p class="text-text mb-4">风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖</p>
                     <img src="4581.jpg" width="300" height="300" alt="宣传图" class="rounded-2xl mx-auto animate-float" loading="lazy">
-                    
                     <div class="flex justify-center gap-6 mb-4">
                         <a href="https://space.bilibili.com/1414517639" target="_blank" rel="noopener noreferrer" title="Bilibili" class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary/10 transition-colors" aria-label="访问我们的Bilibili主页">
                             <i class="fab fa-bilibili text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
@@ -249,28 +235,23 @@
                             <i class="fab fa-weibo text-xl text-gray-700 hover:text-primary transition-colors" aria-hidden="true"></i>
                         </a>
                     </div>
-                    
                     <a href="https://www.12377.cn/" target="_blank"><p class="mb-2">违法和不良信息举报中心</p></a>
-                    <a href="https://beian.miit.gov.cn" target="_blank"><p class="mb-2 border-t">© 2025-现在 vbn262.com 风鸣玄太工作室 版权所有</p>鲁ICP备2025163733号-1</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank"><p class="mb-2 border-t">Copyright © vbn262.com 风鸣玄太工作室 版权所有 2025-现在</p>鲁ICP备2025163733号-1</a>
                 </footer>
             </article>
         </section>
     </main>  
-    
     <!-- 底部导航栏 - 使用新动画效果 -->
     <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 z-50 h-[60px] shadow-md" aria-label="主导航">
         <div class="grid grid-cols-2 mx-auto h-full">
             <a href="#home" class="bottom-nav-item active flex flex-col items-center justify-center" id="home-link" onclick="switchPage('home')">
-                <i class="fas fa-home"></i>
-                <span class="text-xs mt-1">首页</span>
+                <i class="fas fa-home"></i><span class="text-xs mt-1">首页</span>
             </a>
             <a href="#about" class="bottom-nav-item flex flex-col items-center justify-center" id="about-link" onclick="switchPage('about')">
-                <i class="fas fa-download"></i>
-                <span class="text-xs mt-1">关于</span>
+                <i class="fas fa-download"></i><span class="text-xs mt-1">关于</span>
             </a>
         </div>
     </nav>
-
     <script>
         // 移动端菜单切换功能
         function toggleMobileMenu() {
@@ -278,7 +259,7 @@
             const menuToggle = document.getElementById('menuToggle');
             
             mobileMenu.classList.toggle('hidden');
-            
+
             const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
             menuToggle.setAttribute('aria-expanded', isExpanded);
             
@@ -286,12 +267,8 @@
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         }
-        
         // 处理移动端导航
-        function handleMobileNavigation(targetId) {
-            switchPage(targetId);
-            toggleMobileMenu();
-        }
+        function handleMobileNavigation(targetId) {switchPage(targetId);toggleMobileMenu();}
         
         // 页面切换功能 - 保留原有逻辑但添加动画支持
         function switchPage(targetId) {
@@ -303,10 +280,7 @@
             
             // 显示目标页面
             const targetPage = document.getElementById(targetId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.classList.add('active');
-            }
+            if (targetPage) {targetPage.classList.remove('hidden');targetPage.classList.add('active');}
             
             // 更新导航状态
             updateNavActiveState(targetId);
@@ -314,52 +288,36 @@
             // 滚动到顶部
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
-        
         // 更新导航激活状态
         function updateNavActiveState(activePage) {
             // 底部导航
-            document.querySelectorAll('.bottom-nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
+            document.querySelectorAll('.bottom-nav-item').forEach(item => {item.classList.remove('active');});
             
             const activeNavItem = document.getElementById(`${activePage}-link`);
-            if (activeNavItem) {
-                activeNavItem.classList.add('active');
-            }
+            if (activeNavItem) {activeNavItem.classList.add('active');}
         }
-        
         // 时间更新函数
-        function updateTime() {
-            const now = new Date();
+        function updateTime() {const now = new Date();
             const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-            
             const dateStr = `${now.getFullYear()}年${(now.getMonth()+1).toString().padStart(2, '0')}月${now.getDate().toString().padStart(2, '0')}日 ${weekdays[now.getDay()]}`;
             const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-
-            document.getElementById('clock').textContent = timeStr;
-            document.getElementById('footer-date').textContent = dateStr;
+            document.getElementById('clock').textContent = timeStr;document.getElementById('footer-date').textContent = dateStr;
         }
-        
         // 滚动时改变顶部导航样式
         function handleScroll() {
             const header = document.querySelector('header');
             header.classList.toggle('shadow-md', window.scrollY > 10);
             header.classList.toggle('shadow-sm', window.scrollY <= 10);
         }
-        
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 初始化时间
-            updateTime();
-            setInterval(updateTime, 1000);
-            
+            updateTime();setInterval(updateTime, 1000);
             // 设置默认页面
             const defaultPage = window.location.hash ? window.location.hash.substring(1) : 'home';
             switchPage(defaultPage);
-            
             // 监听滚动
             window.addEventListener('scroll', handleScroll);
-            
             // 点击页面其他区域关闭移动菜单
             document.addEventListener('click', function(e) {
                 const mobileMenu = document.getElementById('mobile-menu');
