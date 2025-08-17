@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="风鸣玄太V www.vbn262.com/v 高品质视频直播平台">
     <title>风鸣玄太V www.vbn262.com/v</title>
-    
     <!-- 预加载关键资源 -->
     <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    
     <!-- Tailwind 配置 -->
     <script>
         tailwind.config = {
@@ -65,7 +62,6 @@
             }
         }
     </script>
-    
     <!-- 自定义动画样式 -->
     <style>
         /* 底部导航动画 */
@@ -119,13 +115,12 @@
             <!-- 桌面导航 -->
             <div class="hidden md:flex space-x-8 justify-center items-center">
                 <a href="https://www.vbn262.com/f" target="_blank" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium">首页</a>
-                <a href="https://space.bilibili.com/1414517639" target="_blank" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium">关于</a>
+                <a href="#download" class="px-3 py-1 rounded hover:bg-primary/20 nav-item text-primary/80 text-center font-medium" onclick="handleMobileNavigation('download')">下载</a>
             </div>
             <!-- 移动端菜单 -->
             <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 z-50 flex flex-col gap-2 animate-slide-down">
-                <a href="" class="nav-item hover:bg-gray-100 py-2 rounded">网址www.vbn262.com/v</a>
-                <a href="#download" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('download')">下载</a>
-                <a href="https://space.bilibili.com/1414517639" target="_blank" class="nav-item hover:bg-gray-100 py-2 rounded">关于</a>
+                <a href="#home" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('home')">首页 www.vbn262.com/v</a>
+                <a href="#about" class="nav-item hover:bg-gray-100 py-2 rounded" onclick="handleMobileNavigation('about')">关于</a>
             </div>
         </header>
         <!-- 首页内容 -->
@@ -334,4 +329,3 @@
     </script>
 </body>
 </html>
-
