@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，销售不触犯法律的各类产品">
-    <meta name="robots" content="index, follow"><title>风鸣玄太乂 - www.vbn262.com/a</title>
+    <meta name="robots" content="index, follow">
+    <title>风鸣玄太乂 - www.vbn262.com/a</title>
     <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -12,7 +13,6 @@
         :root {
             --primary-color: #FF4D8D;
             --secondary-color: #D6336C;
-            --accent-color: #FF4D8D;
             --light-pink: rgba(255, 77, 141, 0.2);
             --border-color: rgba(255, 255, 255, 0.1);
         }
@@ -28,16 +28,8 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             min-height: 100vh;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
         }
         /* 导航样式 */
-        .nav-container {
-            border: 1px solid var(--border-color);
-            margin-top: 15px;
-            position: relative;
-        }
         .nav-toggle {
             padding: 12px;
             cursor: pointer;
@@ -71,44 +63,8 @@
         }
         /* 动画 */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         /* 导航链接样式 */
         nav a {
@@ -119,13 +75,6 @@
         nav a:hover {
             color: #e9c46a;
         }
-        /* 定义text-text类（适配深色背景） */
-        .text-text {
-            color: #e2e8f0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
         /* 卡片悬停效果 */
         .feature-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -348,12 +297,12 @@
     </a>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 移动端菜单切换 - 修复部分
+            // 移动端菜单切换
             const menuToggle = document.getElementById('menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
             
             menuToggle.addEventListener('click', () => {
-                mobileNav.classList.toggle('active'); // 使用active类来控制显示
+                mobileNav.classList.toggle('active');
                 const icon = menuToggle.querySelector('i');
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
