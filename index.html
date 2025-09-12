@@ -13,17 +13,12 @@
             --primary-color: #FF4D8D;
             --secondary-color: #D6336C;
             --accent-color: #FF4D8D;
-            --bg-color: #f9f9f9;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-            --border-color: rgba(255, 255, 255, 0.1);
             --light-pink: rgba(255, 77, 141, 0.2);
         }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
         }
         body {
             background-image: url('https://vbn262.github.io/1.jpg');
@@ -129,15 +124,7 @@
             font-size: 1rem;
             line-height: 1.6;
         }
-        /* 确保所有链接有一致的交互效果 */
-        a {
-            color: #e9c46a;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        a:hover {
-            color: #fff;
-        }
+
         /* 卡片悬停效果 */
         .feature-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -204,9 +191,7 @@
     <header class="p-6 transition-all duration-300">
         <nav class="py-4 px-4 max-w-[999px] mx-auto w-full bg-[rgba(26,27,45,0.5)] backdrop-blur rounded-lg">
             <div class="container mx-auto flex justify-between items-center">
-                <a href="https://www.vbn262.com/a" class="flex items-center gap-3 transition-transform duration-300 group">
-                    <div class="text-2xl text-primary-color hover:text-secondary-color transition-colors cursor-pointer">风鸣玄太乂</div>
-                </a>
+                <div class="text-2xl"><span style="color: var(--primary-color);">风鸣玄太乂</span></div>
                 <!-- 桌面导航 -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="hover:text-secondary-color transition-colors nav-item active">首页</a>
@@ -329,7 +314,7 @@
         </section>
         <!-- 关于页内容 -->
         <section id="about" class="p-6">
-            <div class="max-w-[999px] mx-auto rounded-xl bg-white pt-10 border border-pink-100 shadow-md">
+            <div class="max-w-[999px] mx-auto rounded-xl bg-white pt-10 border border-pink-900 shadow-md">
                 <h2 class="text-2xl font-bold mb-6 mx-auto text-center">关于我们</h2>
                 <p class="text-gray-600 mb-4 text-center">风鸣玄太工作室成立于2025年，我们专注于网页开发、游戏开发和动漫制作，销售不触犯法律的各类产品</p>
                 <div class="flex justify-center mb-6 px-4">
@@ -346,14 +331,13 @@
                         <i class="fab fa-weibo text-xl text-gray-700 hover:text-primary-color transition-colors"></i>
                     </a>
                 </div>
-                <div class="text-center text-sm text-gray-600 mt-8 pt-4 px-4">
-                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="block mb-2 hover:text-primary-color transition-colors">网络谣言曝光台</a>
-                    <a href="https://www.12377.cn/" target="_blank" class="block mb-2 hover:text-primary-color transition-colors">违法和不良信息举报中心</a>
-                </div>
-                <div class="text-center text-sm text-gray-600 mt-8 pt-4 border-t mx-4 pb-6">
-                    <a href="https://beian.miit.gov.cn" target="_blank" class="block mb-2">Copyright © vbn262.com 风鸣玄太工作室 版权所有 2025-现在</a>
-                    <p>鲁ICP备2025163733号-1</p>
-                </div>
+                <h5 class="text-center text-gray-600 mb-4">
+                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="mb-2">网络谣言曝光台</a>
+                    <a href="https://www.12377.cn/" target="_blank" class="mb-2">违法和不良信息举报中心</a>
+                </h5>
+                <h5 class="text-center mb-4 border-t">
+                    <a href="https://beian.miit.gov.cn" target="_blank" class="mb-2">Copyright © vbn262.com 风鸣玄太工作室 版权所有 2025-现在<p>鲁ICP备2025163733号-1</p></a>
+                </h5>
             </div>
         </section>
     </main>
