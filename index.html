@@ -14,6 +14,7 @@
             --secondary-color: #D6336C;
             --accent-color: #FF4D8D;
             --light-pink: rgba(255, 77, 141, 0.2);
+            --border-color: rgba(255, 255, 255, 0.1);
         }
         * {
             margin: 0;
@@ -50,13 +51,13 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         .mobile-nav {
-            display: none;
+            display: none; /* 默认隐藏 */
             background: linear-gradient(to bottom, #1a1a2e, var(--light-pink));
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
         .mobile-nav.active {
-            display: block;
+            display: block; /* 激活时显示 */
             animation: fadeIn 0.5s ease-in-out forwards;
         }
         .mobile-nav a {
@@ -187,8 +188,8 @@
 <body class="font-sans bg-gray-50">
     <!-- 页面顶部锚点 -->
     <div id="page-top"></div>
-    <!-- 头部导航 - 已移除固定定位 -->
-    <header class="p-6 transition-all duration-300">
+    <!-- 头部导航 -->
+    <header class="p-6" style="z-index: 99;">
         <nav class="py-4 px-4 max-w-[999px] mx-auto w-full bg-[rgba(26,27,45,0.5)] backdrop-blur rounded-lg">
             <div class="container mx-auto flex justify-between items-center">
                 <div class="text-2xl"><span style="color: var(--primary-color);">风鸣玄太乂</span></div>
@@ -199,7 +200,7 @@
                     <a href="#about" class="hover:text-secondary-color transition-colors nav-item">关于</a>
                 </div>
                 <!-- 移动端菜单按钮 -->
-                <button id="menu-toggle" class="md:block nav-toggle text-light">
+                <button id="menu-toggle" class="md:hidden nav-toggle text-light">
                     <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
                 </button>
             </div>
@@ -213,7 +214,7 @@
         </nav>
     </header>
     <!-- 主内容区 -->
-    <main class="text-center" style="background: #;">
+    <main class="text-center">
         <!-- 首页内容 -->
         <section id="home" class="p-6">
             <div class="max-w-[999px] mx-auto text-center bg-white rounded-xl p-4 shadow-md mb-6">
@@ -346,90 +347,69 @@
         <i class="fas fa-arrow-up"></i>
     </a>
     <script>
-        // 移动端菜单切换
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        menuToggle.addEventListener('click', function() {
-            const isVisible = mobileNav.classList.contains('active');
-            if (isVisible) {
-                mobileNav.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fas fa-bars';
-            } else {
-                mobileNav.classList.add('active');
-                menuToggle.querySelector('i').className = 'fas fa-times';
-            }
-        });
-        // 点击页面其他区域关闭菜单
-        document.addEventListener('click', function(event) {
-            if (!menuToggle.contains(event.target) && !mobileNav.contains(event.target) && mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fas fa-bars';
-            }
-        });
-        // 滚动显示/隐藏回到顶部按钮
-        window.addEventListener('scroll', () => {
-            const backToTop = document.getElementById('back-to-top');
-            // 控制回到顶部按钮显示
-            if (window.scrollY > 200) { // 更早显示按钮
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
-            }
-            // 更新当前激活的导航项
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-item');
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
-            });
-        });
-        // 平滑滚动到锚点（包括回到顶部功能）
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                // 关闭移动菜单（如果打开）
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    menuToggle.querySelector('i').className = 'fas fa-bars';
-                }
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 20, // 适当调整偏移量
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        // 时间更新函数
-        function updateTime() {
-            const now = new Date();
-            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-            const dateStr = `${now.getFullYear()}年${(now.getMonth()+1).toString().padStart(2, '0')}月${now.getDate().toString().padStart(2, '0')}日 ${weekdays[now.getDay()]}`;
-            const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-            document.getElementById('clock').textContent = timeStr;
-            document.getElementById('footer-date').textContent = dateStr;
-        }
-        // 初始化
         document.addEventListener('DOMContentLoaded', () => {
-            // 初始化时间显示
+            // 移动端菜单切换 - 修复部分
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('active'); // 使用active类来控制显示
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+            // 点击外部关闭菜单
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // 回到顶部按钮
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.replace('opacity-0', 'opacity-100');
+                    backToTop.classList.replace('invisible', 'visible');
+                } else {
+                    backToTop.classList.replace('opacity-100', 'opacity-0');
+                    backToTop.classList.replace('visible', 'invisible');
+                }
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = anchor.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    // 关闭移动菜单
+                    if (mobileNav.classList.contains('active')) {
+                        mobileNav.classList.remove('active');
+                        menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                    
+                    // 滚动到目标位置
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // 时钟功能
+            function updateTime() {
+                const now = new Date();
+                const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                document.getElementById('clock').textContent = now.toTimeString().slice(0, 8);
+                document.getElementById('footer-date').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
+            }
+            
             updateTime();
             setInterval(updateTime, 1000);
-            // 初始检查滚动位置
-            window.dispatchEvent(new Event('scroll'));
         });
     </script>
 </body>
