@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,6 @@
     <meta name="keywords" content="风鸣玄太乂www.vbn262.com/a, Android app下载, iOS app下载, Windows app下载">
     <meta name="robots" content="index, follow">
     <title>风鸣玄太乂www.vbn262.com/a</title>
-    <!-- 外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
@@ -16,7 +14,10 @@
             --primary-color: #FF4D8D;
             --secondary-color: #D6336C;
             --light-pink: rgba(255, 77, 141, 0.2);
+            --dark-bg: rgba(26, 27, 45, 0.5);
             --border-color: rgba(255, 255, 255, 0.1);
+            --text-light: #e6e1cf;
+            --highlight-color: #e9c46a;
         }
 
         * {
@@ -32,46 +33,17 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             min-height: 100vh;
-        }
-        /* 导航样式 */
-        .nav-toggle {
-            padding: 12px;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background-color 0.3s;
-            cursor: pointer;
+            font-family: 'Inter', system-ui, sans-serif;
         }
 
-            .nav-toggle:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-
-        .mobile-nav {
-            display: none; /* 默认隐藏 */
-            background: linear-gradient(to bottom, #1a1a2e, var(--light-pink));
-            text-align: center;
-            border-top: 1px solid var(--border-color);
+        .backdrop-blur {
+            backdrop-filter: blur(8px);
         }
 
-            .mobile-nav.active {
-                display: block; /* 激活时显示 */
-                animation: fadeIn 0.5s ease-in-out forwards;
-            }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-            .mobile-nav a {
-                display: block;
-                padding: 12px;
-                transition: all 0.3s;
-            }
-
-                .mobile-nav a:hover {
-                    background-color: rgba(233, 196, 106, 0.1);
-                    color: #e9c46a;
-                }
-        /* 动画 */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -82,29 +54,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        /* 导航链接样式 */
-        nav a {
-            color: #e6e1cf;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-            nav a:hover {
-                color: #e9c46a;
-            }
-        /* 卡片悬停效果 */
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-        /* 按钮脉动效果 */
-        .pulse-btn {
-            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -120,19 +69,6 @@
                 box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
             }
         }
-        /* 时钟样式 */
-        #clock {
-            color: var(--primary-color);
-        }
-        /* 激活的导航项 */
-        .nav-item.active {
-            color: #e9c46a;
-            font-weight: bold;
-        }
-        /* 浮动动画 */
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
 
         @keyframes float {
             0%, 100% {
@@ -143,20 +79,93 @@
                 transform: translateY(-10px);
             }
         }
-        /* 回到顶部按钮样式 */
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+
+        .nav-toggle {
+            padding: 12px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+            .nav-toggle:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+        .mobile-nav {
+            display: none;
+            background: linear-gradient(to bottom, #1a1a2e, var(--light-pink));
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+            .mobile-nav.active {
+                display: block;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+
+            .mobile-nav a {
+                display: block;
+                padding: 12px;
+                transition: all 0.3s;
+            }
+
+                .mobile-nav a:hover {
+                    background-color: rgba(233, 196, 106, 0.1);
+                    color: var(--highlight-color);
+                }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            nav a:hover {
+                color: var(--highlight-color);
+            }
+
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+        #clock {
+            color: var(--primary-color);
+        }
+
+        .nav-item.active {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
         #back-to-top {
             width: 50px;
             height: 50px;
             font-size: 2rem;
             transition: all 0.3s ease;
-            border: 2px solid #FF4D8D;
+            border: 2px solid var(--primary-color);
             z-index: 50;
             cursor: pointer;
             color: #FFFFFF;
-            background-color: #FF4D8D;
+            background-color: var(--primary-color);
         }
 
-        /* 移动端优化 */
         @media (max-width: 768px) {
             #back-to-top {
                 width: 43px;
@@ -172,91 +181,80 @@
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- 页面顶部锚点 -->
+<body>
     <div id="page-top"></div>
-    <!-- 头部导航 -->
-    <header class="p-6" style="z-index: 9;">
-        <nav class="py-4 px-4 max-w-[999px] mx-auto w-full bg-[rgba(26,27,45,0.5)] backdrop-blur rounded-lg">
-            <div class="container mx-auto flex justify-between items-center">
-                <div class="text-2xl"><span style="color: var(--primary-color);">风鸣玄太乂</span></div>
-                <!-- 导航链接和菜单按钮容器 -->
-                <div class="flex items-center gap-8">
-                    <!-- 导航链接 -->
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="hidden md:block transition-colors nav-item nav-links">关注抖音</a>
-                    <!-- 菜单按钮 - 在所有屏幕尺寸显示 -->
-                    <button id="menu-toggle" class="nav-toggle text-light">
-                        <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-                    </button>
+    <header style="position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); max-width: 999px; margin: 0 auto;">
+        <div class="pl-6 pr-6">
+            <nav class="max-w-[999px] mx-auto w-full bg-dark-bg backdrop-blur rounded-lg">
+                <div class="container mx-auto flex justify-between items-center">
+                    <div class="text-2xl"><span style="color: var(--primary-color);">风鸣玄太乂</span></div>
+                    <div class="flex items-center gap-8">
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" rel="noopener noreferrer" class="hidden md:block transition-colors nav-item nav-links">关注抖音</a>
+                        <button id="menu-toggle" class="nav-toggle text-light">
+                            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <!-- 移动端导航菜单 -->
-            <div class="mobile-nav text-center" id="mobile-nav">
-                <a href="https://www.vbn262.com/f" target="_blank" class="nav-item hover:bg-gray-100 py-3 px-4 block">官网www.vbn262.com/f</a>
-                <a href="#home" class="nav-item hover:bg-gray-100 py-3 px-4 block">首页www.vbn262.com/a</a>
-                <a href="#download" class="nav-item hover:bg-gray-100 py-3 px-4 block">下载</a>
-                <a href="#about" class="nav-item hover:bg-gray-100 py-3 px-4 block">关于我们</a>
-            </div>
-        </nav>
+                <div class="mobile-nav text-center" id="mobile-nav">
+                    <a href="https://www.vbn262.com/f" target="_blank" class="nav-item hover:bg-gray-100 py-3 px-4 block">官网www.vbn262.com/f</a>
+                    <a href="#home" class="nav-item hover:bg-gray-100 py-3 px-4 block">首页www.vbn262.com/a</a>
+                    <a href="#download" class="nav-item hover:bg-gray-100 py-3 px-4 block">下载</a>
+                    <a href="#about" class="nav-item hover:bg-gray-100 py-3 px-4 block">关于我们</a>
+                </div>
+            </nav>
+        </div>
     </header>
-    <!-- 主内容区 -->
     <main>
-    <!-- 首页内容 -->
         <section id="home" class="p-6">
-            <div class="max-w-[999px] mx-auto text-center rounded-xl p-4 shadow-md mb-6">
-                <div class="max-w-[999px] mx-auto bg-white rounded-xl shadow-md p-2 mb-6 border border-pink-500">
-                    <div id="clock" class="text-7xl font-bold mt-1" role="timer" aria-live="polite"></div>
+            <div class="mx-auto" style="max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+                <div id="clock" class="text-7xl font-bold pt-9" role="timer" aria-live="polite"></div>
+                <div class="bg-white mb-6 border border-pink-500">
                     <div id="footer-date" class="text-gray-600 text-xl font-bold" aria-live="polite"></div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-code text-2xl text-primary-color"></i>
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-code text-2xl text-primary"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">网页开发</h3>
                         <p class="text-gray-600 text-sm">专业的网站设计与开发服务，为您打造独特的线上展示平台</p>
                     </div>
                     <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-gamepad text-2xl text-primary-color"></i>
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-gamepad text-2xl text-primary"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">游戏开发</h3>
                         <p class="text-gray-600 text-sm">创新有趣的游戏设计与开发，带来极致的娱乐体验</p>
                     </div>
                     <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-paint-brush text-2xl text-primary-color"></i>
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-paint-brush text-2xl text-primary"></i>
                         </div>
                         <h3 class="font-bold text-lg mb-2">动漫制作</h3>
                         <p class="text-gray-600 text-sm">精美的动漫创作，展现独特的艺术风格与故事魅力</p>
                     </div>
                 </div>
                 <div class="mt-8 text-center">
-                    <a href="#download" class="inline-block bg-primary-color hover:bg-secondary-color font-bold py-3 px-8 rounded-full transition-all pulse-btn">
+                    <a href="#download" class="inline-block bg-primary hover:bg-secondary font-bold py-3 px-8 rounded-full transition-all pulse-btn">
                         立即下载我们的应用
                     </a>
                 </div>
             </div>
         </section>
-        <!-- 下载页内容 -->
         <section id="download" class="p-6">
-            <div class="max-w-[999px] mx-auto pt-10 mb-9 rounded-xl shadow-md border border-pink-500">
-                <!-- 版本信息 -->
+            <div class="mx-auto" style="max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
                 <div class="bg-gray-50 p-4 rounded-lg mb-6 text-center mx-4 text-gray-600">
                     <h2 class="text-2xl mb-1 mx-auto text-center"><i class="fa fa-download mr-2"></i>下载风鸣玄太乂客户端</h2>
                     <p class="text-center text-gray-600 mb-6">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
                     <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8 px-4">
-                        <!-- Android 下载按钮 -->
                         <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
                             <i class="fa-brands fa-android text-2xl"></i>
                             <span>Android</span>
                         </a>
-                        <!-- iOS 下载按钮 -->
                         <a href="#" class="flex items-center justify-center bg-black text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
                             <i class="fa-brands fa-apple text-2xl"></i>
                             <span>iOS</span>
                         </a>
-                        <!-- Windows 下载按钮 -->
                         <a href="#" class="flex items-center justify-center bg-[#0078D7] text-white font-bold py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
                             <i class="fa-brands fa-windows text-2xl"></i>
                             <span>Windows</span>
@@ -271,9 +269,8 @@
                 </div>
             </div>
         </section>
-        <!-- 关于页内容 -->
         <section id="about" class="p-6">
-            <div class="rounded-xl" style="margin: 0 auto;max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+            <div class="mx-auto" style="max-width: 999px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
                 <h2 style="font-size: 2.3rem; margin-top: 9px; margin-bottom: 9px; color: #f0f0f0;">关于我们</h2>
                 <p style="color: #f0f0f0;">风鸣玄太工作室成立于2025年，主业网页开发，游戏开发，动漫制作，干销售只要能销售不触犯法律的都卖</p>
                 <div class="flex justify-center mt-6 mb-6"><img src="https://vbn262.github.io/4581.jpg" width="199" height="199" class="animate-float" loading="lazy"></div>
@@ -307,32 +304,25 @@
             </div>
         </section>
     </main>
-    <!-- 回到顶部按钮 -->
     <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 rounded-full flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </a>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 菜单切换功能 - 在所有设备上生效
             const menuToggle = document.getElementById('menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
-
             menuToggle.addEventListener('click', () => {
                 mobileNav.classList.toggle('active');
                 const icon = menuToggle.querySelector('i');
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             });
-
-            // 点击外部关闭菜单
             document.addEventListener('click', (e) => {
                 if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
                     mobileNav.classList.remove('active');
                     menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
                 }
             });
-
-            // 回到顶部按钮
             const backToTop = document.getElementById('back-to-top');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
@@ -343,40 +333,26 @@
                     backToTop.classList.replace('visible', 'invisible');
                 }
             });
-
-            // 平滑滚动
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = anchor.getAttribute('href');
                     if (targetId === '#') return;
-
-                    // 关闭移动菜单
                     if (mobileNav.classList.contains('active')) {
                         mobileNav.classList.remove('active');
                         menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
                     }
-
-                    // 滚动到目标位置
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
-
-            // 时钟功能
             function updateTime() {
                 const now = new Date();
                 const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
                 document.getElementById('clock').textContent = now.toTimeString().slice(0, 8);
                 document.getElementById('footer-date').textContent = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
             }
-
             updateTime();
             setInterval(updateTime, 1000);
-
-            // 当前页面导航高亮
             const currentPath = window.location.pathname;
             document.querySelectorAll('.nav-item').forEach(item => {
                 if (item.getAttribute('href') === '#home' && (currentPath === '/' || currentPath.includes('vbn262.com/a'))) {
@@ -391,5 +367,3 @@
     </script>
 </body>
 </html>
-
-
