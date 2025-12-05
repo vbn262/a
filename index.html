@@ -273,10 +273,12 @@
     </main>
     <section id="about" class="p-6">
         <div class="mx-auto mt-9" style="max-width: 1311px; border: 1px solid pink; text-align: center;">
-            <h2 class="m-6" style="justify-content: center; font-size: 2rem; color: #f0f0f0;">关于我们</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-9 mb-12">
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-9 p-4">
+                <div class="space-y-2 mb-4">
+                    <h2 class="m-6" style="justify-content: center; font-size: 2rem; color: #f0f0f0;">关于我们</h2>
                     <div class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
+                </div>
+                <div>
                     <div class="flex justify-center"><img src="https://vbn262.github.io/4581.jpg" width="199" height="199" class="animate-float" loading="lazy"></div>
                     <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
                         <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
@@ -288,18 +290,13 @@
                     </div>
                 </div>
                 <div class="space-y-2 mb-4">
-                    <a href="" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">网页开发</a>
-                    <a href="" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">游戏开发</a>
-                    <a href="" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">动漫制作</a>
-                </div>
-                <div class="space-y-2 mb-4">
                     <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">网络谣言曝光台</a>
                     <a href="https://www.12377.cn/" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">违法和不良信息举报中心</a>
                     <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">ICP备案查询</a>
                 </div>
             </div>
         </div>
-        <div class="text-center mb-6"style="color: #9CA3AF;">Copyright © vbn262.com 工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
+        <div class="text-center mb-6" style="color: #9CA3AF;">Copyright © vbn262.com 工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
     </section>
     <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 rounded-full flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
@@ -331,7 +328,6 @@
                     backToTop.classList.replace('visible', 'invisible');
                 }
             });
-
             function updateTime() {
                 const now = new Date();
                 const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
@@ -341,7 +337,6 @@
             updateTime();
             setInterval(updateTime, 1000);
             const currentPath = window.location.pathname;
-
             document.querySelectorAll('a[href="#download"], a[href="#about"]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
