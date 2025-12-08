@@ -38,42 +38,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
         .pulse-btn {
             animation: pulse 2s infinite;
         }
@@ -126,20 +90,6 @@
                 color: var(--highlight-color);
             }
 
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-
-        .nav-item.active {
-            color: var(--highlight-color);
-            font-weight: bold;
-        }
-
         #back-to-top {
             width: 50px;
             height: 50px;
@@ -168,12 +118,12 @@
         }
     </style>
 </head>
-<body style="background-image: url('https://vbn262.github.io/1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;" id="page-top">
-    <header style="position: fixed; top: 0; left: 0; right: 0; max-width: 1311px; margin: 0 auto; z-index: 9;">
+<body class="bg-[url('https://vbn262.github.io/1.jpg')] bg-cover bg-center bg-fixed bg-no-repeat min-h-screen font-['Inter',system-ui,sans-serif]" id="page-top">
+    <header class="fixed top-0 left-0 right-0 max-w-[1311px] mx-auto z-50">
         <div class="p-6">
             <nav class="max-w-auto mx-auto w-full bg-dark-bg backdrop-blur">
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-8">
+                    <div class="flex items-center">
                         <i id="menu-toggle" class="nav-toggle text-light fas fa-bars" style="font-size: 1.5rem;"></i>
                         <div class="text-2xl"><span style="color: var(--primary-color);">冖井乂</span></div>
                     </div>
@@ -188,9 +138,10 @@
             </nav>
         </div>
     </header>
+    <!-- 下载区域 -->
     <section id="download" class="p-6">
-        <div class="mx-auto" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-            <div id="clock" class="text-7xl font-bold mt-9 pt-9" style="color: #FF4D8D; " role="timer" aria-live="polite"></div>
+        <div class="max-w-[1311px] mx-auto mb-3 border border-pink-300 text-center">
+            <<div id="clock" class="text-7xl font-bold mt-9 pt-9" style="color: #FF4D8D;" role="timer" aria-live="polite"></div>
             <i id="footer-date" class="text-gray-400 text-xl font-bold m-6" aria-live="polite"></i>
             <div class="grid md:grid-cols-3 gap-6 p-6">
                 <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
@@ -221,63 +172,62 @@
                 </a>
             </div>
         </div>
-        <div class="mx-auto mt-9" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-            <div class="text-center bg-gray-50 rounded-xl text-gray-600 mt-3 mb-3 p-4 mx-4">
-                <h2 class="text-2xl mb-1 mx-auto text-center"><i class="fa fa-download mr-2"></i>下载冖井乂客户端</h2>
+        <!-- APP下载区域 -->
+        <div class="max-w-[1311px] mx-auto mt-9 mb-3 border border-pink-300 text-center">
+            <div class="bg-gray-50 rounded-xl text-gray-600 mt-3 mb-3 p-4 mx-4">
+                <h2 class="text-2xl mb-1 mx-auto text-center">
+                    <i class="fa fa-download mr-2"></i>下载冖井乂客户端
+                </h2>
                 <p class="text-center text-gray-600 mb-6">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8 px-4">
-                    <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                    <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md animate-pulse">
                         <i class="fa-brands fa-android text-2xl"></i>
                         <span>Android</span>
                     </a>
-                    <a href="#" class="flex items-center justify-center bg-black text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                    <a href="#" class="flex items-center justify-center bg-black text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md animate-pulse">
                         <i class="fa-brands fa-apple text-2xl"></i>
                         <span>iOS</span>
                     </a>
-                    <a href="#" class="flex items-center justify-center bg-[#0078D7] text-white font-bold py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                    <a href="#" class="flex items-center justify-center bg-[#0078D7] text-white font-bold py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md animate-pulse">
                         <i class="fa-brands fa-windows text-2xl"></i>
                         <span>Windows</span>
                     </a>
                 </div>
             </div>
-            <div class="bg-gray-50 rounded-xl border border-gray-200 m-4">
-                <h2 class="text-2xl mb-4"><i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色</h2>
+            <div class="bg-gray-50 rounded-xl border border-gray-200 m-4 p-4">
+                <h2 class="text-2xl mb-4">
+                    <i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色
+                </h2>
                 <p class="mb-2">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
                 <p class="mb-2">软件运行流畅，性能表现极佳，低资源占用</p>
                 <p>真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
             </div>
         </div>
     </section>
-    <section id="about" class="p-6">
-        <div class="mx-auto mt-9" style="max-width: 1311px; border: 1px solid pink; text-align: center;">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-9 p-4">
-                <div class="space-y-2 mb-4">
-                    <h2 class="m-6" style="justify-content: center; font-size: 2rem; color: #f0f0f0;">关于我们</h2>
-                    <div class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
+    <footer class="p-4">
+        <div class="mx-auto text-center mt-6" style="max-width: 1311px; border: 1px solid pink;">
+            <div class="mb-4">
+                <h2 class="m-6 text-center" style="font-size: 2rem; color: #f0f0f0;">关于我们</h2>
+                <div class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
+                <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" loading="lazy" class="mx-auto">
+                <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
+                    <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                    <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
+                    <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
+                        <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
+                    </a>
                 </div>
-                <div>
-                    <img src="https://vbn262.github.io/4581.jpg" width="199" height="199" loading="lazy" style="margin:0 auto;animation:float 6s ease-in-out infinite;">
-                    <div class="flex justify-center mb-6" style="margin: 1px; color: #000000;">
-                        <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
-                        <a href="https://author.baidu.com/home?context=%7B%22uk%22%3A%22uictL_bjjQdqbWf_FgunQA%22%7D" target="_blank">
-                            <img src="https://qxb-logo-url-osscache.qixin.com/OriginalUrl/55ca92b57f66be9027c342000012e869.jpg" width="35" height="35" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-                <div class="space-y-2 mb-4">
-                    <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">网络谣言曝光台</a>
-                    <a href="https://www.12377.cn/" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">违法和不良信息举报中心</a>
-                    <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">ICP备案查询</a>
-                </div>
+            </div>
+            <div class="space-y-2">
+                <a href="https://www.piyao.org.cn/yybgt/index.htm" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">网络谣言曝光台</a>
+                <a href="https://www.12377.cn/" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">违法和不良信息举报中心</a>
+                <a href="https://beian.miit.gov.cn" target="_blank" class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">ICP备案查询</a>
             </div>
         </div>
         <div class="text-center mb-6" style="color: #9CA3AF;">Copyright © vbn262.com 工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
-    </section>
-    <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    </footer>
+    <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><i class="fas fa-arrow-up"></i></a>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menu-toggle');
