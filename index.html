@@ -9,7 +9,7 @@
     <meta name="keywords" content="冖井乂www.vbn262.com/a, Android app下载, iOS app下载, Windows app下载">
     <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-color: #FF4D8D;
@@ -162,22 +162,23 @@
         #back-to-top {
             width: 50px;
             height: 50px;
+            bottom: 99px;
+            right: 250px;
             font-size: 2rem;
             transition: all 0.3s ease;
             border: 2px solid var(--primary-color);
             z-index: 50;
-            cursor: pointer;
             color: #FFFFFF;
             background-color: var(--primary-color);
         }
 
         @media (max-width: 768px) {
             #back-to-top {
-                width: 43px;
-                height: 43px;
+                width: 30px;
+                height: 30px;
                 font-size: 1.5rem;
                 bottom: 20px;
-                right: 20px;
+                right: 25px;
             }
 
             .nav-links {
@@ -191,7 +192,7 @@
     <header style="position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); max-width: 1311px; margin: 0 auto;">
         <div class="p-6">
             <nav class="max-w-auto mx-auto w-full bg-dark-bg backdrop-blur">
-                <div class="container mx-auto flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <div class="flex items-center gap-8">
                         <i id="menu-toggle" class="nav-toggle text-light fas fa-bars" style="font-size: 1.5rem;"></i>
                         <div class="text-2xl"><span style="color: var(--primary-color);">冖井乂</span></div>
@@ -207,70 +208,66 @@
             </nav>
         </div>
     </header>
-    <main>
-        <section id="home" class="p-6">
-            <div class="mx-auto" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-                <div id="clock" class="text-7xl font-bold mt-9 pt-9" role="timer" aria-live="polite"></div>
-                <div class="p-6 mb-6"><i id="footer-date" class="text-gray-400 text-xl font-bold" aria-live="polite"></i></div>
-                <div class="grid md:grid-cols-3 gap-6 p-6">
-                    <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-code text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">网页开发</h3>
-                        <p class="text-gray-600 text-sm">专业的网站设计与开发服务，为您打造独特的线上展示平台</p>
+    <section id="download" class="p-6">
+        <div class="mx-auto" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+            <div id="clock" class="text-7xl font-bold mt-9 pt-9" role="timer" aria-live="polite"></div>
+            <div class="p-6 mb-6"><i id="footer-date" class="text-gray-400 text-xl font-bold" aria-live="polite"></i></div>
+            <div class="grid md:grid-cols-3 gap-6 p-6">
+                <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-code text-2xl text-primary"></i>
                     </div>
-                    <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-gamepad text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">游戏开发</h3>
-                        <p class="text-gray-600 text-sm">创新有趣的游戏设计与开发，带来极致的娱乐体验</p>
-                    </div>
-                    <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
-                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa fa-paint-brush text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">动漫制作</h3>
-                        <p class="text-gray-600 text-sm">精美的动漫创作，展现独特的艺术风格与故事魅力</p>
-                    </div>
+                    <h3 class="font-bold text-lg mb-2">网页开发</h3>
+                    <p class="text-gray-600 text-sm">专业的网站设计与开发服务，为您打造独特的线上展示平台</p>
                 </div>
-                <div class="mb-9 text-center">
-                    <a href="#download" class="inline-block bg-primary hover:bg-secondary font-bold py-3 px-8 rounded-full transition-all pulse-btn">
-                        立即下载我们的应用
+                <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-gamepad text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">游戏开发</h3>
+                    <p class="text-gray-600 text-sm">创新有趣的游戏设计与开发，带来极致的娱乐体验</p>
+                </div>
+                <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-paint-brush text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">动漫制作</h3>
+                    <p class="text-gray-600 text-sm">精美的动漫创作，展现独特的艺术风格与故事魅力</p>
+                </div>
+            </div>
+            <div class="mb-9 text-center">
+                <a href="#download" class="inline-block bg-primary hover:bg-secondary font-bold py-3 px-8 rounded-full transition-all pulse-btn">
+                    立即下载我们的应用
+                </a>
+            </div>
+        </div>
+        <div class="mx-auto mt-9" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
+            <div class="text-center bg-gray-50 rounded-xl text-gray-600 mt-3 mb-3 p-4 mx-4">
+                <h2 class="text-2xl mb-1 mx-auto text-center"><i class="fa fa-download mr-2"></i>下载冖井乂客户端</h2>
+                <p class="text-center text-gray-600 mb-6">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8 px-4">
+                    <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                        <i class="fa-brands fa-android text-2xl"></i>
+                        <span>Android</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-center bg-black text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                        <i class="fa-brands fa-apple text-2xl"></i>
+                        <span>iOS</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-center bg-[#0078D7] text-white font-bold py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
+                        <i class="fa-brands fa-windows text-2xl"></i>
+                        <span>Windows</span>
                     </a>
                 </div>
             </div>
-        </section>
-        <section id="download" class="p-6">
-            <div class="mx-auto mt-9" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-                <div class="text-center bg-gray-50 rounded-xl text-gray-600 mt-3 mb-3 p-4 mx-4">
-                    <h2 class="text-2xl mb-1 mx-auto text-center"><i class="fa fa-download mr-2"></i>下载冖井乂客户端</h2>
-                    <p class="text-center text-gray-600 mb-6">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8 px-4">
-                        <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
-                            <i class="fa-brands fa-android text-2xl"></i>
-                            <span>Android</span>
-                        </a>
-                        <a href="#" class="flex items-center justify-center bg-black text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
-                            <i class="fa-brands fa-apple text-2xl"></i>
-                            <span>iOS</span>
-                        </a>
-                        <a href="#" class="flex items-center justify-center bg-[#0078D7] text-white font-bold py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md pulse-btn">
-                            <i class="fa-brands fa-windows text-2xl"></i>
-                            <span>Windows</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-xl border border-gray-200mt-3 mb-3 p-4 mx-4">
-                    <h2 class="text-2xl mb-4"><i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色</h2>
-                    <p class="mb-2">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
-                    <p class="mb-2">软件运行流畅，性能表现极佳，低资源占用</p>
-                    <p>真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
-                </div>
+            <div class="bg-gray-50 rounded-xl border border-gray-200mt-3 mb-3 p-4 mx-4">
+                <h2 class="text-2xl mb-4"><i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色</h2>
+                <p class="mb-2">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
+                <p class="mb-2">软件运行流畅，性能表现极佳，低资源占用</p>
+                <p>真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
     <section id="about" class="p-6">
         <div class="mx-auto mt-9" style="max-width: 1311px; border: 1px solid pink; text-align: center;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-9 p-4">
@@ -298,7 +295,7 @@
         </div>
         <div class="text-center mb-6" style="color: #9CA3AF;">Copyright © vbn262.com 工作室 版权所有 2025-现在<br>鲁ICP备2025163733号-1</div>
     </section>
-    <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 rounded-full flex items-center justify-center">
+    <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </a>
     <script>
