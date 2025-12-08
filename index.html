@@ -18,14 +18,14 @@
         @layer utilities {
             /* 毛玻璃导航栏 - 优化透明度和模糊效果 */
             .glass {
-                background-color: rgba(255, 255, 255, 0);
+                background-color: rgba(255, 255, 255, 1);
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(0px);
                 transition: all 0.3s ease;
             }
 
             .glass-scrolled {
-                background-color: rgba(255, 255, 255, 0);
+                background-color: rgba(255, 255, 255, 1);
                 backdrop-filter: blur(9px);
                 -webkit-backdrop-filter: blur(0px);
             }
@@ -130,7 +130,7 @@
 </head>
 <body class="bg-[url('https://vbn262.github.io/1.jpg')] bg-cover bg-center bg-fixed bg-no-repeat min-h-screen font-['Inter',system-ui,sans-serif]" id="page-top">
     <header class="fixed top-6 left-0 right-0 max-w-[1311px] mx-auto px-6 z-50">
-        <div class="max-w-auto mx-auto w-full glass bg-dark-bg backdrop-blur">
+        <div class="max-w-auto mx-auto w-full glass bg-dark-bg backdrop-blur backdrop-blur-sm shadow-sm">
             <div class="flex justify-between items-center">
                 <i id="menu-toggle" class="nav-toggle fas fa-bars text-pink-500" style="font-size: 2rem;">冖井乂</i>
                 <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-pink-500">关注抖音</a>
