@@ -19,14 +19,13 @@
             --border-color: rgba(255, 255, 255, 0.1);
             --text-light: #e6e1cf;
             --highlight-color: #e9c46a;
+            --nav-zindex: 9999; /* 导航栏层级（设置足够高） */
+            --content-zindex: 9; /* 内容/图片层级 */
         }
-
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
         body {
             background-image: url('https://vbn262.github.io/1.jpg');
             background-size: cover;
@@ -260,7 +259,7 @@
                     </a>
                 </div>
             </div>
-            <div class="bg-gray-50 rounded-xl border border-gray-200mt-3 mb-3 p-4 mx-4">
+            <div class="bg-gray-50 rounded-xl border border-gray-200 m-4">
                 <h2 class="text-2xl mb-4"><i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色</h2>
                 <p class="mb-2">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
                 <p class="mb-2">软件运行流畅，性能表现极佳，低资源占用</p>
