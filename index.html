@@ -19,23 +19,11 @@
             --border-color: rgba(255, 255, 255, 0.1);
             --text-light: #e6e1cf;
             --highlight-color: #e9c46a;
-            --nav-zindex: 9999; /* 导航栏层级（设置足够高） */
-            --content-zindex: 9; /* 内容/图片层级 */
         }
 
         * {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-image: url('https://vbn262.github.io/1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            font-family: 'Inter', system-ui, sans-serif;
         }
         /* 隐藏滚动条 */
         ::-webkit-scrollbar {
@@ -84,10 +72,6 @@
             50% {
                 transform: translateY(-10px);
             }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
         }
 
         .pulse-btn {
@@ -151,10 +135,6 @@
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
 
-        #clock {
-            color: var(--primary-color);
-        }
-
         .nav-item.active {
             color: var(--highlight-color);
             font-weight: bold;
@@ -188,9 +168,8 @@
         }
     </style>
 </head>
-<body>
-    <div id="page-top"></div>
-    <header style="position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); max-width: 1311px; margin: 0 auto;">
+<body style="background-image: url('https://vbn262.github.io/1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;" id="page-top">
+    <header style="position: fixed; top: 0; left: 0; right: 0; max-width: 1311px; margin: 0 auto; z-index: 9;">
         <div class="p-6">
             <nav class="max-w-auto mx-auto w-full bg-dark-bg backdrop-blur">
                 <div class="flex justify-between items-center">
@@ -211,8 +190,8 @@
     </header>
     <section id="download" class="p-6">
         <div class="mx-auto" style="max-width: 1311px;margin-bottom: 9px;border: 1px solid pink;text-align: center;">
-            <div id="clock" class="text-7xl font-bold mt-9 pt-9" role="timer" aria-live="polite"></div>
-            <div class="p-6 mb-6"><i id="footer-date" class="text-gray-400 text-xl font-bold" aria-live="polite"></i></div>
+            <div id="clock" class="text-7xl font-bold mt-9 pt-9" style="color: #FF4D8D; " role="timer" aria-live="polite"></div>
+            <i id="footer-date" class="text-gray-400 text-xl font-bold m-6" aria-live="polite"></i>
             <div class="grid md:grid-cols-3 gap-6 p-6">
                 <div class="feature-card bg-pink-50 rounded-xl p-5 text-center">
                     <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
