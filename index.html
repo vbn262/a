@@ -27,14 +27,30 @@
             }
 
             @keyframes float {
-                70% {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
                     transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
                 }
             }
 
             @keyframes pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
+                }
+
                 70% {
                     box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
                 }
             }
         }
@@ -196,3 +212,4 @@
     </script>
 </body>
 </html>
+
