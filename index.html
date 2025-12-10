@@ -11,97 +11,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
         @layer utilities {
             /* 毛玻璃导航栏 - 优化透明度和模糊效果 */
             .glass {
                 background-color: rgba(255, 255, 255, 0);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(0px);
+                backdrop-filter: blur(9px);
+                -webkit-backdrop-filter: blur(9px);
                 transition: all 0.3s ease;
             }
 
             .glass-scrolled {
                 background-color: rgba(255, 255, 255, 0);
                 backdrop-filter: blur(9px);
-                -webkit-backdrop-filter: blur(0px);
+                -webkit-backdrop-filter: blur(9px);
             }
 
             @keyframes float {
-                0% {
-                    transform: translateY(0px);
-                }
-
-                50% {
+                70% {
                     transform: translateY(-20px);
-                }
-
-                100% {
-                    transform: translateY(0px);
                 }
             }
 
             @keyframes pulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
-                }
-
                 70% {
                     box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
                 }
-
-                100% {
-                    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
-                }
             }
+        }
+        * {
+            margin: 0;
+            padding: 0;
         }
         /* 隐藏滚动条 */
         ::-webkit-scrollbar {
             display: none;
         }
-
-        .backdrop-blur {
-            backdrop-filter: blur(8px);
-        }
-
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-toggle {
-            padding: 12px;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
-
-            .nav-toggle:hover {
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-
-        .mobile-nav.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-
-        .mobile-nav a {
-            display: block;
-            padding: 12px;
-            transition: all 0.3s;
-        }
-
-            .mobile-nav a:hover {
-                background-color: rgba(233, 196, 106, 0.1);
-                color: var(--highlight-color);
-            }
-
         #back-to-top {
             width: 50px;
             height: 50px;
@@ -115,40 +59,29 @@
 
         @media (max-width: 768px) {
             #back-to-top {
-                width: 30px;
-                height: 30px;
+                width: 33px;
+                height: 33px;
                 font-size: 1.5rem;
                 bottom: 20px;
                 right: 25px;
             }
-
-            .nav-links {
-                margin-right: 10px;
-            }
         }
     </style>
 </head>
-<body class="bg-[url('https://vbn262.github.io/1.jpg')] bg-cover bg-center bg-fixed bg-no-repeat min-h-screen font-['Inter',system-ui,sans-serif]" id="page-top">
+<body class="bg-[url('https://vbn262.github.io/1.jpg')] bg-cover bg-center bg-fixed bg-no-repeat min-h-screen font-['Inter',system-ui,sans-serif] mt-16
+      " id="page-top">
     <header class="fixed top-0 left-0 right-0 bg-pink/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
-        <div class="glass transition-all" id="navbar">
-            <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                <div class="flex justify-between items-center">
-                    <i id="menu-toggle" class="nav-toggle fas fa-bars text-pink-500" style="font-size: 2rem;">冖井乂</i>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="text-pink-500">关注抖音</a>
-                </div>
-            </div>
-            <div class="mobile-nav text-center hidden" id="mobile-nav">
-                <a href="https://www.vbn262.com/f" target="_blank" class="nav-item hover:bg-gray-100 py-3 px-4 block">官网www.vbn262.com/f</a>
-                <a href="" class="nav-item hover:bg-gray-100 py-3 px-4 block">首页www.vbn262.com/a</a>
-                <a href="#download" class="nav-item hover:bg-gray-100 py-3 px-4 block">下载</a>
-                <a href="#about" class="nav-item hover:bg-gray-100 py-3 px-4 block">关于我们</a>
-            </div>
+        <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+            <div id="menu-toggle" class="fas fa-bars text-pink-500" style="font-size: 2rem;"> 冖井乂</div>
+            <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank" class="pr-2 text-pink-500">关注抖音</a>
+        </div>
+        <div id="mobile-menu" class="hidden max-w-7xl mx-auto flex flex-col space-y-1 text-center">
+            <a href="https://www.vbn262.com/f" target="_blank" class="hover:bg-gray-100 text-pink-500 p-4">官网www.vbn262.com/f</a>
+            <a href="#about" class="hover:bg-gray-100 text-pink-500 p-4">关于我们www.vbn262.com/a</a>
         </div>
     </header>
     <!-- 下载区域 -->
-    <section id="download" class="p-6">
+    <section id="download" class="p-4">
         <div class="max-w-[1311px] mx-auto mb-16 border border-pink-300 text-center">
             <div id="clock" class="text-6xl font-bold pt-16" style="color: #FF4D8D;" role="timer" aria-live="polite"></div>
             <i id="footer-date" class="text-gray-400 text-xl font-bold m-6" aria-live="polite"></i>
@@ -178,12 +111,10 @@
         </div>
         <!-- APP下载区域 -->
         <div class="max-w-[1311px] mx-auto mt-9 mb-9 border border-pink-300 text-center">
-            <div class="bg-gray-50 rounded-xl text-gray-600 mt-3 mb-3 p-4 mx-4">
-                <h2 class="text-2xl mb-1 mx-auto text-center">
-                    <i class="fa fa-download mr-2"></i>下载冖井乂客户端
-                </h2>
-                <p class="text-center text-gray-600 mb-6">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 px-4">
+            <div class="bg-gray-50 rounded-xl text-gray-600 m-4 px-2">
+                <div class="fa fa-download mr-2 text-2xl p-4 mx-auto text-center">下载冖井乂客户端</div>
+                <p class="text-center text-gray-600">最新版本: v1.0.0 | 更新日期: 20##-00-00</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
                     <a href="#" class="flex items-center justify-center bg-[#3DDC84] text-white py-4 px-8 rounded-full w-full sm:w-auto gap-4 shadow-md animate-pulse">
                         <i class="fa-brands fa-android text-2xl"></i>
                         <span>Android</span>
@@ -197,27 +128,25 @@
                         <span>Windows</span>
                     </a>
                 </div>
-            </div>
-            <div class="bg-gray-50 rounded-xl border border-gray-200 m-4 p-4">
-                <h2 class="text-2xl mb-4">
-                    <i class="fa fa-star text-yellow-500 mr-2 text-2xl"></i>冖井乂APP特色
-                </h2>
-                <p class="mb-2">支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身</p>
-                <p class="mb-2">软件运行流畅，性能表现极佳，低资源占用</p>
-                <p>真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私</p>
+                <div class="fa fa-star text-2xl mb-4 text-yellow-500 mr-2 text-2xl">冖井乂APP特色</div>
+                <div class="pb-6">
+                    支持安卓、iOS、Windows多平台应用，界面简洁清爽，专注内容本身<br>
+                    软件运行流畅，性能表现极佳，低资源占用<br>
+                    真！真！真！真正纯净无广告体验，安全可靠，保护用户隐私
+                </div>
             </div>
         </div>
     </section>
-    <footer class="p-4">
+    <footer id="about" class="p-4">
         <div class="mx-auto text-center" style="max-width: 1311px; border: 1px solid pink;">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-9">
+            <div class="grid grid-cols-1 md:grid-cols-3 px-2">
                 <div class="space-y-2 mb-4">
                     <h2 class="m-6" style="justify-content: center; font-size: 2rem; color: #f0f0f0;">关于我们</h2>
-                    <div class="flex justify-center" style="color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
+                    <div style="justify-content: center; color: #f0f0f0; font-size: 1rem;">工作室成立于2025年，主业网页开发，游戏开发，动漫制作</div>
                 </div>
                 <div>
                     <img src="4581.jpg" width="199" height="199" class="rounded-2xl mx-auto animate-float" loading="lazy">
-                    <div class="flex justify-center mb-6" style="color: #000000;">
+                    <div class="flex justify-center mb-2" style="color: #000000;">
                         <a href="https://space.bilibili.com/1414517639" target="_blank"><i class="fab fa-bilibili" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
                         <a href="https://www.douyin.com/user/MS4wLjABAAAAkPR1XF2VE55aaQjvYg47s4EFKYlcaE1qV2GbxTGrwTI" target="_blank"><i class="fab fa-tiktok" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
                         <a href="https://weibo.com/u/8007354845" target="_blank"><i class="fab fa-weibo" style="color: #f0f0f0; font-size: 2rem; margin-right: 9px;"></i></a>
@@ -237,49 +166,33 @@
     </footer>
     <a href="#page-top" id="back-to-top" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-300 flex items-center justify-center"><i class="fas fa-arrow-up"></i></a>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
-            menuToggle.addEventListener('click', () => {
-                mobileNav.classList.toggle('active');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-            document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-                }
-            });
-            const backToTop = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTop.classList.replace('opacity-0', 'opacity-100');
-                    backToTop.classList.replace('invisible', 'visible');
-                }
-                else {
-                    backToTop.classList.replace('opacity-100', 'opacity-0');
-                    backToTop.classList.replace('visible', 'invisible');
-                }
-            });
-            function updateTime() {
-                const now = new Date();
-                const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-                document.getElementById('clock').textContent = now.toTimeString().slice(0, 8);
-                document.getElementById('footer-date').textContent = `${[now.getFullYear()]}年 ${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
+        const [menuToggle, mobileMenu] = ['menu-toggle', 'mobile-menu'].map(id => document.getElementById(id));
+        menuToggle.onclick = () => { mobileMenu.classList.toggle('hidden'), icon.classList.toggle('fa-bars'), icon.classList.toggle('fa-times') };
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active'); menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
             }
-            updateTime();
-            setInterval(updateTime, 1000);
-            const currentPath = window.location.pathname;
-            document.querySelectorAll('a[href="#download"], a[href="#about"]').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation(); // 防止被父元素事件干扰
-                    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                });
-            });
         });
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 1) {
+                backToTop.classList.replace('opacity-0', 'opacity-1');
+                backToTop.classList.replace('invisible', 'visible');
+            }
+            else {
+                backToTop.classList.replace('opacity-1', 'opacity-0');
+                backToTop.classList.replace('visible', 'invisible');
+            }
+        });
+        function updateTime() {
+            const now = new Date();
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            document.getElementById('clock').textContent = now.toTimeString().slice(0, 8);
+            document.getElementById('footer-date').textContent = `${[now.getFullYear()]}年 ${now.getMonth() + 1}月${now.getDate()}日 ${weekdays[now.getDay()]}`;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        const currentPath = window.location.pathname;
     </script>
 </body>
 </html>
